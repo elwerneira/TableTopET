@@ -1,0 +1,216 @@
+:host {
+    display: block;
+    min-height: 100vh;
+}
+
+.formulario-seccion {
+    min-height: calc(100vh - 104px);
+    padding: var(--section-padding);
+    background:
+        radial-gradient(circle at top left, rgba(244, 197, 66, 0.18), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(24, 34, 48, 0.14), transparent 28%),
+        linear-gradient(180deg, #f8f1e6 0%, #efe4d3 100%);
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.formulario-card {
+    grid-column: 3 / span 8;
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 36px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(255, 250, 241, 0.98), rgba(255, 255, 255, 0.94));
+    border: 1px solid rgba(91, 75, 63, 0.14);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 18px 40px rgba(69, 44, 17, 0.16);
+}
+
+.formulario-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 8px;
+    background: linear-gradient(90deg, var(--color-brand-gold), var(--color-accent), #f59e0b);
+}
+
+.section-heading {
+    max-width: 760px;
+    grid-column: 2 / span 10;
+    justify-self: center;
+    text-align: center;
+}
+
+.section-heading-left {
+    justify-self: stretch;
+    text-align: left;
+}
+
+.section-heading h2,
+.section-heading h3 {
+    margin: 0 0 14px;
+}
+
+.section-heading h2 {
+    font-size: 40px;
+}
+
+.section-heading p {
+    margin: 0;
+    color: var(--color-text-soft);
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.eyebrow {
+    display: inline-block;
+    margin-bottom: 14px;
+    padding: 6px 12px;
+    border-radius: var(--radius-pill);
+    background: var(--color-accent);
+    color: var(--color-text);
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.formulario-card .section-heading {
+    margin-bottom: 28px;
+}
+
+.formulario-registro,
+.campo-formulario {
+    display: grid;
+    gap: 14px;
+}
+
+.campo-formulario {
+    gap: 8px;
+}
+
+.formulario-registro label {
+    color: var(--color-brand-dark);
+    font-weight: bold;
+}
+
+.formulario-registro input,
+.formulario-registro select,
+.formulario-registro textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #d8c8b4;
+    border-radius: var(--radius-sm);
+    background: #fffdf8;
+    color: var(--color-text);
+}
+
+.formulario-registro input:focus,
+.formulario-registro select:focus,
+.formulario-registro textarea:focus {
+    outline: none;
+    border-color: var(--color-brand-gold);
+    box-shadow: 0 0 0 4px rgba(244, 197, 66, 0.18);
+}
+
+.campo-password {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border: 1px solid #d8c8b4;
+    border-radius: var(--radius-sm);
+    background: #fffdf8;
+}
+
+.campo-password input {
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.toggle-password {
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    background: transparent;
+    color: #857667;
+    cursor: pointer;
+}
+
+.icono-ojo {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+}
+
+.mensaje-error {
+    min-height: 20px;
+    color: #b42318;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.formulario-feedback {
+    margin-top: 18px;
+    font-weight: 600;
+}
+
+.acciones-formulario {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+}
+
+.acciones-formulario button,
+.btn-registro {
+    min-width: 180px;
+    padding: 14px 24px;
+    border: 0;
+    border-radius: var(--radius-pill);
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.acciones-formulario button {
+    background: linear-gradient(135deg, var(--color-brand-dark), #24364d);
+    color: var(--color-text-light);
+}
+
+.btn-registro {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-brand-gold), #f59e0b);
+    color: var(--color-text);
+}
+
+@media (max-width: 768px) {
+    .formulario-seccion {
+        padding: var(--section-padding-mobile);
+    }
+
+    .formulario-card,
+    .section-heading {
+        grid-column: 1 / -1;
+    }
+
+    .formulario-card {
+        padding: 24px;
+    }
+
+    .section-heading h2 {
+        font-size: 32px;
+    }
+
+    .acciones-formulario button,
+    .btn-registro {
+        width: 100%;
+    }
+}

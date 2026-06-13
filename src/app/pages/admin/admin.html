@@ -1,0 +1,219 @@
+    <section class="formulario-seccion admin-seccion container-xxl">
+        <div class="formulario-card admin-card shadow-lg">
+            <div class="section-heading section-heading-left">
+                <span class="eyebrow">Panel ADM</span>
+                <h2>Administracion de TableTop ET</h2>
+                <p>Este espacio esta reservado para la cuenta administradora y ahora te permite gestionar usuarios y clientes registrados.</p>
+            </div>
+
+            <div class="admin-shell">
+                <aside class="admin-sidebar" aria-label="Secciones del panel">
+                    <span class="admin-sidebar-titulo">Gestion</span>
+                    <button type="button" class="admin-menu-opcion" [class.activo]="activeView() === 'resumen'" [attr.aria-pressed]="activeView() === 'resumen'" (click)="showView('resumen')">
+                        <span class="admin-menu-indicador"></span>
+                        <span><strong>Resumen</strong><small>Vista general</small></span>
+                    </button>
+                    <button type="button" class="admin-menu-opcion" [class.activo]="activeView() === 'usuarios'" [attr.aria-pressed]="activeView() === 'usuarios'" (click)="showView('usuarios')">
+                        <span class="admin-menu-indicador"></span>
+                        <span><strong>Usuarios</strong><small>Cuentas y roles</small></span>
+                    </button>
+                    <button type="button" class="admin-menu-opcion" [class.activo]="activeView() === 'productos'" [attr.aria-pressed]="activeView() === 'productos'" (click)="showView('productos')">
+                        <span class="admin-menu-indicador"></span>
+                        <span><strong>Productos</strong><small>Catalogo y stock</small></span>
+                    </button>
+                </aside>
+
+                <div class="admin-contenido">
+                    @if (activeView() === 'resumen') {
+                    <section class="admin-vista activo">
+                        <div class="section-heading section-heading-left admin-section-head">
+                            <span class="eyebrow">Resumen</span>
+                            <h3>Estado general</h3>
+                            <p>Consulta rapidamente la informacion principal antes de gestionar el sitio.</p>
+                        </div>
+
+                        <div class="admin-resumen-grid">
+                            <div class="admin-resumen-bloque admin-resumen-metricas">
+                                <h3>Usuarios</h3>
+                                <div class="admin-metricas-grid">
+                                    <div class="admin-metrica">
+                                        <span>Total</span>
+                                        <strong>{{ users().length }}</strong>
+                                    </div>
+                                    <div class="admin-metrica admin-metrica-activa">
+                                        <span>Activas</span>
+                                        <strong>{{ activeUsers() }}</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="admin-resumen-bloque admin-resumen-metricas">
+                                <h3>Inventario</h3>
+                                <div class="admin-metricas-grid">
+                                    <div class="admin-metrica">
+                                        <span>Productos</span>
+                                        <strong>{{ catalog.products().length }}</strong>
+                                    </div>
+                                    <div class="admin-metrica admin-metrica-activa">
+                                        <span>Stock total</span>
+                                        <strong>{{ totalStock() }}</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="admin-resumen-bloque admin-cuenta-resumen">
+                                <span class="eyebrow">Cuenta ADM</span>
+                                <h3>Sesion administrativa</h3>
+                                <p class="admin-resumen-texto">Desde este panel puedes gestionar cuentas, roles, productos y disponibilidad.</p>
+                                <div class="admin-credenciales">
+                                    <strong>Usuario: admin</strong>
+                                    <span>Correo: admin@tabletopet.cl</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    }
+
+                    @if (activeView() === 'usuarios') {
+                    <section class="admin-vista">
+                        <div class="section-heading section-heading-left admin-section-head">
+                            <span class="eyebrow">Usuarios</span>
+                            <h3>Mantenedor de usuarios y clientes</h3>
+                            <p>Revisa cuentas, cambia su rol y bloquea o habilita el acceso al sitio.</p>
+                        </div>
+                        <div class="formulario-feedback" aria-live="polite">{{ userFeedback() }}</div>
+                        @if (!users().length) {
+                        <div class="admin-vacio">
+                            <h3>No hay usuarios registrados</h3>
+                            <p>Cuando existan cuentas en el sistema, apareceran aqui para administrarlas.</p>
+                        </div>
+                        } @else {
+                        <div class="admin-usuarios-lista">
+                            @for (user of users(); track user.usuario) {
+                            <article class="admin-usuario-item">
+                                <div>
+                                    <span class="eyebrow">{{ user.rol }}</span>
+                                    <h4>{{ user.nombre }}</h4>
+                                    <p>{{ user.usuario }} · {{ user.correo }}</p>
+                                </div>
+                                @if (user.usuario === 'admin') {
+                                <strong class="admin-cuenta-protegida">Cuenta principal protegida</strong>
+                                } @else {
+                                <div class="admin-usuario-controles">
+                                    <label>
+                                        Rol
+                                        <select #rol [value]="user.rol">
+                                            <option value="cliente">Cliente</option>
+                                            <option value="admin">Administrador</option>
+                                        </select>
+                                    </label>
+                                    <label>
+                                        Estado
+                                        <select #estado [value]="user.estado">
+                                            <option value="activo">Activo</option>
+                                            <option value="bloqueado">Bloqueado</option>
+                                        </select>
+                                    </label>
+                                    <button type="button" (click)="updateUser(user, $any(rol.value), $any(estado.value))">Guardar cambios</button>
+                                </div>
+                                }
+                            </article>
+                            }
+                        </div>
+                        }
+                    </section>
+                    }
+
+                    @if (activeView() === 'productos') {
+                    <section class="admin-vista">
+                        <div class="section-heading section-heading-left admin-section-head">
+                            <span class="eyebrow">Productos</span>
+                            <h3>Mantenedor de productos e inventario</h3>
+                            <p>Crea productos nuevos o actualiza sus precios, ofertas, stock y disponibilidad.</p>
+                        </div>
+
+                        <div class="admin-productos-layout">
+                            <div class="admin-producto-editor">
+                                <div class="admin-bloque-titulo">
+                                    <span>Editor</span>
+                                    <h4>Datos del producto</h4>
+                                </div>
+                                <form class="formulario-registro admin-producto-form" [formGroup]="productForm" (ngSubmit)="saveProduct()" novalidate>
+                                    <div>
+                                        <label for="productoNombre">Nombre</label>
+                                        <input type="text" id="productoNombre" formControlName="nombre" placeholder="Nombre del juego">
+                                    </div>
+                                    <div>
+                                        <label for="productoCategoria">Categoria</label>
+                                        <select id="productoCategoria" formControlName="categoria">
+                                            <option value="">Selecciona una categoria</option>
+                                            <option value="Estrategia">Estrategia</option>
+                                            <option value="Familiares">Familiares</option>
+                                            <option value="Fiesta">Fiesta</option>
+                                            <option value="Infantiles">Infantiles</option>
+                                            <option value="Top ventas">Top ventas</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="productoPrecio">Precio actual</label>
+                                        <input type="number" id="productoPrecio" formControlName="precio" min="1">
+                                    </div>
+                                    <div>
+                                        <label for="productoPrecioOriginal">Precio original con oferta</label>
+                                        <input type="number" id="productoPrecioOriginal" formControlName="precioOriginal" min="0" placeholder="Opcional">
+                                    </div>
+                                    <div>
+                                        <label for="productoStock">Stock</label>
+                                        <input type="number" id="productoStock" formControlName="stock" min="0">
+                                    </div>
+                                    <div>
+                                        <label for="productoEstado">Estado</label>
+                                        <select id="productoEstado" formControlName="estado">
+                                            <option value="activo">Activo</option>
+                                            <option value="inactivo">Inactivo</option>
+                                        </select>
+                                    </div>
+                                    <div class="admin-producto-campo-doble">
+                                        <label for="productoImagen">Ruta de imagen</label>
+                                        <input type="text" id="productoImagen" formControlName="imagen" placeholder="/img/juego.png">
+                                    </div>
+                                    <div class="admin-producto-campo-doble">
+                                        <label for="productoOferta">Texto de oferta</label>
+                                        <input type="text" id="productoOferta" formControlName="oferta" placeholder="Ejemplo: Oferta 15% (opcional)">
+                                    </div>
+                                    <div class="acciones-formulario admin-producto-acciones admin-producto-campo-ancho">
+                                        <button type="submit">{{ editingProductId() ? 'Actualizar producto' : 'Guardar producto' }}</button>
+                                        @if (editingProductId()) {
+                                        <button type="button" class="btn-secondary" (click)="cancelEdit()">Cancelar edicion</button>
+                                        }
+                                    </div>
+                                    <div class="formulario-feedback admin-producto-campo-ancho" aria-live="polite">{{ productFeedback() }}</div>
+                                </form>
+                            </div>
+
+                            <div class="admin-productos-listado">
+                                <div class="admin-bloque-titulo">
+                                    <span>Inventario</span>
+                                    <h4>Productos registrados</h4>
+                                </div>
+                                <div class="admin-productos-lista">
+                                    @for (product of catalog.products(); track product.id) {
+                                    <article class="admin-producto-item">
+                                        <img [src]="product.imagen" [alt]="product.nombre">
+                                        <div>
+                                            <span class="eyebrow">{{ product.categoria }}</span>
+                                            <h4>{{ product.nombre }}</h4>
+                                            <p>{{ formatPrice(product.precio) }} · Stock {{ product.stock }} · {{ product.estado }}</p>
+                                            <button type="button" (click)="editProduct(product)">Editar producto</button>
+                                        </div>
+                                    </article>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>

@@ -1,0 +1,66 @@
+    <section class="formulario-seccion container-xxl" id="carritoPagina">
+        <div class="section-heading">
+            <span class="eyebrow">Compra</span>
+            <h2>Tu carrito</h2>
+            <p>Revisa tus juegos seleccionados, ajusta cantidades y prepara tu proxima partida.</p>
+        </div>
+
+        <div class="carrito-grid" [class.carrito-grid-vacio]="!cart.items().length">
+            <div class="carrito-lista-panel">
+                @if (!cart.items().length) {
+                <div class="carrito-vacio">
+                    <h3>Aun no agregas juegos</h3>
+                    <p>Explora el catalogo y arma tu carrito con los titulos que mas te gusten.</p>
+                    <a href="/#top" class="btn btn-primary">Ver juegos</a>
+                </div>
+                } @else {
+                <div class="carrito-lista">
+                    @for (item of cart.items(); track item.id) {
+                    <article class="carrito-item">
+                        <img [src]="item.imagen" [alt]="item.nombre" class="carrito-item-imagen">
+                        <div class="carrito-item-contenido">
+                            <div class="carrito-item-head">
+                                <div>
+                                    <span class="carrito-item-categoria">{{ item.categoria }}</span>
+                                    <h3>{{ item.nombre }}</h3>
+                                    @if (item.oferta) {
+                                    <div class="estado-descuento">{{ item.oferta }}</div>
+                                    }
+                                </div>
+                                <button type="button" class="carrito-eliminar" (click)="cart.remove(item.id)">Quitar</button>
+                            </div>
+                            <div class="carrito-item-precios">
+                                @if (item.precioOriginal) {
+                                <span class="precio-original">{{ formatPrice(item.precioOriginal) }}</span>
+                                }
+                                <span [class.precio-oferta]="item.precioOriginal" [class.carrito-precio-normal]="!item.precioOriginal">
+                                    {{ formatPrice(item.precio) }}
+                                </span>
+                            </div>
+                            <div class="carrito-item-footer">
+                                <div class="carrito-cantidad-control">
+                                    <button type="button" (click)="cart.changeQuantity(item.id, -1)">-</button>
+                                    <span>{{ item.cantidad }}</span>
+                                    <button type="button" (click)="cart.changeQuantity(item.id, 1)">+</button>
+                                </div>
+                                <strong class="carrito-subtotal">{{ formatPrice(item.precio * item.cantidad) }}</strong>
+                            </div>
+                        </div>
+                    </article>
+                    }
+                </div>
+                }
+            </div>
+
+            @if (cart.items().length) {
+            <aside class="carrito-resumen">
+                <span class="eyebrow">Resumen</span>
+                <h3>Total de la compra</h3>
+                <p class="carrito-resumen-cantidad">{{ cart.quantity() }} productos</p>
+                <strong class="carrito-resumen-total">{{ formatPrice(cart.total()) }}</strong>
+                <button type="button" class="btn btn-primary w-100" (click)="checkout()">Finalizar compra</button>
+                <button type="button" class="btn btn-secondary w-100" (click)="cart.clear()">Vaciar carrito</button>
+            </aside>
+            }
+        </div>
+    </section>

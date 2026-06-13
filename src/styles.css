@@ -1,1 +1,53 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global theme tokens and document reset only. Page styles live with components. */
+:root {
+    --color-brand-dark: #182230;
+    --color-brand-gold: #f4c542;
+    --color-accent: #facc15;
+    --color-accent-hover: #eab308;
+    --color-page-bg: #f3eee5;
+    --color-section-bg: #fffaf1;
+    --color-surface: #ffffff;
+    --color-text: #2d241c;
+    --color-text-soft: #5b4b3f;
+    --color-text-light: #ffffff;
+    --color-success: #15803d;
+    --color-button: #2563eb;
+    --color-button-hover: #1d4ed8;
+    --shadow-header: 0 10px 22px rgba(10, 15, 22, 0.3);
+    --shadow-card: 0 10px 24px rgba(69, 44, 17, 0.12);
+    --shadow-card-hover: 0 16px 30px rgba(69, 44, 17, 0.18);
+    --radius-sm: 8px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --radius-pill: 999px;
+    --transition-base: 0.3s;
+    --section-padding: 80px 50px;
+    --section-padding-mobile: 60px 20px;
+    --grid-gap: 30px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--color-page-bg);
+    color: var(--color-text);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+img {
+    max-width: 100%;
+}

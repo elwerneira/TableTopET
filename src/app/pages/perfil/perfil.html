@@ -1,0 +1,78 @@
+    <section class="formulario-seccion container-xl">
+        <div class="formulario-card shadow-lg">
+            <div class="section-heading section-heading-left">
+                <span class="eyebrow">Perfil</span>
+                <h2>Modifica tu perfil</h2>
+                <p>Actualiza tus datos personales, cambia tu usuario o renueva tu contrasena sin salir de tu sesion.</p>
+            </div>
+
+            <form class="formulario-registro row g-3" id="formularioPerfil" novalidate>
+                <div class="campo-formulario col-12 col-md-6">
+                    <label for="perfilNombre" class="form-label">Nombre completo</label>
+                    <input type="text" id="perfilNombre" name="perfilNombre" class="form-control" placeholder="Ingresa tu nombre completo">
+                    <div class="mensaje-error" id="errorPerfilNombre"></div>
+                </div>
+
+                <div class="campo-formulario col-12 col-md-6">
+                    <label for="perfilUsuario" class="form-label">Usuario</label>
+                    <input type="text" id="perfilUsuario" name="perfilUsuario" class="form-control" placeholder="Ingresa tu usuario">
+                    <div class="mensaje-error" id="errorPerfilUsuario"></div>
+                </div>
+
+                <div class="campo-formulario col-12 col-md-6">
+                    <label for="perfilCorreo" class="form-label">Correo electronico</label>
+                    <input type="email" id="perfilCorreo" name="perfilCorreo" class="form-control" placeholder="nombre@correo.com">
+                    <div class="mensaje-error" id="errorPerfilCorreo"></div>
+                </div>
+
+                <div class="campo-formulario col-12 col-md-6">
+                    <label for="perfilFechaNacimiento" class="form-label">Fecha de nacimiento</label>
+                    <input type="date" id="perfilFechaNacimiento" name="perfilFechaNacimiento" class="form-control">
+                    <div class="mensaje-error" id="errorPerfilFechaNacimiento"></div>
+                </div>
+
+                <div class="campo-formulario col-12">
+                    <label for="perfilDireccion" class="form-label">Direccion de despacho</label>
+                    <input type="text" id="perfilDireccion" name="perfilDireccion" class="form-control" placeholder="Opcional">
+                    <div class="mensaje-ayuda">Puedes dejarla vacia si no deseas modificarla.</div>
+                </div>
+
+                <div class="campo-formulario col-12 col-lg-6">
+                    <label for="perfilPassword" class="form-label">Nueva contrasena</label>
+                    <div class="campo-password">
+                        <input type="password" id="perfilPassword" name="perfilPassword" class="form-control" placeholder="Solo si quieres cambiarla">
+                        <button type="button" class="toggle-password" aria-label="Mostrar u ocultar nueva contrasena">
+                            <svg class="icono-ojo" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                                <path class="icono-ojo-linea" d="M4 4l16 16"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="mensaje-error" id="errorPerfilPassword"></div>
+                </div>
+
+                <div class="campo-formulario col-12 col-lg-6">
+                    <label for="perfilConfirmarPassword" class="form-label">Confirmar nueva contrasena</label>
+                    <div class="campo-password">
+                        <input type="password" id="perfilConfirmarPassword" name="perfilConfirmarPassword" class="form-control" placeholder="Repite la nueva contrasena">
+                        <button type="button" class="toggle-password" aria-label="Mostrar u ocultar confirmacion de contrasena">
+                            <svg class="icono-ojo" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                                <path class="icono-ojo-linea" d="M4 4l16 16"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="mensaje-error" id="errorPerfilConfirmarPassword"></div>
+                </div>
+
+                <div class="acciones-formulario d-flex flex-column flex-md-row gap-3">
+                    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                    <button type="reset" class="btn btn-secondary">Restablecer</button>
+                </div>
+            </form>
+
+            <div class="formulario-feedback" id="perfilFeedback" aria-live="polite"></div>
+        </div>
+    </section>

@@ -1,0 +1,323 @@
+@import "../../shared/styles/layout.css";
+
+.carrito-grid {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(280px, 360px);
+    gap: 30px;
+    align-items: start;
+}
+
+.carrito-grid-vacio {
+    grid-template-columns: minmax(0, 860px);
+    justify-content: center;
+}
+
+.carrito-lista-panel,
+.carrito-resumen {
+    padding: 28px;
+    border-radius: var(--radius-lg);
+    background: rgba(255, 250, 241, 0.92);
+    box-shadow: var(--shadow-card);
+}
+
+.carrito-vacio {
+    display: grid;
+    gap: 16px;
+    min-height: 230px;
+    padding: 34px;
+    align-content: center;
+    justify-items: center;
+    text-align: center;
+}
+
+.carrito-vacio h3,
+.carrito-vacio p {
+    margin: 0;
+}
+
+.carrito-vacio p,
+.carrito-resumen-cantidad {
+    color: var(--color-text-soft);
+}
+
+.carrito-vacio .btn {
+    min-width: 160px;
+    padding: 12px 22px;
+    border: 0;
+    border-radius: var(--radius-pill);
+    background: linear-gradient(135deg, var(--color-brand-dark), #24364d);
+    font-weight: bold;
+}
+
+.carrito-lista {
+    display: grid;
+    gap: 18px;
+}
+
+.carrito-item {
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+    overflow: hidden;
+    border: 1px solid rgba(24, 34, 48, 0.1);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    box-shadow: 0 8px 20px rgba(69, 44, 17, 0.09);
+}
+
+.carrito-item-imagen {
+    width: 180px;
+    height: 100%;
+    min-height: 210px;
+    object-fit: cover;
+}
+
+.carrito-item-contenido {
+    display: grid;
+    gap: 16px;
+    padding: 20px;
+}
+
+.carrito-item-head,
+.carrito-item-footer,
+.carrito-item-precios {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.carrito-item-head {
+    align-items: flex-start;
+}
+
+.carrito-item-head h3 {
+    margin: 5px 0 0;
+    color: var(--color-brand-dark);
+    font-size: 22px;
+}
+
+.carrito-item-categoria {
+    color: #8a6510;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.carrito-item .estado-descuento {
+    width: fit-content;
+    margin: 10px 0 0;
+}
+
+.carrito-eliminar {
+    padding: 8px 12px;
+    border: 1px solid rgba(180, 35, 24, 0.25);
+    border-radius: var(--radius-pill);
+    background: #fff1f0;
+    color: #b42318;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.carrito-eliminar:hover {
+    background: #b42318;
+    color: var(--color-text-light);
+}
+
+.carrito-item-precios {
+    justify-content: flex-start;
+}
+
+.carrito-item-precios .precio-original {
+    color: var(--color-text-soft);
+}
+
+.carrito-precio-normal {
+    color: var(--color-brand-dark);
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.carrito-item-footer {
+    padding-top: 14px;
+    border-top: 1px solid rgba(24, 34, 48, 0.08);
+}
+
+.carrito-cantidad-control {
+    display: inline-grid;
+    grid-template-columns: 38px 44px 38px;
+    align-items: center;
+    overflow: hidden;
+    border: 1px solid rgba(24, 34, 48, 0.16);
+    border-radius: var(--radius-pill);
+    background: #fffaf1;
+}
+
+.carrito-cantidad-control button {
+    width: 38px;
+    height: 38px;
+    border: 0;
+    background: transparent;
+    color: var(--color-brand-dark);
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.carrito-cantidad-control button:hover {
+    background: var(--color-brand-gold);
+}
+
+.carrito-cantidad-control span {
+    text-align: center;
+    font-weight: bold;
+}
+
+.carrito-subtotal {
+    color: var(--color-brand-dark);
+    font-size: 20px;
+}
+
+.carrito-resumen {
+    position: sticky;
+    top: 110px;
+    display: grid;
+    gap: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(24, 34, 48, 0.1);
+}
+
+.carrito-resumen::before {
+    content: "";
+    height: 6px;
+    margin: -28px -28px 4px;
+    background: linear-gradient(90deg, var(--color-brand-gold), #f59e0b);
+}
+
+.carrito-resumen h3,
+.carrito-resumen p {
+    margin: 0;
+}
+
+.carrito-resumen-total {
+    color: #c62828;
+    font-size: 36px;
+}
+
+.carrito-resumen .btn {
+    padding: 12px 18px;
+    border: 0;
+    border-radius: var(--radius-pill);
+    font-weight: bold;
+}
+
+.carrito-resumen .btn-primary {
+    background: linear-gradient(135deg, var(--color-brand-dark), #24364d);
+}
+
+.carrito-resumen .btn-secondary {
+    background: transparent;
+    color: var(--color-brand-dark);
+    border: 1px solid rgba(24, 34, 48, 0.2);
+}
+
+@media (max-width: 1050px) {
+    .carrito-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(250px, 300px);
+        gap: 20px;
+    }
+
+    .carrito-item {
+        grid-template-columns: 140px minmax(0, 1fr);
+    }
+
+    .carrito-item-imagen {
+        width: 140px;
+    }
+}
+
+@media (max-width: 768px) {
+    .carrito-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .carrito-lista-panel {
+        padding: 18px;
+    }
+
+    .carrito-vacio {
+        min-height: 260px;
+        padding: 24px 16px;
+    }
+
+    .carrito-vacio .btn {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .carrito-item {
+        grid-template-columns: 1fr;
+    }
+
+    .carrito-item-imagen {
+        width: 100%;
+        height: 210px;
+        min-height: auto;
+    }
+
+    .carrito-item-head,
+    .carrito-item-footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .carrito-item-head {
+        position: relative;
+        padding-right: 74px;
+    }
+
+    .carrito-eliminar {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .carrito-item-footer {
+        gap: 14px;
+    }
+
+    .carrito-subtotal {
+        align-self: flex-end;
+    }
+
+    .carrito-resumen {
+        position: static;
+    }
+}
+
+@media (max-width: 420px) {
+    .carrito-item-contenido {
+        padding: 16px;
+    }
+
+    .carrito-item-head {
+        padding-right: 0;
+    }
+
+    .carrito-eliminar {
+        position: static;
+        margin-top: 12px;
+    }
+
+    .carrito-item-footer,
+    .carrito-subtotal {
+        align-items: stretch;
+        align-self: stretch;
+    }
+
+    .carrito-cantidad-control {
+        width: 100%;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}

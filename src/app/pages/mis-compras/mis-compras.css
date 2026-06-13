@@ -1,0 +1,226 @@
+@import "../../shared/styles/layout.css";
+
+.compras-feedback,
+.compras-lista,
+#misComprasPagina .carrito-vacio {
+    grid-column: 2 / span 10;
+    width: 100%;
+    max-width: 1120px;
+    margin-inline: auto;
+}
+
+.compras-feedback {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    border: 1px solid rgba(21, 128, 61, 0.24);
+    border-left: 5px solid var(--color-success);
+    border-radius: var(--radius-md);
+    background: #edf9f0;
+    box-shadow: var(--shadow-card);
+}
+
+.compras-feedback > span {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--color-success);
+    color: var(--color-text-light);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.compras-feedback strong,
+.compras-feedback p {
+    margin: 0;
+}
+
+.compras-feedback p {
+    margin-top: 3px;
+    color: var(--color-text-soft);
+}
+
+.compras-lista {
+    display: grid;
+    gap: 26px;
+}
+
+.carrito-vacio,
+.compra-card {
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-card);
+}
+
+.carrito-vacio {
+    display: grid;
+    gap: 14px;
+    padding: 32px;
+    justify-items: center;
+    text-align: center;
+}
+
+.compra-card {
+    display: grid;
+    overflow: hidden;
+    border: 1px solid rgba(24, 34, 48, 0.1);
+}
+
+.compra-card-head,
+.compra-card-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.compra-card-head {
+    padding: 22px 24px;
+    border-bottom: 1px solid rgba(24, 34, 48, 0.08);
+    background:
+        radial-gradient(circle at top right, rgba(244, 197, 66, 0.2), transparent 34%),
+        #fffaf1;
+}
+
+.compra-card-head h3,
+.compra-card-head p {
+    margin: 0;
+}
+
+.compra-card-head h3 {
+    margin-top: 6px;
+    color: var(--color-brand-dark);
+}
+
+.compra-orden,
+.compra-producto-categoria {
+    color: #8a6510;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.compra-fecha {
+    margin-top: 4px !important;
+    color: var(--color-text-soft);
+    font-size: 14px;
+}
+
+.compra-estado {
+    padding: 8px 14px;
+    border-radius: var(--radius-pill);
+    background: #dcfce7;
+    color: var(--color-success);
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.compra-productos {
+    display: grid;
+    padding: 0 24px;
+}
+
+.compra-producto {
+    display: grid;
+    grid-template-columns: 110px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(24, 34, 48, 0.08);
+}
+
+.compra-producto:last-child {
+    border-bottom: 0;
+}
+
+.compra-producto-imagen {
+    width: 110px;
+    height: 86px;
+    border-radius: var(--radius-md);
+    object-fit: cover;
+    box-shadow: 0 6px 16px rgba(24, 34, 48, 0.16);
+}
+
+.compra-producto-info {
+    display: grid;
+    gap: 5px;
+}
+
+.compra-producto-info h4,
+.compra-producto-info span {
+    margin: 0;
+}
+
+.compra-producto-info h4 {
+    color: var(--color-brand-dark);
+    font-size: 18px;
+}
+
+.compra-producto-info > span:last-child {
+    color: var(--color-text-soft);
+    font-size: 14px;
+}
+
+.compra-producto-precio {
+    color: var(--color-brand-dark);
+    font-size: 18px;
+    white-space: nowrap;
+}
+
+.compra-card-total {
+    padding: 20px 24px;
+    border-top: 1px solid rgba(244, 197, 66, 0.28);
+    background: var(--color-brand-dark);
+    color: var(--color-text-light);
+}
+
+.compra-card-total span {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.compra-card-total strong {
+    color: var(--color-brand-gold);
+    font-size: 25px;
+}
+
+@media (max-width: 768px) {
+    .compras-feedback,
+    .compras-lista,
+    #misComprasPagina .carrito-vacio {
+        grid-column: 1 / -1;
+    }
+
+    .compra-card-head,
+    .compra-card-total {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .compra-productos {
+        padding: 0 18px;
+    }
+
+    .compra-producto {
+        grid-template-columns: 76px minmax(0, 1fr);
+        gap: 14px;
+    }
+
+    .compra-producto-imagen {
+        width: 76px;
+        height: 76px;
+    }
+
+    .compra-producto-precio {
+        grid-column: 2;
+    }
+
+    .compra-card-total strong {
+        font-size: 22px;
+    }
+}

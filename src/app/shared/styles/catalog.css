@@ -1,0 +1,211 @@
+.hero,
+.page-hero {
+    min-height: 90vh;
+    padding: 40px 20px;
+    background:
+        linear-gradient(rgba(20, 17, 14, 0.6), rgba(20, 17, 14, 0.55)),
+        url("/img/fondo.png") center / cover;
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    color: var(--color-text-light);
+    text-align: center;
+}
+
+.page-hero {
+    min-height: 55vh;
+}
+
+.hero-content {
+    grid-column: 3 / span 8;
+    max-width: 720px;
+    justify-self: center;
+    align-self: center;
+    animation: heroFadeUp 0.9s ease-out both;
+}
+
+.hero-content h2 {
+    margin: 0 0 20px;
+    font-size: 50px;
+}
+
+.hero-content p {
+    margin: 0 0 25px;
+    font-size: 20px;
+}
+
+.hero-link {
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: var(--radius-sm);
+    background: var(--color-accent);
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.productos,
+.categorias {
+    padding: var(--section-padding);
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    row-gap: 40px;
+}
+
+.categorias {
+    background: var(--color-section-bg);
+}
+
+.contenedor-productos,
+.contenedor-categorias {
+    grid-column: 2 / span 10;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--grid-gap);
+}
+
+.card,
+.categoria-link {
+    overflow: hidden;
+    background: var(--color-surface);
+    border: 0;
+    border-radius: var(--radius-lg);
+    color: inherit;
+    text-decoration: none;
+    box-shadow: var(--shadow-card);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    animation: cardReveal 0.75s ease both;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover,
+.categoria-link:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-card-hover);
+}
+
+.card img,
+.categoria-link img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.card h3,
+.categoria-link-texto {
+    margin: 18px 20px 10px;
+}
+
+.card p,
+.categoria-link-texto p {
+    margin: 0 20px 12px;
+    color: var(--color-text-soft);
+    line-height: 1.5;
+}
+
+.categoria-link-texto {
+    padding-bottom: 12px;
+}
+
+.categoria-link-texto p {
+    margin: 0;
+}
+
+.estado-descuento {
+    margin: 0 20px 10px;
+    padding: 7px 12px;
+    border-radius: var(--radius-pill);
+    background: #f2e8d8;
+    color: #7b6145;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.card-oferta {
+    position: relative;
+    border: 1px solid rgba(244, 197, 66, 0.45);
+}
+
+.card-oferta::before {
+    content: "Destacado";
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    padding: 7px 10px;
+    border-radius: var(--radius-pill);
+    background: linear-gradient(135deg, #facc15, #f59e0b);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.card-acciones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    margin: auto 20px 22px;
+}
+
+.card-acciones > span,
+.precio-contenedor {
+    width: 100%;
+    text-align: center;
+}
+
+.precio-contenedor {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.precio-original {
+    color: var(--color-success);
+    text-decoration: line-through;
+}
+
+.precio-oferta {
+    color: #c62828;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.card button {
+    width: 100%;
+    max-width: 220px;
+    padding: 14px 20px;
+    border: 0;
+    border-radius: var(--radius-sm);
+    background: var(--color-button);
+    color: var(--color-text-light);
+    cursor: pointer;
+}
+
+@keyframes heroFadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cardReveal {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .hero-content,
+    .section-heading,
+    .contenedor-productos,
+    .contenedor-categorias {
+        grid-column: 1 / -1;
+    }
+
+    .hero-content h2 {
+        font-size: 35px;
+    }
+
+    .productos,
+    .categorias {
+        padding: var(--section-padding-mobile);
+    }
+}
