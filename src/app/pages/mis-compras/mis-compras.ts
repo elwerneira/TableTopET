@@ -1,11 +1,12 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 import { AuthService } from '../../core/services/auth.service';
 import { PurchaseService } from '../../core/services/purchase.service';
 
 @Component({
   selector: 'app-mis-compras',
+  imports: [RouterLink],
   templateUrl: './mis-compras.html',
   styleUrl: './mis-compras.css',
 })

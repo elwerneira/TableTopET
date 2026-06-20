@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 import { CartService } from '../../core/services/cart.service';
 
 @Component({
   selector: 'app-estrategia',
+  imports: [RouterLink],
   templateUrl: './estrategia.html',
   styleUrl: './estrategia.css',
 })

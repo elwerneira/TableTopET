@@ -40,13 +40,16 @@
                             </svg>
                         </button>
                     </div>
-                    <div class="mensaje-error">@if (form.controls.confirmPassword.touched && form.controls.confirmPassword.value !== form.controls.password.value) { Las contrasenas deben ser iguales. }</div>
+                    <div class="mensaje-error">
+                        @if (form.controls.confirmPassword.touched && form.controls.confirmPassword.hasError('required')) { Confirma tu nueva contrasena. }
+                        @else if (form.controls.confirmPassword.touched && form.hasError('passwordMismatch')) { Las contrasenas deben ser iguales. }
+                    </div>
                 </div>
 
                 <div class="acciones-formulario d-flex flex-column flex-md-row gap-3">
                     <button type="submit" class="btn btn-primary">Actualizar</button>
                     <button type="button" class="btn btn-secondary" (click)="reset()">Limpiar</button>
-                    <a class="btn btn-registro" href="/login">Iniciar sesion</a>
+                    <a class="btn btn-registro" routerLink="/login">Iniciar sesion</a>
                 </div>
             </form>
 

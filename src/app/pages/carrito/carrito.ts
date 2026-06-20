@@ -1,11 +1,12 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 import { AuthService } from '../../core/services/auth.service';
 import { CartService } from '../../core/services/cart.service';
 
 @Component({
   selector: 'app-carrito',
+  imports: [RouterLink],
   templateUrl: './carrito.html',
   styleUrl: './carrito.css',
 })

@@ -52,7 +52,10 @@
                             </svg>
                         </button>
                     </div>
-                    <div class="mensaje-error">@if (form.controls.confirmarPassword.touched && form.controls.confirmarPassword.value !== form.controls.password.value) { Las contrasenas deben ser iguales. }</div>
+                    <div class="mensaje-error">
+                        @if (form.controls.confirmarPassword.touched && form.controls.confirmarPassword.hasError('required')) { Confirma tu contrasena. }
+                        @else if (form.controls.confirmarPassword.touched && form.hasError('passwordMismatch')) { Las contrasenas deben ser iguales. }
+                    </div>
                 </div>
 
                 <div class="campo-formulario col-12 col-md-6">

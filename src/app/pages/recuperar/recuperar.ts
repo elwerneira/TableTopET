@@ -1,12 +1,13 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 import { AuthService } from '../../core/services/auth.service';
+import { passwordMatchValidator } from '../../shared/validators/password-match.validator';
 
 @Component({
   selector: 'app-recuperar',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './recuperar.html',
   styleUrl: './recuperar.css',
 })
@@ -19,14 +20,17 @@ export class Recuperar {
   readonly feedbackError = signal(false);
   readonly passwordVisible = signal(false);
   readonly confirmPasswordVisible = signal(false);
-  readonly form = this.formBuilder.nonNullable.group({
-    identifier: ['', Validators.required],
-    password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(18), Validators.pattern(/^(?=.*[A-Z])(?=.*\d).+$/)]],
-    confirmPassword: ['', Validators.required],
-  });
+  readonly form = this.formBuilder.nonNullable.group(
+    {
+      identifier: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(18), Validators.pattern(/^(?=.*[A-Z])(?=.*\d).+$/)]],
+      confirmPassword: ['', Validators.required],
+    },
+    { validators: passwordMatchValidator('password', 'confirmPassword') },
+  );
 
   submit(): void {
-    if (this.form.invalid || this.form.controls.password.value !== this.form.controls.confirmPassword.value) {
+    if (this.form.invalid) {
       this.form.markAllAsTouched();
       this.showFeedback('Revisa los campos marcados antes de continuar.', true);
       return;
