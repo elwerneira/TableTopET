@@ -6,7 +6,7 @@
     "outDir": "./out-tsc/spec",
     "composite": true,
     "types": [
-      "vitest/globals"
+      "jasmine"
     ]
   },
   "include": [
