@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 import { passwordMatchValidator } from '../../shared/validators/password-match.validator';
 
+import { minimumAgeValidator } from '../../shared/validators/minimum-age.validator';
+
 @Component({
   selector: 'app-formulario',
   imports: [ReactiveFormsModule],
@@ -27,7 +29,10 @@ export class Formulario {
       correo: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(18), Validators.pattern(/^(?=.*[A-Z])(?=.*\d).+$/)]],
       confirmarPassword: ['', Validators.required],
-      fechaNacimiento: ['', Validators.required],
+      fechaNacimiento: [
+        '',
+        [Validators.required, minimumAgeValidator(13)],
+      ],
       direccion: [''],
     },
     { validators: passwordMatchValidator('password', 'confirmarPassword') },

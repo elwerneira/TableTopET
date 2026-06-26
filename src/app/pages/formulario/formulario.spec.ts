@@ -46,4 +46,21 @@ describe('Formulario', () => {
     expect(component.form.controls.direccion.hasError('required')).toBeFalse();
     expect(component.form.invalid).toBeTrue();
   });
+
+  it('debe aceptar usuarios de 13 años o más', () => {
+    const control = component.form.controls.fechaNacimiento;
+    const birthDate = new Date();
+
+    birthDate.setFullYear(birthDate.getFullYear() - 13);
+
+    const value = [
+      birthDate.getFullYear(),
+      String(birthDate.getMonth() + 1).padStart(2, '0'),
+      String(birthDate.getDate()).padStart(2, '0'),
+    ].join('-');
+
+    control.setValue(value);
+
+    expect(control.valid).toBeTrue();
+  });
 });

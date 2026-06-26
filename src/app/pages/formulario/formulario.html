@@ -61,7 +61,13 @@
                 <div class="campo-formulario col-12 col-md-6">
                     <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
                     <input type="date" id="fechaNacimiento" formControlName="fechaNacimiento">
-                    <div class="mensaje-error">@if (form.controls.fechaNacimiento.touched && form.controls.fechaNacimiento.invalid) { La fecha de nacimiento es obligatoria. }</div>
+                    <div class="mensaje-error">
+                        @if (form.controls.fechaNacimiento.touched && form.controls.fechaNacimiento.hasError('required')) {
+                            La fecha de nacimiento es obligatoria.
+                        } @else if (form.controls.fechaNacimiento.touched && form.controls.fechaNacimiento.hasError('minimumAge')) {
+                            Debes tener al menos 13 años para registrarte.
+                        }
+                    </div>
                 </div>
 
                 <div class="campo-formulario col-12 col-md-6">
