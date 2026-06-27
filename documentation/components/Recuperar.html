@@ -1,0 +1,1064 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Documentación TableTopET</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Documentación TableTopET</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Escribe para buscar"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Componentes</li>
+  <li class="breadcrumb-item"
+  >
+  Recuperar</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>Fichero</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/recuperar/recuperar.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Descripción</h3>
+    </p>
+    <p class="comment">
+        <p>Permite establecer una nueva contraseña mediante un formulario reactivo.</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Meta datos</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-recuperar</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="https://angular.io/api/forms/ReactiveFormsModule" target="_blank" >ReactiveFormsModule</a></code>
+                                <code><a href="https://angular.io/api/router/RouterLink" target="_blank" >RouterLink</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./recuperar.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./recuperar.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Índice</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propiedades</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#auth" >auth</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#confirmPasswordVisible" >confirmPasswordVisible</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#feedback" >feedback</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#feedbackError" >feedbackError</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#form" >form</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#formBuilder" >formBuilder</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#passwordVisible" >passwordVisible</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#router" >router</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Métodos</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#reset" >reset</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#showFeedback" >showFeedback</a>
+                            </li>
+                            <li>
+                                <a href="#submit" >submit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Métodos
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reset"></a>
+                    <span class="name">
+                        <span ><b>reset</b></span>
+                        <a href="#reset"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>reset()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="69"
+                                    class="link-to-prism">src/app/pages/recuperar/recuperar.ts:69</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Limpia todos los campos y mensajes del formulario.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showFeedback"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>showFeedback</b></span>
+                        <a href="#showFeedback"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>showFeedback(message: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, error: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="80"
+                                    class="link-to-prism">src/app/pages/recuperar/recuperar.ts:80</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Actualiza la retroalimentación presentada al usuario.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parámetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nombre</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                                <td>Descripción</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>message</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Mensaje que debe mostrarse.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>error</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Indica si el resultado corresponde a un error.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="submit"></a>
+                    <span class="name">
+                        <span ><b>submit</b></span>
+                        <a href="#submit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>submit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="54"
+                                    class="link-to-prism">src/app/pages/recuperar/recuperar.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Valida los datos y solicita la actualización de contraseña.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>No retorna un valor; actualiza el mensaje y puede navegar al login.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Propiedades
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="auth"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>auth</b></span>
+                        <a href="#auth"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>inject(AuthService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="19" class="link-to-prism">src/app/pages/recuperar/recuperar.ts:19</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Servicio encargado de actualizar la contraseña almacenada.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confirmPasswordVisible"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>confirmPasswordVisible</b></span>
+                        <a href="#confirmPasswordVisible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="37" class="link-to-prism">src/app/pages/recuperar/recuperar.ts:37</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Controla la visibilidad de la confirmación de contraseña.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="feedback"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>feedback</b></span>
+                        <a href="#feedback"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>signal(&#x27;&#x27;)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="28" class="link-to-prism">src/app/pages/recuperar/recuperar.ts:28</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Mensaje con el resultado de la operación.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="feedbackError"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>feedbackError</b></span>
+                        <a href="#feedbackError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="31" class="link-to-prism">src/app/pages/recuperar/recuperar.ts:31</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Indica si el mensaje actual representa un error.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="form"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>form</b></span>
+                        <a href="#form"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>this.formBuilder.nonNullable.group(
+    {
+      identifier: [&#x27;&#x27;, Validators.required],
+      password: [&#x27;&#x27;, [Validators.required, Validators.minLength(6), Validators.maxLength(18), Validators.pattern(/^(?&#x3D;.*[A-Z])(?&#x3D;.*\d).+$/)]],
+      confirmPassword: [&#x27;&#x27;, Validators.required],
+    },
+    { validators: passwordMatchValidator(&#x27;password&#x27;, &#x27;confirmPassword&#x27;) },
+  )</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="40" class="link-to-prism">src/app/pages/recuperar/recuperar.ts:40</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Formulario reactivo de recuperación con validación de coincidencia.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formBuilder"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>formBuilder</b></span>
+                        <a href="#formBuilder"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>inject(FormBuilder)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="22" class="link-to-prism">src/app/pages/recuperar/recuperar.ts:22</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Constructor del formulario reactivo.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="passwordVisible"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>passwordVisible</b></span>
+                        <a href="#passwordVisible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="34" class="link-to-prism">src/app/pages/recuperar/recuperar.ts:34</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Controla la visibilidad de la nueva contraseña.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="router"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>router</b></span>
+                        <a href="#router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>inject(Router)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="25" class="link-to-prism">src/app/pages/recuperar/recuperar.ts:25</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Enrutador utilizado al terminar la recuperación.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, inject, signal } from &#x27;@angular/core&#x27;;
+import { FormBuilder, ReactiveFormsModule, Validators } from &#x27;@angular/forms&#x27;;
+import { Router, RouterLink } from &#x27;@angular/router&#x27;;
+
+import { AuthService } from &#x27;../../core/services/auth.service&#x27;;
+import { passwordMatchValidator } from &#x27;../../shared/validators/password-match.validator&#x27;;
+
+/**
+ * Permite establecer una nueva contraseña mediante un formulario reactivo.
+ */
+@Component({
+  selector: &#x27;app-recuperar&#x27;,
+  imports: [ReactiveFormsModule, RouterLink],
+  templateUrl: &#x27;./recuperar.html&#x27;,
+  styleUrl: &#x27;./recuperar.css&#x27;,
+})
+export class Recuperar {
+  /** Servicio encargado de actualizar la contraseña almacenada. */
+  private readonly auth &#x3D; inject(AuthService);
+
+  /** Constructor del formulario reactivo. */
+  private readonly formBuilder &#x3D; inject(FormBuilder);
+
+  /** Enrutador utilizado al terminar la recuperación. */
+  private readonly router &#x3D; inject(Router);
+
+  /** Mensaje con el resultado de la operación. */
+  readonly feedback &#x3D; signal(&#x27;&#x27;);
+
+  /** Indica si el mensaje actual representa un error. */
+  readonly feedbackError &#x3D; signal(false);
+
+  /** Controla la visibilidad de la nueva contraseña. */
+  readonly passwordVisible &#x3D; signal(false);
+
+  /** Controla la visibilidad de la confirmación de contraseña. */
+  readonly confirmPasswordVisible &#x3D; signal(false);
+
+  /** Formulario reactivo de recuperación con validación de coincidencia. */
+  readonly form &#x3D; this.formBuilder.nonNullable.group(
+    {
+      identifier: [&#x27;&#x27;, Validators.required],
+      password: [&#x27;&#x27;, [Validators.required, Validators.minLength(6), Validators.maxLength(18), Validators.pattern(/^(?&#x3D;.*[A-Z])(?&#x3D;.*\d).+$/)]],
+      confirmPassword: [&#x27;&#x27;, Validators.required],
+    },
+    { validators: passwordMatchValidator(&#x27;password&#x27;, &#x27;confirmPassword&#x27;) },
+  );
+
+  /**
+   * Valida los datos y solicita la actualización de contraseña.
+   *
+   * @returns No retorna un valor; actualiza el mensaje y puede navegar al login.
+   */
+  submit(): void {
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      this.showFeedback(&#x27;Revisa los campos marcados antes de continuar.&#x27;, true);
+      return;
+    }
+
+    const result &#x3D; this.auth.updatePassword(this.form.controls.identifier.value, this.form.controls.password.value);
+    this.showFeedback(result.message, !result.ok);
+    if (result.ok) {
+      void this.router.navigate([&#x27;/login&#x27;]);
+    }
+  }
+
+  /** Limpia todos los campos y mensajes del formulario. */
+  reset(): void {
+    this.form.reset();
+    this.showFeedback(&#x27;&#x27;, false);
+  }
+
+  /**
+   * Actualiza la retroalimentación presentada al usuario.
+   *
+   * @param message Mensaje que debe mostrarse.
+   * @param error Indica si el resultado corresponde a un error.
+   */
+  private showFeedback(message: string, error: boolean): void {
+    this.feedback.set(message);
+    this.feedbackError.set(error);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">    &lt;section class&#x3D;&quot;formulario-seccion container-xl&quot;&gt;
+        &lt;div class&#x3D;&quot;formulario-card shadow-lg&quot;&gt;
+            &lt;div class&#x3D;&quot;section-heading section-heading-left&quot;&gt;
+                &lt;span class&#x3D;&quot;eyebrow&quot;&gt;Recuperacion&lt;/span&gt;
+                &lt;h2&gt;Cambiar contrasena&lt;/h2&gt;
+                &lt;p&gt;Ingresa tu usuario o correo y define una nueva contrasena para recuperar tu acceso.&lt;/p&gt;
+            &lt;/div&gt;
+
+            &lt;form class&#x3D;&quot;formulario-registro row g-3&quot; [formGroup]&#x3D;&quot;form&quot; (ngSubmit)&#x3D;&quot;submit()&quot; novalidate&gt;
+                &lt;div class&#x3D;&quot;campo-formulario col-12&quot;&gt;
+                    &lt;label for&#x3D;&quot;recuperarUsuario&quot; class&#x3D;&quot;form-label&quot;&gt;Usuario o correo&lt;/label&gt;
+                    &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;recuperarUsuario&quot; formControlName&#x3D;&quot;identifier&quot; placeholder&#x3D;&quot;Ingresa tu usuario o correo&quot;&gt;
+                    &lt;div class&#x3D;&quot;mensaje-error&quot;&gt;@if (form.controls.identifier.touched &amp;&amp; form.controls.identifier.invalid) { Ingresa tu usuario o correo. }&lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class&#x3D;&quot;campo-formulario col-12 col-lg-6&quot;&gt;
+                    &lt;label for&#x3D;&quot;recuperarPassword&quot; class&#x3D;&quot;form-label&quot;&gt;Nueva contrasena&lt;/label&gt;
+                    &lt;div class&#x3D;&quot;campo-password&quot;&gt;
+                        &lt;input [type]&#x3D;&quot;passwordVisible() ? &#x27;text&#x27; : &#x27;password&#x27;&quot; id&#x3D;&quot;recuperarPassword&quot; formControlName&#x3D;&quot;password&quot; placeholder&#x3D;&quot;Entre 6 y 18 caracteres&quot;&gt;
+                        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;toggle-password&quot; (click)&#x3D;&quot;passwordVisible.set(!passwordVisible())&quot; aria-label&#x3D;&quot;Mostrar u ocultar contrasena&quot;&gt;
+                            &lt;svg class&#x3D;&quot;icono-ojo&quot; viewBox&#x3D;&quot;0 0 24 24&quot; aria-hidden&#x3D;&quot;true&quot;&gt;
+                                &lt;path d&#x3D;&quot;M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z&quot;&gt;&lt;/path&gt;
+                                &lt;circle cx&#x3D;&quot;12&quot; cy&#x3D;&quot;12&quot; r&#x3D;&quot;3&quot;&gt;&lt;/circle&gt;
+                                &lt;path class&#x3D;&quot;icono-ojo-linea&quot; d&#x3D;&quot;M4 4l16 16&quot;&gt;&lt;/path&gt;
+                            &lt;/svg&gt;
+                        &lt;/button&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;mensaje-error&quot;&gt;@if (form.controls.password.touched &amp;&amp; form.controls.password.invalid) { Debe tener entre 6 y 18 caracteres, una mayuscula y un numero. }&lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class&#x3D;&quot;campo-formulario col-12 col-lg-6&quot;&gt;
+                    &lt;label for&#x3D;&quot;recuperarConfirmarPassword&quot; class&#x3D;&quot;form-label&quot;&gt;Confirmar nueva contrasena&lt;/label&gt;
+                    &lt;div class&#x3D;&quot;campo-password&quot;&gt;
+                        &lt;input [type]&#x3D;&quot;confirmPasswordVisible() ? &#x27;text&#x27; : &#x27;password&#x27;&quot; id&#x3D;&quot;recuperarConfirmarPassword&quot; formControlName&#x3D;&quot;confirmPassword&quot; placeholder&#x3D;&quot;Repite tu nueva contrasena&quot;&gt;
+                        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;toggle-password&quot; (click)&#x3D;&quot;confirmPasswordVisible.set(!confirmPasswordVisible())&quot; aria-label&#x3D;&quot;Mostrar u ocultar contrasena&quot;&gt;
+                            &lt;svg class&#x3D;&quot;icono-ojo&quot; viewBox&#x3D;&quot;0 0 24 24&quot; aria-hidden&#x3D;&quot;true&quot;&gt;
+                                &lt;path d&#x3D;&quot;M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z&quot;&gt;&lt;/path&gt;
+                                &lt;circle cx&#x3D;&quot;12&quot; cy&#x3D;&quot;12&quot; r&#x3D;&quot;3&quot;&gt;&lt;/circle&gt;
+                                &lt;path class&#x3D;&quot;icono-ojo-linea&quot; d&#x3D;&quot;M4 4l16 16&quot;&gt;&lt;/path&gt;
+                            &lt;/svg&gt;
+                        &lt;/button&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;mensaje-error&quot;&gt;
+                        @if (form.controls.confirmPassword.touched &amp;&amp; form.controls.confirmPassword.hasError(&#x27;required&#x27;)) { Confirma tu nueva contrasena. }
+                        @else if (form.controls.confirmPassword.touched &amp;&amp; form.hasError(&#x27;passwordMismatch&#x27;)) { Las contrasenas deben ser iguales. }
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class&#x3D;&quot;acciones-formulario d-flex flex-column flex-md-row gap-3&quot;&gt;
+                    &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-primary&quot;&gt;Actualizar&lt;/button&gt;
+                    &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-secondary&quot; (click)&#x3D;&quot;reset()&quot;&gt;Limpiar&lt;/button&gt;
+                    &lt;a class&#x3D;&quot;btn btn-registro&quot; routerLink&#x3D;&quot;/login&quot;&gt;Iniciar sesion&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/form&gt;
+
+            &lt;div class&#x3D;&quot;formulario-feedback&quot; [class.error]&#x3D;&quot;feedbackError()&quot; [class.exito]&#x3D;&quot;!feedbackError()&quot; aria-live&#x3D;&quot;polite&quot;&gt;{{ feedback() }}&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Leyenda</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Elemento Html</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Componente</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Elemento Html con directiva</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div>    <section class="formulario-seccion container-xl">        <div class="formulario-card shadow-lg">            <div class="section-heading section-heading-left">                <span class="eyebrow">Recuperacion</span>                <h2>Cambiar contrasena</h2>                <p>Ingresa tu usuario o correo y define una nueva contrasena para recuperar tu acceso.</p>            </div>            <form class="formulario-registro row g-3" [formGroup]="form" (ngSubmit)="submit()" novalidate>                <div class="campo-formulario col-12">                    <label for="recuperarUsuario" class="form-label">Usuario o correo</label>                    <input type="text" id="recuperarUsuario" formControlName="identifier" placeholder="Ingresa tu usuario o correo">                    <div class="mensaje-error">@if (form.controls.identifier.touched && form.controls.identifier.invalid) { Ingresa tu usuario o correo. }</div>                </div>                <div class="campo-formulario col-12 col-lg-6">                    <label for="recuperarPassword" class="form-label">Nueva contrasena</label>                    <div class="campo-password">                        <input [type]="passwordVisible() ? \'text\' : \'password\'" id="recuperarPassword" formControlName="password" placeholder="Entre 6 y 18 caracteres">                        <button type="button" class="toggle-password" (click)="passwordVisible.set(!passwordVisible())" aria-label="Mostrar u ocultar contrasena">                            <svg class="icono-ojo" viewBox="0 0 24 24" aria-hidden="true">                                <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"></path>                                <circle cx="12" cy="12" r="3"></circle>                                <path class="icono-ojo-linea" d="M4 4l16 16"></path>                            </svg>                        </button>                    </div>                    <div class="mensaje-error">@if (form.controls.password.touched && form.controls.password.invalid) { Debe tener entre 6 y 18 caracteres, una mayuscula y un numero. }</div>                </div>                <div class="campo-formulario col-12 col-lg-6">                    <label for="recuperarConfirmarPassword" class="form-label">Confirmar nueva contrasena</label>                    <div class="campo-password">                        <input [type]="confirmPasswordVisible() ? \'text\' : \'password\'" id="recuperarConfirmarPassword" formControlName="confirmPassword" placeholder="Repite tu nueva contrasena">                        <button type="button" class="toggle-password" (click)="confirmPasswordVisible.set(!confirmPasswordVisible())" aria-label="Mostrar u ocultar contrasena">                            <svg class="icono-ojo" viewBox="0 0 24 24" aria-hidden="true">                                <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"></path>                                <circle cx="12" cy="12" r="3"></circle>                                <path class="icono-ojo-linea" d="M4 4l16 16"></path>                            </svg>                        </button>                    </div>                    <div class="mensaje-error">                        @if (form.controls.confirmPassword.touched && form.controls.confirmPassword.hasError(\'required\')) { Confirma tu nueva contrasena. }                        @else if (form.controls.confirmPassword.touched && form.hasError(\'passwordMismatch\')) { Las contrasenas deben ser iguales. }                    </div>                </div>                <div class="acciones-formulario d-flex flex-column flex-md-row gap-3">                    <button type="submit" class="btn btn-primary">Actualizar</button>                    <button type="button" class="btn btn-secondary" (click)="reset()">Limpiar</button>                    <a class="btn btn-registro" routerLink="/login">Iniciar sesion</a>                </div>            </form>            <div class="formulario-feedback" [class.error]="feedbackError()" [class.exito]="!feedbackError()" aria-live="polite">{{ feedback() }}</div>        </div>    </section></div>'
+    var COMPONENTS = [{'name': 'Admin', 'selector': 'app-admin'},{'name': 'App', 'selector': 'app-root'},{'name': 'Carrito', 'selector': 'app-carrito'},{'name': 'CatalogFilter', 'selector': 'app-catalog-filter'},{'name': 'Estrategia', 'selector': 'app-estrategia'},{'name': 'Familiares', 'selector': 'app-familiares'},{'name': 'Fiesta', 'selector': 'app-fiesta'},{'name': 'Formulario', 'selector': 'app-formulario'},{'name': 'Infantiles', 'selector': 'app-infantiles'},{'name': 'Inicio', 'selector': 'app-inicio'},{'name': 'Login', 'selector': 'app-login'},{'name': 'MisCompras', 'selector': 'app-mis-compras'},{'name': 'Navbar', 'selector': 'app-navbar'},{'name': 'Perfil', 'selector': 'app-perfil'},{'name': 'Recuperar', 'selector': 'app-recuperar'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'Recuperar'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> comparación de resultados "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No hay resultados que coincidan "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'Recuperar.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

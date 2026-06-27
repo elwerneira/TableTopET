@@ -6,20 +6,47 @@ import { BrowserStorageService } from './browser-storage.service';
 import { CatalogService } from './catalog.service';
 import { PurchaseService } from './purchase.service';
 
+/** Prefijo utilizado para separar el carrito de cada usuario. */
 const STORAGE_CART_PREFIX = 'tabletop_cart_';
 
+/**
+ * Gestiona el carrito asociado al usuario que mantiene una sesión activa.
+ *
+ * El servicio permite agregar productos, modificar cantidades, calcular totales
+ * y confirmar compras utilizando el catálogo y el almacenamiento del navegador.
+ */
 @Injectable({ providedIn: 'root' })
 export class CartService {
+  /** Servicio utilizado para identificar al usuario activo. */
   private readonly auth = inject(AuthService);
+
+  /** Servicio utilizado para consultar productos y actualizar su stock. */
   private readonly catalog = inject(CatalogService);
+
+  /** Servicio encargado de registrar las compras confirmadas. */
   private readonly purchases = inject(PurchaseService);
+
+  /** Acceso seguro al almacenamiento local del navegador. */
   private readonly storage = inject(BrowserStorageService);
+
+  /** Estado interno mutable de los productos del carrito. */
   private readonly itemsState = signal<CartItem[]>(this.load());
 
+  /** Productos que contiene actualmente el carrito. */
   readonly items = this.itemsState.asReadonly();
+
+  /** Valor total calculado a partir del precio y cantidad de cada producto. */
   readonly total = computed(() => this.itemsState().reduce((total, item) => total + item.precio * item.cantidad, 0));
+
+  /** Cantidad total de unidades presentes en el carrito. */
   readonly quantity = computed(() => this.itemsState().reduce((total, item) => total + item.cantidad, 0));
 
+  /**
+   * Agrega al carrito una unidad del producto identificado por su nombre o alias.
+   *
+   * @param name Nombre o alias del producto seleccionado.
+   * @returns Resultado de la operación y mensaje para mostrar al usuario.
+   */
   addByName(name: string): StoreActionResult {
     if (!this.auth.session()) {
       return { ok: false, message: 'Debes iniciar sesion para agregar productos al carrito.', requiresLogin: true };
@@ -57,6 +84,13 @@ export class CartService {
     return { ok: true, message: `${product.nombre} fue agregado al carrito.` };
   }
 
+  /**
+   * Aumenta o disminuye la cantidad de un producto sin superar su stock.
+   *
+   * @param id Identificador del producto.
+   * @param delta Variación que se aplicará a la cantidad actual.
+   * @returns No retorna un valor; actualiza el carrito almacenado.
+   */
   changeQuantity(id: string, delta: number): void {
     const items = this.load();
     const item = items.find(current => current.id === id);
@@ -74,14 +108,29 @@ export class CartService {
     this.save(items);
   }
 
+  /**
+   * Elimina un producto del carrito.
+   *
+   * @param id Identificador del producto que se eliminará.
+   * @returns No retorna un valor; persiste el carrito actualizado.
+   */
   remove(id: string): void {
     this.save(this.load().filter(item => item.id !== id));
   }
 
+  /** Vacía todos los productos del carrito actual. */
   clear(): void {
     this.save([]);
   }
 
+  /**
+   * Confirma la compra si todos los productos tienen stock disponible.
+   *
+   * Al completar la operación registra la compra, descuenta el stock y limpia
+   * el carrito.
+   *
+   * @returns Resultado de la confirmación y mensaje descriptivo.
+   */
   checkout(): StoreActionResult {
     const items = this.load();
     if (!items.length) {
@@ -102,15 +151,26 @@ export class CartService {
     return { ok: true, message: 'Compra confirmada correctamente.' };
   }
 
+  /** Vuelve a cargar el carrito desde el almacenamiento del navegador. */
   refresh(): void {
     this.itemsState.set(this.load());
   }
 
+  /**
+   * Lee los productos guardados para el usuario autenticado.
+   *
+   * @returns Productos almacenados o un arreglo vacío si no existe sesión.
+   */
   private load(): CartItem[] {
     const key = this.storageKey();
     return key ? this.storage.readLocal<CartItem[]>(key, []) : [];
   }
 
+  /**
+   * Persiste y publica el estado actualizado del carrito.
+   *
+   * @param items Productos que deben quedar almacenados.
+   */
   private save(items: CartItem[]): void {
     const key = this.storageKey();
     if (key) {
@@ -119,6 +179,11 @@ export class CartService {
     }
   }
 
+  /**
+   * Construye la clave de almacenamiento correspondiente al usuario actual.
+   *
+   * @returns Clave del carrito o `null` cuando no existe una sesión activa.
+   */
   private storageKey(): string | null {
     const userKey = this.auth.userKey();
     return userKey ? `${STORAGE_CART_PREFIX}${userKey}` : null;

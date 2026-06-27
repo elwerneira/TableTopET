@@ -13,7 +13,14 @@
             <p>Opciones cortas y entretenidas para desarrollar memoria, atencion y coordinacion.</p>
         </div>
 
+        <app-catalog-filter
+            label="Buscar juego infantil"
+            placeholder="Ejemplo: Catan Junior"
+            (queryChange)="updateSearch($event)"
+        />
+
         <div class="contenedor-productos">
+            @if (matchesSearch('Catan Junior')) {
             <div class="card card-oferta">
                 <img src="/img/catan junior.png" alt="Catan Junior">
                 <h3>Catan Junior</h3>
@@ -27,7 +34,9 @@
                     <button type="button" (click)="agregarAlCarrito('Catan Junior')">Agregar al carrito</button>
                 </div>
             </div>
+            }
 
+            @if (matchesSearch('Dobble 31 Minutos')) {
             <div class="card">
                 <img src="/img/31 minutos.png" alt="31 Minutos">
                 <h3>Dobble 31 Minutos</h3>
@@ -38,7 +47,9 @@
                     <button type="button" (click)="agregarAlCarrito('31 Minutos')">Agregar al carrito</button>
                 </div>
             </div>
+            }
 
+            @if (matchesSearch('Serpientes y Escaleras')) {
             <div class="card">
                 <img src="/img/serpientes y escalera.png" alt="Serpientes y Escaleras">
                 <h3>Serpientes y Escaleras</h3>
@@ -49,5 +60,10 @@
                     <button type="button" (click)="agregarAlCarrito('Serpientes y Escaleras')">Agregar al carrito</button>
                 </div>
             </div>
+            }
+
+            @if (!matchesSearch('Catan Junior') && !matchesSearch('Dobble 31 Minutos') && !matchesSearch('Serpientes y Escaleras')) {
+                <p class="sin-resultados">No encontramos juegos infantiles con ese nombre.</p>
+            }
         </div>
     </section>

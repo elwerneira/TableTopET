@@ -1,0 +1,967 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Documentación TableTopET</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Documentación TableTopET</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Escribe para buscar"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Componentes</li>
+  <li class="breadcrumb-item"
+  >
+  MisCompras</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>Fichero</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/mis-compras/mis-compras.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Descripción</h3>
+    </p>
+    <p class="comment">
+        <p>Presenta el historial de compras perteneciente al usuario autenticado.</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implementa</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Meta datos</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-mis-compras</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="https://angular.io/api/router/RouterLink" target="_blank" >RouterLink</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./mis-compras.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./mis-compras.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Índice</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propiedades</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#auth" >auth</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#purchaseService" >purchaseService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#purchaseSuccess" >purchaseSuccess</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#router" >router</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Métodos</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#formatDate" >formatDate</a>
+                            </li>
+                            <li>
+                                <a href="#formatPrice" >formatPrice</a>
+                            </li>
+                            <li>
+                                <a href="#itemQuantity" >itemQuantity</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Métodos
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formatDate"></a>
+                    <span class="name">
+                        <span ><b>formatDate</b></span>
+                        <a href="#formatDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>formatDate(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="52"
+                                    class="link-to-prism">src/app/pages/mis-compras/mis-compras.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Convierte una fecha ISO al formato local de Chile.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parámetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nombre</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                                <td>Descripción</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Fecha almacenada en formato de texto.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Fecha y hora preparadas para la interfaz.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formatPrice"></a>
+                    <span class="name">
+                        <span ><b>formatPrice</b></span>
+                        <a href="#formatPrice"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>formatPrice(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="42"
+                                    class="link-to-prism">src/app/pages/mis-compras/mis-compras.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Formatea un monto utilizando la configuración regional chilena.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parámetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nombre</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                                <td>Descripción</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Monto que debe formatearse.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Precio preparado para la interfaz.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="itemQuantity"></a>
+                    <span class="name">
+                        <span ><b>itemQuantity</b></span>
+                        <a href="#itemQuantity"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>itemQuantity(items: literal type[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="65"
+                                    class="link-to-prism">src/app/pages/mis-compras/mis-compras.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Suma las unidades contenidas en el detalle de una compra.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parámetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nombre</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                                <td>Descripción</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>items</td>
+                                            <td>
+                                                        <code>literal type[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Elementos cuyo campo <code>cantidad</code> debe sumarse.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Cantidad total de unidades compradas.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="28"
+                                    class="link-to-prism">src/app/pages/mis-compras/mis-compras.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Protege la página y carga las compras asociadas al usuario actual.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Propiedades
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="auth"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>auth</b></span>
+                        <a href="#auth"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>inject(AuthService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="22" class="link-to-prism">src/app/pages/mis-compras/mis-compras.ts:22</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Servicio utilizado para comprobar la sesión activa.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="purchaseService"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>purchaseService</b></span>
+                        <a href="#purchaseService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>inject(PurchaseService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="16" class="link-to-prism">src/app/pages/mis-compras/mis-compras.ts:16</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Servicio de compras expuesto para construir el historial.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="purchaseSuccess"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>purchaseSuccess</b></span>
+                        <a href="#purchaseSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>inject(ActivatedRoute).snapshot.queryParamMap.get(&#x27;compra&#x27;) &#x3D;&#x3D;&#x3D; &#x27;exitosa&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="19" class="link-to-prism">src/app/pages/mis-compras/mis-compras.ts:19</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Indica si la página fue abierta después de confirmar una compra.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="router"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>router</b></span>
+                        <a href="#router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>inject(Router)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="25" class="link-to-prism">src/app/pages/mis-compras/mis-compras.ts:25</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Enrutador utilizado para proteger el historial.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, inject, OnInit } from &#x27;@angular/core&#x27;;
+import { ActivatedRoute, Router, RouterLink } from &#x27;@angular/router&#x27;;
+
+import { AuthService } from &#x27;../../core/services/auth.service&#x27;;
+import { PurchaseService } from &#x27;../../core/services/purchase.service&#x27;;
+
+/** Presenta el historial de compras perteneciente al usuario autenticado. */
+@Component({
+  selector: &#x27;app-mis-compras&#x27;,
+  imports: [RouterLink],
+  templateUrl: &#x27;./mis-compras.html&#x27;,
+  styleUrl: &#x27;./mis-compras.css&#x27;,
+})
+export class MisCompras implements OnInit {
+  /** Servicio de compras expuesto para construir el historial. */
+  readonly purchaseService &#x3D; inject(PurchaseService);
+
+  /** Indica si la página fue abierta después de confirmar una compra. */
+  readonly purchaseSuccess &#x3D; inject(ActivatedRoute).snapshot.queryParamMap.get(&#x27;compra&#x27;) &#x3D;&#x3D;&#x3D; &#x27;exitosa&#x27;;
+
+  /** Servicio utilizado para comprobar la sesión activa. */
+  private readonly auth &#x3D; inject(AuthService);
+
+  /** Enrutador utilizado para proteger el historial. */
+  private readonly router &#x3D; inject(Router);
+
+  /** Protege la página y carga las compras asociadas al usuario actual. */
+  ngOnInit(): void {
+    if (!this.auth.session()) {
+      void this.router.navigate([&#x27;/login&#x27;]);
+      return;
+    }
+    this.purchaseService.refresh();
+  }
+
+  /**
+   * Formatea un monto utilizando la configuración regional chilena.
+   *
+   * @param value Monto que debe formatearse.
+   * @returns Precio preparado para la interfaz.
+   */
+  formatPrice(value: number): string {
+    return &#x60;$${value.toLocaleString(&#x27;es-CL&#x27;)}&#x60;;
+  }
+
+  /**
+   * Convierte una fecha ISO al formato local de Chile.
+   *
+   * @param value Fecha almacenada en formato de texto.
+   * @returns Fecha y hora preparadas para la interfaz.
+   */
+  formatDate(value: string): string {
+    return new Date(value).toLocaleString(&#x27;es-CL&#x27;, {
+      dateStyle: &#x27;short&#x27;,
+      timeStyle: &#x27;short&#x27;,
+    });
+  }
+
+  /**
+   * Suma las unidades contenidas en el detalle de una compra.
+   *
+   * @param items Elementos cuyo campo &#x60;cantidad&#x60; debe sumarse.
+   * @returns Cantidad total de unidades compradas.
+   */
+  itemQuantity(items: { cantidad: number }[]): number {
+    return items.reduce((total, item) &#x3D;&gt; total + item.cantidad, 0);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">    &lt;main class&#x3D;&quot;formulario-seccion container-xxl&quot; id&#x3D;&quot;misComprasPagina&quot;&gt;
+        &lt;div class&#x3D;&quot;section-heading&quot;&gt;
+            &lt;span class&#x3D;&quot;eyebrow&quot;&gt;Historial&lt;/span&gt;
+            &lt;h2&gt;Mis compras&lt;/h2&gt;
+            &lt;p&gt;Aqui puedes revisar las compras confirmadas con tu cuenta.&lt;/p&gt;
+        &lt;/div&gt;
+
+        @if (purchaseSuccess) {
+        &lt;div class&#x3D;&quot;compras-feedback&quot; role&#x3D;&quot;status&quot; aria-live&#x3D;&quot;polite&quot;&gt;
+            &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;OK&lt;/span&gt;
+            &lt;div&gt;
+                &lt;strong&gt;Compra confirmada&lt;/strong&gt;
+                &lt;p&gt;Tu pedido fue registrado correctamente y ya puedes revisar su detalle.&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        }
+
+        @if (!purchaseService.purchases().length) {
+        &lt;div class&#x3D;&quot;carrito-vacio&quot;&gt;
+            &lt;h3&gt;Aun no tienes compras&lt;/h3&gt;
+            &lt;p&gt;Cuando finalices una compra desde el carrito, su detalle aparecera aqui.&lt;/p&gt;
+            &lt;a routerLink&#x3D;&quot;/&quot; fragment&#x3D;&quot;top&quot; class&#x3D;&quot;btn btn-primary&quot;&gt;Explorar juegos&lt;/a&gt;
+        &lt;/div&gt;
+        } @else {
+        &lt;div class&#x3D;&quot;compras-lista&quot;&gt;
+            @for (purchase of purchaseService.purchases(); track purchase.id) {
+            &lt;article class&#x3D;&quot;compra-card&quot;&gt;
+                &lt;div class&#x3D;&quot;compra-card-head&quot;&gt;
+                    &lt;div&gt;
+                        &lt;span class&#x3D;&quot;compra-orden&quot;&gt;Orden {{ purchase.id }}&lt;/span&gt;
+                        &lt;h3&gt;Compra realizada&lt;/h3&gt;
+                        &lt;p class&#x3D;&quot;compra-fecha&quot;&gt;{{ formatDate(purchase.fecha) }}&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;span class&#x3D;&quot;compra-estado&quot;&gt;{{ purchase.estado }}&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;compra-productos&quot;&gt;
+                    @for (item of purchase.items; track item.id) {
+                    &lt;div class&#x3D;&quot;compra-producto&quot;&gt;
+                        &lt;img [src]&#x3D;&quot;item.imagen&quot; [alt]&#x3D;&quot;item.nombre&quot; class&#x3D;&quot;compra-producto-imagen&quot;&gt;
+                        &lt;div class&#x3D;&quot;compra-producto-info&quot;&gt;
+                            &lt;span class&#x3D;&quot;compra-producto-categoria&quot;&gt;{{ item.categoria }}&lt;/span&gt;
+                            &lt;h4&gt;{{ item.nombre }}&lt;/h4&gt;
+                            &lt;span&gt;{{ item.cantidad }} unidades - {{ formatPrice(item.precio) }} c/u&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;strong class&#x3D;&quot;compra-producto-precio&quot;&gt;{{ formatPrice(item.precio * item.cantidad) }}&lt;/strong&gt;
+                    &lt;/div&gt;
+                    }
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;compra-card-total&quot;&gt;
+                    &lt;span&gt;Total - {{ itemQuantity(purchase.items) }} productos&lt;/span&gt;
+                    &lt;strong&gt;{{ formatPrice(purchase.total) }}&lt;/strong&gt;
+                &lt;/div&gt;
+            &lt;/article&gt;
+            }
+        &lt;/div&gt;
+        }
+    &lt;/main&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Leyenda</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Elemento Html</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Componente</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Elemento Html con directiva</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div>    <main class="formulario-seccion container-xxl" id="misComprasPagina">        <div class="section-heading">            <span class="eyebrow">Historial</span>            <h2>Mis compras</h2>            <p>Aqui puedes revisar las compras confirmadas con tu cuenta.</p>        </div>        @if (purchaseSuccess) {        <div class="compras-feedback" role="status" aria-live="polite">            <span aria-hidden="true">OK</span>            <div>                <strong>Compra confirmada</strong>                <p>Tu pedido fue registrado correctamente y ya puedes revisar su detalle.</p>            </div>        </div>        }        @if (!purchaseService.purchases().length) {        <div class="carrito-vacio">            <h3>Aun no tienes compras</h3>            <p>Cuando finalices una compra desde el carrito, su detalle aparecera aqui.</p>            <a routerLink="/" fragment="top" class="btn btn-primary">Explorar juegos</a>        </div>        } @else {        <div class="compras-lista">            @for (purchase of purchaseService.purchases(); track purchase.id) {            <article class="compra-card">                <div class="compra-card-head">                    <div>                        <span class="compra-orden">Orden {{ purchase.id }}</span>                        <h3>Compra realizada</h3>                        <p class="compra-fecha">{{ formatDate(purchase.fecha) }}</p>                    </div>                    <span class="compra-estado">{{ purchase.estado }}</span>                </div>                <div class="compra-productos">                    @for (item of purchase.items; track item.id) {                    <div class="compra-producto">                        <img [src]="item.imagen" [alt]="item.nombre" class="compra-producto-imagen">                        <div class="compra-producto-info">                            <span class="compra-producto-categoria">{{ item.categoria }}</span>                            <h4>{{ item.nombre }}</h4>                            <span>{{ item.cantidad }} unidades - {{ formatPrice(item.precio) }} c/u</span>                        </div>                        <strong class="compra-producto-precio">{{ formatPrice(item.precio * item.cantidad) }}</strong>                    </div>                    }                </div>                <div class="compra-card-total">                    <span>Total - {{ itemQuantity(purchase.items) }} productos</span>                    <strong>{{ formatPrice(purchase.total) }}</strong>                </div>            </article>            }        </div>        }    </main></div>'
+    var COMPONENTS = [{'name': 'Admin', 'selector': 'app-admin'},{'name': 'App', 'selector': 'app-root'},{'name': 'Carrito', 'selector': 'app-carrito'},{'name': 'CatalogFilter', 'selector': 'app-catalog-filter'},{'name': 'Estrategia', 'selector': 'app-estrategia'},{'name': 'Familiares', 'selector': 'app-familiares'},{'name': 'Fiesta', 'selector': 'app-fiesta'},{'name': 'Formulario', 'selector': 'app-formulario'},{'name': 'Infantiles', 'selector': 'app-infantiles'},{'name': 'Inicio', 'selector': 'app-inicio'},{'name': 'Login', 'selector': 'app-login'},{'name': 'MisCompras', 'selector': 'app-mis-compras'},{'name': 'Navbar', 'selector': 'app-navbar'},{'name': 'Perfil', 'selector': 'app-perfil'},{'name': 'Recuperar', 'selector': 'app-recuperar'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'MisCompras'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> comparación de resultados "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No hay resultados que coincidan "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'MisCompras.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

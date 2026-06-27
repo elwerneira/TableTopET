@@ -1,0 +1,979 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Documentación TableTopET</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Documentación TableTopET</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Escribe para buscar"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Componentes</li>
+  <li class="breadcrumb-item"
+  >
+  Navbar</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>Fichero</h3>
+</p>
+<p class="comment">
+    <code>src/app/shared/components/navbar/navbar.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Descripción</h3>
+    </p>
+    <p class="comment">
+        <p>Barra de navegación principal adaptada al estado de autenticación del usuario.</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Meta datos</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-navbar</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="https://angular.io/api/router/RouterLink" target="_blank" >RouterLink</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./navbar.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./navbar.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Índice</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propiedades</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#auth" >auth</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#categoriesOpen" >categoriesOpen</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#menuOpen" >menuOpen</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#router" >router</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Métodos</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#closeMenu" >closeMenu</a>
+                            </li>
+                            <li>
+                                <a href="#logout" >logout</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#onDocumentClick" >onDocumentClick</a>
+                            </li>
+                            <li>
+                                <a href="#toggleCategories" >toggleCategories</a>
+                            </li>
+                            <li>
+                                <a href="#toggleMenu" >toggleMenu</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Escuchadores de Host</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#document:click" >document:click</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    <h3>HostListeners</h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="document:click"></a>
+                    <span class="name">
+                        <span ><b>document:click</b></span>
+                        <a href="#document:click"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>document:click()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="60"
+                                    class="link-to-prism">src/app/shared/components/navbar/navbar.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Cierra el listado de categorías cuando se hace clic fuera del menú.</p>
+</div>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Métodos
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeMenu"></a>
+                    <span class="name">
+                        <span ><b>closeMenu</b></span>
+                        <a href="#closeMenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>closeMenu()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="27"
+                                    class="link-to-prism">src/app/shared/components/navbar/navbar.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Cierra el menú principal y el listado de categorías.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logout"></a>
+                    <span class="name">
+                        <span ><b>logout</b></span>
+                        <a href="#logout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>logout()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="52"
+                                    class="link-to-prism">src/app/shared/components/navbar/navbar.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Cierra la sesión, contrae el menú y navega a la página principal.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onDocumentClick"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>onDocumentClick</b></span>
+                        <a href="#onDocumentClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onDocumentClick()</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decoradores : </b>
+                    <br />
+                    <code>@HostListener(&#x27;document:click&#x27;)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="60"
+                                    class="link-to-prism">src/app/shared/components/navbar/navbar.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Cierra el listado de categorías cuando se hace clic fuera del menú.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleCategories"></a>
+                    <span class="name">
+                        <span ><b>toggleCategories</b></span>
+                        <a href="#toggleCategories"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleCategories(event: <a href="https://angular.io/api/router/Event" target="_blank">Event</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="45"
+                                    class="link-to-prism">src/app/shared/components/navbar/navbar.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Alterna el listado de categorías sin ejecutar la navegación del enlace.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parámetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nombre</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                                <td>Descripción</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                            <code><a href="https://angular.io/api/router/Event" target="_blank" >Event</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Evento originado al seleccionar el control de categorías.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleMenu"></a>
+                    <span class="name">
+                        <span ><b>toggleMenu</b></span>
+                        <a href="#toggleMenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleMenu()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="33"
+                                    class="link-to-prism">src/app/shared/components/navbar/navbar.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Alterna el estado visible del menú principal.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Propiedades
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="auth"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>auth</b></span>
+                        <a href="#auth"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>inject(AuthService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="15" class="link-to-prism">src/app/shared/components/navbar/navbar.ts:15</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Servicio de autenticación expuesto para adaptar las opciones del menú.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="categoriesOpen"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>categoriesOpen</b></span>
+                        <a href="#categoriesOpen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="21" class="link-to-prism">src/app/shared/components/navbar/navbar.ts:21</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Indica si el listado de categorías se encuentra desplegado.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="menuOpen"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>menuOpen</b></span>
+                        <a href="#menuOpen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="18" class="link-to-prism">src/app/shared/components/navbar/navbar.ts:18</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Indica si el menú móvil se encuentra desplegado.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="router"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>router</b></span>
+                        <a href="#router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>inject(Router)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="24" class="link-to-prism">src/app/shared/components/navbar/navbar.ts:24</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Enrutador utilizado después de cerrar la sesión.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, HostListener, inject, signal } from &#x27;@angular/core&#x27;;
+import { Router, RouterLink } from &#x27;@angular/router&#x27;;
+
+import { AuthService } from &#x27;../../../core/services/auth.service&#x27;;
+
+/** Barra de navegación principal adaptada al estado de autenticación del usuario. */
+@Component({
+  selector: &#x27;app-navbar&#x27;,
+  imports: [RouterLink],
+  templateUrl: &#x27;./navbar.html&#x27;,
+  styleUrl: &#x27;./navbar.css&#x27;,
+})
+export class Navbar {
+  /** Servicio de autenticación expuesto para adaptar las opciones del menú. */
+  readonly auth &#x3D; inject(AuthService);
+
+  /** Indica si el menú móvil se encuentra desplegado. */
+  readonly menuOpen &#x3D; signal(false);
+
+  /** Indica si el listado de categorías se encuentra desplegado. */
+  readonly categoriesOpen &#x3D; signal(false);
+
+  /** Enrutador utilizado después de cerrar la sesión. */
+  private readonly router &#x3D; inject(Router);
+
+  /** Cierra el menú principal y el listado de categorías. */
+  closeMenu(): void {
+    this.menuOpen.set(false);
+    this.categoriesOpen.set(false);
+  }
+
+  /** Alterna el estado visible del menú principal. */
+  toggleMenu(): void {
+    this.menuOpen.update((value) &#x3D;&gt; !value);
+    if (!this.menuOpen()) {
+      this.categoriesOpen.set(false);
+    }
+  }
+
+  /**
+   * Alterna el listado de categorías sin ejecutar la navegación del enlace.
+   *
+   * @param event Evento originado al seleccionar el control de categorías.
+   */
+  toggleCategories(event: Event): void {
+    event.preventDefault();
+    event.stopPropagation();
+    this.categoriesOpen.update((value) &#x3D;&gt; !value);
+  }
+
+  /** Cierra la sesión, contrae el menú y navega a la página principal. */
+  logout(): void {
+    this.auth.logout();
+    this.closeMenu();
+    void this.router.navigate([&#x27;/&#x27;]);
+  }
+
+  /** Cierra el listado de categorías cuando se hace clic fuera del menú. */
+  @HostListener(&#x27;document:click&#x27;)
+  onDocumentClick(): void {
+    this.categoriesOpen.set(false);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;header class&#x3D;&quot;navbar-header&quot; [class.nav-open]&#x3D;&quot;menuOpen()&quot;&gt;
+    &lt;div class&#x3D;&quot;logo&quot;&gt;
+        &lt;a routerLink&#x3D;&quot;/&quot; class&#x3D;&quot;logo-link&quot; (click)&#x3D;&quot;closeMenu()&quot;&gt;
+            &lt;img src&#x3D;&quot;/img/logo-navbar.png&quot; alt&#x3D;&quot;Logo de TableTop ET&quot; class&#x3D;&quot;logo-image&quot;&gt;
+        &lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;button
+        class&#x3D;&quot;nav-toggle&quot;
+        type&#x3D;&quot;button&quot;
+        [attr.aria-expanded]&#x3D;&quot;menuOpen()&quot;
+        aria-controls&#x3D;&quot;site-navigation&quot;
+        [attr.aria-label]&#x3D;&quot;menuOpen() ? &#x27;Cerrar menu&#x27; : &#x27;Abrir menu&#x27;&quot;
+        (click)&#x3D;&quot;toggleMenu()&quot;&gt;
+        &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+    &lt;/button&gt;
+
+    &lt;nav id&#x3D;&quot;site-navigation&quot;&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a routerLink&#x3D;&quot;/&quot; fragment&#x3D;&quot;inicio&quot; (click)&#x3D;&quot;closeMenu()&quot;&gt;Inicio&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a routerLink&#x3D;&quot;/&quot; fragment&#x3D;&quot;top&quot; (click)&#x3D;&quot;closeMenu()&quot;&gt;Top Ventas&lt;/a&gt;&lt;/li&gt;
+            &lt;li class&#x3D;&quot;dropdown&quot; [class.dropdown-open]&#x3D;&quot;categoriesOpen()&quot;&gt;
+                &lt;button
+                    type&#x3D;&quot;button&quot;
+                    class&#x3D;&quot;dropdown-trigger&quot;
+                    [attr.aria-expanded]&#x3D;&quot;categoriesOpen()&quot;
+                    aria-controls&#x3D;&quot;site-categories-menu&quot;
+                    (click)&#x3D;&quot;toggleCategories($event)&quot;&gt;
+                    Categorias
+                &lt;/button&gt;
+                &lt;ul id&#x3D;&quot;site-categories-menu&quot; class&#x3D;&quot;dropdown-menu&quot;&gt;
+                    &lt;li&gt;&lt;a routerLink&#x3D;&quot;/estrategia&quot; (click)&#x3D;&quot;closeMenu()&quot;&gt;Estrategia&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a routerLink&#x3D;&quot;/familiares&quot; (click)&#x3D;&quot;closeMenu()&quot;&gt;Familiares&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a routerLink&#x3D;&quot;/fiesta&quot; (click)&#x3D;&quot;closeMenu()&quot;&gt;Fiesta&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a routerLink&#x3D;&quot;/infantiles&quot; (click)&#x3D;&quot;closeMenu()&quot;&gt;Infantiles&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            @if (auth.session(); as session) {
+                @if (session.rol !&#x3D;&#x3D; &#x27;admin&#x27;) {
+                    &lt;li&gt;&lt;a routerLink&#x3D;&quot;/carrito&quot; (click)&#x3D;&quot;closeMenu()&quot;&gt;Carrito&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a routerLink&#x3D;&quot;/mis-compras&quot; (click)&#x3D;&quot;closeMenu()&quot;&gt;Mis compras&lt;/a&gt;&lt;/li&gt;
+                }
+                &lt;li&gt;&lt;a routerLink&#x3D;&quot;/perfil&quot; (click)&#x3D;&quot;closeMenu()&quot;&gt;Mi perfil&lt;/a&gt;&lt;/li&gt;
+                @if (session.rol &#x3D;&#x3D;&#x3D; &#x27;admin&#x27;) {
+                    &lt;li&gt;&lt;a routerLink&#x3D;&quot;/admin&quot; (click)&#x3D;&quot;closeMenu()&quot;&gt;Panel ADM&lt;/a&gt;&lt;/li&gt;
+                }
+                &lt;li&gt;&lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;nav-session&quot; (click)&#x3D;&quot;logout()&quot;&gt;Cerrar sesion&lt;/button&gt;&lt;/li&gt;
+            } @else {
+                &lt;li&gt;&lt;a routerLink&#x3D;&quot;/login&quot; (click)&#x3D;&quot;closeMenu()&quot;&gt;Iniciar sesion&lt;/a&gt;&lt;/li&gt;
+            }
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Leyenda</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Elemento Html</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Componente</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Elemento Html con directiva</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><header class="navbar-header" [class.nav-open]="menuOpen()">    <div class="logo">        <a routerLink="/" class="logo-link" (click)="closeMenu()">            <img src="/img/logo-navbar.png" alt="Logo de TableTop ET" class="logo-image">        </a>    </div>    <button        class="nav-toggle"        type="button"        [attr.aria-expanded]="menuOpen()"        aria-controls="site-navigation"        [attr.aria-label]="menuOpen() ? \'Cerrar menu\' : \'Abrir menu\'"        (click)="toggleMenu()">        <span></span><span></span><span></span>    </button>    <nav id="site-navigation">        <ul>            <li><a routerLink="/" fragment="inicio" (click)="closeMenu()">Inicio</a></li>            <li><a routerLink="/" fragment="top" (click)="closeMenu()">Top Ventas</a></li>            <li class="dropdown" [class.dropdown-open]="categoriesOpen()">                <button                    type="button"                    class="dropdown-trigger"                    [attr.aria-expanded]="categoriesOpen()"                    aria-controls="site-categories-menu"                    (click)="toggleCategories($event)">                    Categorias                </button>                <ul id="site-categories-menu" class="dropdown-menu">                    <li><a routerLink="/estrategia" (click)="closeMenu()">Estrategia</a></li>                    <li><a routerLink="/familiares" (click)="closeMenu()">Familiares</a></li>                    <li><a routerLink="/fiesta" (click)="closeMenu()">Fiesta</a></li>                    <li><a routerLink="/infantiles" (click)="closeMenu()">Infantiles</a></li>                </ul>            </li>            @if (auth.session(); as session) {                @if (session.rol !== \'admin\') {                    <li><a routerLink="/carrito" (click)="closeMenu()">Carrito</a></li>                    <li><a routerLink="/mis-compras" (click)="closeMenu()">Mis compras</a></li>                }                <li><a routerLink="/perfil" (click)="closeMenu()">Mi perfil</a></li>                @if (session.rol === \'admin\') {                    <li><a routerLink="/admin" (click)="closeMenu()">Panel ADM</a></li>                }                <li><button type="button" class="nav-session" (click)="logout()">Cerrar sesion</button></li>            } @else {                <li><a routerLink="/login" (click)="closeMenu()">Iniciar sesion</a></li>            }        </ul>    </nav></header></div>'
+    var COMPONENTS = [{'name': 'Admin', 'selector': 'app-admin'},{'name': 'App', 'selector': 'app-root'},{'name': 'Carrito', 'selector': 'app-carrito'},{'name': 'CatalogFilter', 'selector': 'app-catalog-filter'},{'name': 'Estrategia', 'selector': 'app-estrategia'},{'name': 'Familiares', 'selector': 'app-familiares'},{'name': 'Fiesta', 'selector': 'app-fiesta'},{'name': 'Formulario', 'selector': 'app-formulario'},{'name': 'Infantiles', 'selector': 'app-infantiles'},{'name': 'Inicio', 'selector': 'app-inicio'},{'name': 'Login', 'selector': 'app-login'},{'name': 'MisCompras', 'selector': 'app-mis-compras'},{'name': 'Navbar', 'selector': 'app-navbar'},{'name': 'Perfil', 'selector': 'app-perfil'},{'name': 'Recuperar', 'selector': 'app-recuperar'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'Navbar'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> comparación de resultados "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No hay resultados que coincidan "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'Navbar.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

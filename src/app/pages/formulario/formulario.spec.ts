@@ -63,4 +63,30 @@ describe('Formulario', () => {
 
     expect(control.valid).toBeTrue();
   });
+
+  it('debe rechazar usuarios menores de 13 años', () => {
+    const control = component.form.controls.fechaNacimiento;
+    const birthDate = new Date();
+
+    birthDate.setFullYear(birthDate.getFullYear() - 12);
+
+    const value = [
+      birthDate.getFullYear(),
+      String(birthDate.getMonth() + 1).padStart(2, '0'),
+      String(birthDate.getDate()).padStart(2, '0'),
+    ].join('-');
+
+    control.setValue(value);
+
+    expect(control.hasError('minimumAge')).toBeTrue();
+    expect(control.valid).toBeFalse();
+  });
+
+  it('debe marcar error cuando las contraseñas no coinciden', () => {
+    component.form.controls.password.setValue('Clave123');
+    component.form.controls.confirmarPassword.setValue('Otra123');
+
+    expect(component.form.hasError('passwordMismatch')).toBeTrue();
+    expect(component.form.valid).toBeFalse();
+  });
 });

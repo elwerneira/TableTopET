@@ -1,0 +1,2084 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Documentación TableTopET</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Documentación TableTopET</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Escribe para buscar"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Componentes</li>
+  <li class="breadcrumb-item"
+  >
+  Admin</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>Fichero</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/admin/admin.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Descripción</h3>
+    </p>
+    <p class="comment">
+        <p>Panel administrativo para consultar indicadores, gestionar usuarios y editar productos.</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implementa</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Meta datos</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-admin</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="https://angular.io/api/forms/ReactiveFormsModule" target="_blank" >ReactiveFormsModule</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./admin.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./admin.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Índice</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propiedades</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#activeView" >activeView</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#auth" >auth</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#catalog" >catalog</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#editingProductId" >editingProductId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#formBuilder" >formBuilder</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#productFeedback" >productFeedback</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#productForm" >productForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#router" >router</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#userFeedback" >userFeedback</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#users" >users</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Métodos</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#activeUsers" >activeUsers</a>
+                            </li>
+                            <li>
+                                <a href="#cancelEdit" >cancelEdit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#createProductId" >createProductId</a>
+                            </li>
+                            <li>
+                                <a href="#editProduct" >editProduct</a>
+                            </li>
+                            <li>
+                                <a href="#formatPrice" >formatPrice</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#normalizeImagePath" >normalizeImagePath</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#refreshUsers" >refreshUsers</a>
+                            </li>
+                            <li>
+                                <a href="#saveProduct" >saveProduct</a>
+                            </li>
+                            <li>
+                                <a href="#showView" >showView</a>
+                            </li>
+                            <li>
+                                <a href="#totalStock" >totalStock</a>
+                            </li>
+                            <li>
+                                <a href="#updateUser" >updateUser</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Métodos
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="activeUsers"></a>
+                    <span class="name">
+                        <span ><b>activeUsers</b></span>
+                        <a href="#activeUsers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>activeUsers()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="86"
+                                    class="link-to-prism">src/app/pages/admin/admin.ts:86</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Calcula la cantidad de cuentas que se encuentran activas.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Número de usuarios con estado activo.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cancelEdit"></a>
+                    <span class="name">
+                        <span ><b>cancelEdit</b></span>
+                        <a href="#cancelEdit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cancelEdit(clearFeedback: unknown)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="169"
+                                    class="link-to-prism">src/app/pages/admin/admin.ts:169</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Finaliza la edición y restablece el formulario de productos.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parámetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nombre</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                                <td>Valor por defecto</td>
+                                                <td>Descripción</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>clearFeedback</td>
+                                            <td>
+                                                        <code>unknown</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>true</code>
+                                            </td>
+
+                                            <td>
+                                                    <p>Indica si también debe limpiarse el mensaje mostrado.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createProductId"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>createProductId</b></span>
+                        <a href="#createProductId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createProductId(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="207"
+                                    class="link-to-prism">src/app/pages/admin/admin.ts:207</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Genera un identificador único y legible para un producto nuevo.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parámetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nombre</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                                <td>Descripción</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>name</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Nombre desde el cual se construirá el identificador.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Identificador que no se repite dentro del catálogo.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editProduct"></a>
+                    <span class="name">
+                        <span ><b>editProduct</b></span>
+                        <a href="#editProduct"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>editProduct(product: <a href="../interfaces/Product.html" target="_self">Product</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="117"
+                                    class="link-to-prism">src/app/pages/admin/admin.ts:117</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Carga un producto existente dentro del formulario de edición.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parámetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nombre</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                                <td>Descripción</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>product</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Product.html" target="_self" >Product</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Producto seleccionado desde el catálogo.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formatPrice"></a>
+                    <span class="name">
+                        <span ><b>formatPrice</b></span>
+                        <a href="#formatPrice"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>formatPrice(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="192"
+                                    class="link-to-prism">src/app/pages/admin/admin.ts:192</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Formatea un monto utilizando la configuración regional chilena.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parámetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nombre</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                                <td>Descripción</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Monto que debe formatearse.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Precio preparado para la interfaz.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="62"
+                                    class="link-to-prism">src/app/pages/admin/admin.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Comprueba el rol administrativo y carga los usuarios registrados.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="normalizeImagePath"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>normalizeImagePath</b></span>
+                        <a href="#normalizeImagePath"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>normalizeImagePath(path: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="227"
+                                    class="link-to-prism">src/app/pages/admin/admin.ts:227</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Normaliza una ruta de imagen y garantiza que comience con <code>/</code>.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parámetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nombre</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                                <td>Descripción</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>path</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Ruta ingresada en el formulario.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Ruta preparada para utilizarse en la aplicación.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refreshUsers"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>refreshUsers</b></span>
+                        <a href="#refreshUsers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>refreshUsers()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="197"
+                                    class="link-to-prism">src/app/pages/admin/admin.ts:197</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Vuelve a cargar desde autenticación la lista de usuarios registrados.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="saveProduct"></a>
+                    <span class="name">
+                        <span ><b>saveProduct</b></span>
+                        <a href="#saveProduct"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>saveProduct()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="133"
+                                    class="link-to-prism">src/app/pages/admin/admin.ts:133</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Valida y guarda un producto nuevo o los cambios de uno existente.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showView"></a>
+                    <span class="name">
+                        <span ><b>showView</b></span>
+                        <a href="#showView"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>showView(view: <a href="../miscellaneous/typealiases.html#AdminView" target="_self">AdminView</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="75"
+                                    class="link-to-prism">src/app/pages/admin/admin.ts:75</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Cambia la sección visible y limpia los mensajes anteriores.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parámetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nombre</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                                <td>Descripción</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>view</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/typealiases.html#AdminView" target="_self" >AdminView</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Sección administrativa que debe mostrarse.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="totalStock"></a>
+                    <span class="name">
+                        <span ><b>totalStock</b></span>
+                        <a href="#totalStock"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>totalStock()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="95"
+                                    class="link-to-prism">src/app/pages/admin/admin.ts:95</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Suma las unidades disponibles de todos los productos.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Stock total del catálogo.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateUser"></a>
+                    <span class="name">
+                        <span ><b>updateUser</b></span>
+                        <a href="#updateUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateUser(user: <a href="../interfaces/User.html" target="_self">User</a>, rol: <a href="../interfaces/User.html" target="_self">User</a>, estado: <a href="../interfaces/User.html" target="_self">User</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="106"
+                                    class="link-to-prism">src/app/pages/admin/admin.ts:106</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Actualiza el rol y estado de una cuenta registrada.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parámetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nombre</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                                <td>Descripción</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Usuario que debe modificarse.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>rol</td>
+                                            <td>
+                                                            <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Nuevo rol de la cuenta.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>estado</td>
+                                            <td>
+                                                            <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Nuevo estado de la cuenta.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Propiedades
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="activeView"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>activeView</b></span>
+                        <a href="#activeView"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>signal&lt;AdminView&gt;(&#x27;resumen&#x27;)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="26" class="link-to-prism">src/app/pages/admin/admin.ts:26</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Sección visible actualmente dentro del panel.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="auth"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>auth</b></span>
+                        <a href="#auth"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>inject(AuthService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="41" class="link-to-prism">src/app/pages/admin/admin.ts:41</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Servicio encargado de consultar y modificar usuarios.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="catalog"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>catalog</b></span>
+                        <a href="#catalog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>inject(CatalogService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="23" class="link-to-prism">src/app/pages/admin/admin.ts:23</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Catálogo expuesto para mostrar y actualizar productos.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editingProductId"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>editingProductId</b></span>
+                        <a href="#editingProductId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>signal&lt;string | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="38" class="link-to-prism">src/app/pages/admin/admin.ts:38</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Identificador del producto que se encuentra en edición.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formBuilder"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>formBuilder</b></span>
+                        <a href="#formBuilder"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>inject(FormBuilder)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="44" class="link-to-prism">src/app/pages/admin/admin.ts:44</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Constructor utilizado para definir el formulario reactivo.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="productFeedback"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>productFeedback</b></span>
+                        <a href="#productFeedback"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>signal(&#x27;&#x27;)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="35" class="link-to-prism">src/app/pages/admin/admin.ts:35</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Mensaje generado por las operaciones sobre productos.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="productForm"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>productForm</b></span>
+                        <a href="#productForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>this.formBuilder.nonNullable.group({
+    nombre: [&#x27;&#x27;, Validators.required],
+    categoria: [&#x27;&#x27;, Validators.required],
+    precio: [0, [Validators.required, Validators.min(1)]],
+    precioOriginal: [0, Validators.min(0)],
+    stock: [0, [Validators.required, Validators.min(0)]],
+    estado: [&#x27;activo&#x27; as Product[&#x27;estado&#x27;], Validators.required],
+    imagen: [&#x27;&#x27;, Validators.required],
+    oferta: [&#x27;&#x27;],
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="50" class="link-to-prism">src/app/pages/admin/admin.ts:50</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Formulario reactivo utilizado para crear o editar productos.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="router"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>router</b></span>
+                        <a href="#router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>inject(Router)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="47" class="link-to-prism">src/app/pages/admin/admin.ts:47</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Enrutador utilizado para proteger el acceso administrativo.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userFeedback"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>userFeedback</b></span>
+                        <a href="#userFeedback"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>signal(&#x27;&#x27;)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="32" class="link-to-prism">src/app/pages/admin/admin.ts:32</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Mensaje generado por las operaciones sobre usuarios.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="users"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>users</b></span>
+                        <a href="#users"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>signal&lt;User[]&gt;([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="29" class="link-to-prism">src/app/pages/admin/admin.ts:29</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Usuarios registrados que se presentan en la sección administrativa.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, inject, OnInit, signal } from &#x27;@angular/core&#x27;;
+import { FormBuilder, ReactiveFormsModule, Validators } from &#x27;@angular/forms&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+
+import { Product, User } from &#x27;../../core/models/store.models&#x27;;
+import { AuthService } from &#x27;../../core/services/auth.service&#x27;;
+import { CatalogService } from &#x27;../../core/services/catalog.service&#x27;;
+
+/** Secciones disponibles dentro del panel administrativo. */
+type AdminView &#x3D; &#x27;resumen&#x27; | &#x27;usuarios&#x27; | &#x27;productos&#x27;;
+
+/**
+ * Panel administrativo para consultar indicadores, gestionar usuarios y editar productos.
+ */
+@Component({
+  selector: &#x27;app-admin&#x27;,
+  imports: [ReactiveFormsModule],
+  templateUrl: &#x27;./admin.html&#x27;,
+  styleUrl: &#x27;./admin.css&#x27;,
+})
+export class Admin implements OnInit {
+  /** Catálogo expuesto para mostrar y actualizar productos. */
+  readonly catalog &#x3D; inject(CatalogService);
+
+  /** Sección visible actualmente dentro del panel. */
+  readonly activeView &#x3D; signal&lt;AdminView&gt;(&#x27;resumen&#x27;);
+
+  /** Usuarios registrados que se presentan en la sección administrativa. */
+  readonly users &#x3D; signal&lt;User[]&gt;([]);
+
+  /** Mensaje generado por las operaciones sobre usuarios. */
+  readonly userFeedback &#x3D; signal(&#x27;&#x27;);
+
+  /** Mensaje generado por las operaciones sobre productos. */
+  readonly productFeedback &#x3D; signal(&#x27;&#x27;);
+
+  /** Identificador del producto que se encuentra en edición. */
+  readonly editingProductId &#x3D; signal&lt;string | null&gt;(null);
+
+  /** Servicio encargado de consultar y modificar usuarios. */
+  private readonly auth &#x3D; inject(AuthService);
+
+  /** Constructor utilizado para definir el formulario reactivo. */
+  private readonly formBuilder &#x3D; inject(FormBuilder);
+
+  /** Enrutador utilizado para proteger el acceso administrativo. */
+  private readonly router &#x3D; inject(Router);
+
+  /** Formulario reactivo utilizado para crear o editar productos. */
+  readonly productForm &#x3D; this.formBuilder.nonNullable.group({
+    nombre: [&#x27;&#x27;, Validators.required],
+    categoria: [&#x27;&#x27;, Validators.required],
+    precio: [0, [Validators.required, Validators.min(1)]],
+    precioOriginal: [0, Validators.min(0)],
+    stock: [0, [Validators.required, Validators.min(0)]],
+    estado: [&#x27;activo&#x27; as Product[&#x27;estado&#x27;], Validators.required],
+    imagen: [&#x27;&#x27;, Validators.required],
+    oferta: [&#x27;&#x27;],
+  });
+
+  /** Comprueba el rol administrativo y carga los usuarios registrados. */
+  ngOnInit(): void {
+    if (this.auth.session()?.rol !&#x3D;&#x3D; &#x27;admin&#x27;) {
+      void this.router.navigate([&#x27;/login&#x27;]);
+      return;
+    }
+    this.refreshUsers();
+  }
+
+  /**
+   * Cambia la sección visible y limpia los mensajes anteriores.
+   *
+   * @param view Sección administrativa que debe mostrarse.
+   */
+  showView(view: AdminView): void {
+    this.activeView.set(view);
+    this.userFeedback.set(&#x27;&#x27;);
+    this.productFeedback.set(&#x27;&#x27;);
+  }
+
+  /**
+   * Calcula la cantidad de cuentas que se encuentran activas.
+   *
+   * @returns Número de usuarios con estado activo.
+   */
+  activeUsers(): number {
+    return this.users().filter(user &#x3D;&gt; user.estado &#x3D;&#x3D;&#x3D; &#x27;activo&#x27;).length;
+  }
+
+  /**
+   * Suma las unidades disponibles de todos los productos.
+   *
+   * @returns Stock total del catálogo.
+   */
+  totalStock(): number {
+    return this.catalog.products().reduce((total, product) &#x3D;&gt; total + product.stock, 0);
+  }
+
+  /**
+   * Actualiza el rol y estado de una cuenta registrada.
+   *
+   * @param user Usuario que debe modificarse.
+   * @param rol Nuevo rol de la cuenta.
+   * @param estado Nuevo estado de la cuenta.
+   */
+  updateUser(user: User, rol: User[&#x27;rol&#x27;], estado: User[&#x27;estado&#x27;]): void {
+    const result &#x3D; this.auth.updateUser(user.usuario, { rol, estado });
+    this.userFeedback.set(result.message);
+    this.refreshUsers();
+  }
+
+  /**
+   * Carga un producto existente dentro del formulario de edición.
+   *
+   * @param product Producto seleccionado desde el catálogo.
+   */
+  editProduct(product: Product): void {
+    this.editingProductId.set(product.id);
+    this.productFeedback.set(&#x27;&#x27;);
+    this.productForm.setValue({
+      nombre: product.nombre,
+      categoria: product.categoria,
+      precio: product.precio,
+      precioOriginal: product.precioOriginal ?? 0,
+      stock: product.stock,
+      estado: product.estado,
+      imagen: product.imagen,
+      oferta: product.oferta ?? &#x27;&#x27;,
+    });
+  }
+
+  /** Valida y guarda un producto nuevo o los cambios de uno existente. */
+  saveProduct(): void {
+    if (this.productForm.invalid) {
+      this.productForm.markAllAsTouched();
+      this.productFeedback.set(&#x27;Revisa los campos del producto antes de guardar.&#x27;);
+      return;
+    }
+
+    const value &#x3D; this.productForm.getRawValue();
+    const editingId &#x3D; this.editingProductId();
+    const product: Product &#x3D; {
+      id: editingId ?? this.createProductId(value.nombre),
+      nombre: value.nombre.trim(),
+      aliases: [value.nombre.trim()],
+      precio: value.precio,
+      imagen: this.normalizeImagePath(value.imagen),
+      categoria: value.categoria,
+      stock: value.stock,
+      estado: value.estado,
+      ...(value.precioOriginal &gt; 0 ? { precioOriginal: value.precioOriginal } : {}),
+      ...(value.oferta.trim() ? { oferta: value.oferta.trim() } : {}),
+    };
+
+    const products &#x3D; editingId
+      ? this.catalog.products().map(current &#x3D;&gt; current.id &#x3D;&#x3D;&#x3D; editingId ? product : current)
+      : [...this.catalog.products(), product];
+
+    this.catalog.save(products);
+    this.productFeedback.set(editingId ? &#x27;Producto actualizado correctamente.&#x27; : &#x27;Producto creado correctamente.&#x27;);
+    this.cancelEdit(false);
+  }
+
+  /**
+   * Finaliza la edición y restablece el formulario de productos.
+   *
+   * @param clearFeedback Indica si también debe limpiarse el mensaje mostrado.
+   */
+  cancelEdit(clearFeedback &#x3D; true): void {
+    this.editingProductId.set(null);
+    this.productForm.reset({
+      nombre: &#x27;&#x27;,
+      categoria: &#x27;&#x27;,
+      precio: 0,
+      precioOriginal: 0,
+      stock: 0,
+      estado: &#x27;activo&#x27;,
+      imagen: &#x27;&#x27;,
+      oferta: &#x27;&#x27;,
+    });
+    if (clearFeedback) {
+      this.productFeedback.set(&#x27;&#x27;);
+    }
+  }
+
+  /**
+   * Formatea un monto utilizando la configuración regional chilena.
+   *
+   * @param value Monto que debe formatearse.
+   * @returns Precio preparado para la interfaz.
+   */
+  formatPrice(value: number): string {
+    return &#x60;$${value.toLocaleString(&#x27;es-CL&#x27;)}&#x60;;
+  }
+
+  /** Vuelve a cargar desde autenticación la lista de usuarios registrados. */
+  private refreshUsers(): void {
+    this.users.set(this.auth.listUsers());
+  }
+
+  /**
+   * Genera un identificador único y legible para un producto nuevo.
+   *
+   * @param name Nombre desde el cual se construirá el identificador.
+   * @returns Identificador que no se repite dentro del catálogo.
+   */
+  private createProductId(name: string): string {
+    const base &#x3D; name.trim().toLowerCase()
+      .normalize(&#x27;NFD&#x27;)
+      .replace(/[\u0300-\u036f]/g, &#x27;&#x27;)
+      .replace(/[^a-z0-9]+/g, &#x27;-&#x27;)
+      .replace(/^-|-$/g, &#x27;&#x27;) || &#x27;producto&#x27;;
+    let id &#x3D; base;
+    let suffix &#x3D; 2;
+    while (this.catalog.products().some(product &#x3D;&gt; product.id &#x3D;&#x3D;&#x3D; id)) {
+      id &#x3D; &#x60;${base}-${suffix++}&#x60;;
+    }
+    return id;
+  }
+
+  /**
+   * Normaliza una ruta de imagen y garantiza que comience con &#x60;/&#x60;.
+   *
+   * @param path Ruta ingresada en el formulario.
+   * @returns Ruta preparada para utilizarse en la aplicación.
+   */
+  private normalizeImagePath(path: string): string {
+    const normalized &#x3D; path.trim().replace(/\\/g, &#x27;/&#x27;);
+    return normalized.startsWith(&#x27;/&#x27;) ? normalized : &#x60;/${normalized}&#x60;;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">    &lt;section class&#x3D;&quot;formulario-seccion admin-seccion container-xxl&quot;&gt;
+        &lt;div class&#x3D;&quot;formulario-card admin-card shadow-lg&quot;&gt;
+            &lt;div class&#x3D;&quot;section-heading section-heading-left&quot;&gt;
+                &lt;span class&#x3D;&quot;eyebrow&quot;&gt;Panel ADM&lt;/span&gt;
+                &lt;h2&gt;Administracion de TableTop ET&lt;/h2&gt;
+                &lt;p&gt;Este espacio esta reservado para la cuenta administradora y ahora te permite gestionar usuarios y clientes registrados.&lt;/p&gt;
+            &lt;/div&gt;
+
+            &lt;div class&#x3D;&quot;admin-shell&quot;&gt;
+                &lt;aside class&#x3D;&quot;admin-sidebar&quot; aria-label&#x3D;&quot;Secciones del panel&quot;&gt;
+                    &lt;span class&#x3D;&quot;admin-sidebar-titulo&quot;&gt;Gestion&lt;/span&gt;
+                    &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;admin-menu-opcion&quot; [class.activo]&#x3D;&quot;activeView() &#x3D;&#x3D;&#x3D; &#x27;resumen&#x27;&quot; [attr.aria-pressed]&#x3D;&quot;activeView() &#x3D;&#x3D;&#x3D; &#x27;resumen&#x27;&quot; (click)&#x3D;&quot;showView(&#x27;resumen&#x27;)&quot;&gt;
+                        &lt;span class&#x3D;&quot;admin-menu-indicador&quot;&gt;&lt;/span&gt;
+                        &lt;span&gt;&lt;strong&gt;Resumen&lt;/strong&gt;&lt;small&gt;Vista general&lt;/small&gt;&lt;/span&gt;
+                    &lt;/button&gt;
+                    &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;admin-menu-opcion&quot; [class.activo]&#x3D;&quot;activeView() &#x3D;&#x3D;&#x3D; &#x27;usuarios&#x27;&quot; [attr.aria-pressed]&#x3D;&quot;activeView() &#x3D;&#x3D;&#x3D; &#x27;usuarios&#x27;&quot; (click)&#x3D;&quot;showView(&#x27;usuarios&#x27;)&quot;&gt;
+                        &lt;span class&#x3D;&quot;admin-menu-indicador&quot;&gt;&lt;/span&gt;
+                        &lt;span&gt;&lt;strong&gt;Usuarios&lt;/strong&gt;&lt;small&gt;Cuentas y roles&lt;/small&gt;&lt;/span&gt;
+                    &lt;/button&gt;
+                    &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;admin-menu-opcion&quot; [class.activo]&#x3D;&quot;activeView() &#x3D;&#x3D;&#x3D; &#x27;productos&#x27;&quot; [attr.aria-pressed]&#x3D;&quot;activeView() &#x3D;&#x3D;&#x3D; &#x27;productos&#x27;&quot; (click)&#x3D;&quot;showView(&#x27;productos&#x27;)&quot;&gt;
+                        &lt;span class&#x3D;&quot;admin-menu-indicador&quot;&gt;&lt;/span&gt;
+                        &lt;span&gt;&lt;strong&gt;Productos&lt;/strong&gt;&lt;small&gt;Catalogo y stock&lt;/small&gt;&lt;/span&gt;
+                    &lt;/button&gt;
+                &lt;/aside&gt;
+
+                &lt;div class&#x3D;&quot;admin-contenido&quot;&gt;
+                    @if (activeView() &#x3D;&#x3D;&#x3D; &#x27;resumen&#x27;) {
+                    &lt;section class&#x3D;&quot;admin-vista activo&quot;&gt;
+                        &lt;div class&#x3D;&quot;section-heading section-heading-left admin-section-head&quot;&gt;
+                            &lt;span class&#x3D;&quot;eyebrow&quot;&gt;Resumen&lt;/span&gt;
+                            &lt;h3&gt;Estado general&lt;/h3&gt;
+                            &lt;p&gt;Consulta rapidamente la informacion principal antes de gestionar el sitio.&lt;/p&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class&#x3D;&quot;admin-resumen-grid&quot;&gt;
+                            &lt;div class&#x3D;&quot;admin-resumen-bloque admin-resumen-metricas&quot;&gt;
+                                &lt;h3&gt;Usuarios&lt;/h3&gt;
+                                &lt;div class&#x3D;&quot;admin-metricas-grid&quot;&gt;
+                                    &lt;div class&#x3D;&quot;admin-metrica&quot;&gt;
+                                        &lt;span&gt;Total&lt;/span&gt;
+                                        &lt;strong&gt;{{ users().length }}&lt;/strong&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class&#x3D;&quot;admin-metrica admin-metrica-activa&quot;&gt;
+                                        &lt;span&gt;Activas&lt;/span&gt;
+                                        &lt;strong&gt;{{ activeUsers() }}&lt;/strong&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+
+                            &lt;div class&#x3D;&quot;admin-resumen-bloque admin-resumen-metricas&quot;&gt;
+                                &lt;h3&gt;Inventario&lt;/h3&gt;
+                                &lt;div class&#x3D;&quot;admin-metricas-grid&quot;&gt;
+                                    &lt;div class&#x3D;&quot;admin-metrica&quot;&gt;
+                                        &lt;span&gt;Productos&lt;/span&gt;
+                                        &lt;strong&gt;{{ catalog.products().length }}&lt;/strong&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class&#x3D;&quot;admin-metrica admin-metrica-activa&quot;&gt;
+                                        &lt;span&gt;Stock total&lt;/span&gt;
+                                        &lt;strong&gt;{{ totalStock() }}&lt;/strong&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+
+                            &lt;div class&#x3D;&quot;admin-resumen-bloque admin-cuenta-resumen&quot;&gt;
+                                &lt;span class&#x3D;&quot;eyebrow&quot;&gt;Cuenta ADM&lt;/span&gt;
+                                &lt;h3&gt;Sesion administrativa&lt;/h3&gt;
+                                &lt;p class&#x3D;&quot;admin-resumen-texto&quot;&gt;Desde este panel puedes gestionar cuentas, roles, productos y disponibilidad.&lt;/p&gt;
+                                &lt;div class&#x3D;&quot;admin-credenciales&quot;&gt;
+                                    &lt;strong&gt;Usuario: admin&lt;/strong&gt;
+                                    &lt;span&gt;Correo: admin@tabletopet.cl&lt;/span&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/section&gt;
+                    }
+
+                    @if (activeView() &#x3D;&#x3D;&#x3D; &#x27;usuarios&#x27;) {
+                    &lt;section class&#x3D;&quot;admin-vista&quot;&gt;
+                        &lt;div class&#x3D;&quot;section-heading section-heading-left admin-section-head&quot;&gt;
+                            &lt;span class&#x3D;&quot;eyebrow&quot;&gt;Usuarios&lt;/span&gt;
+                            &lt;h3&gt;Mantenedor de usuarios y clientes&lt;/h3&gt;
+                            &lt;p&gt;Revisa cuentas, cambia su rol y bloquea o habilita el acceso al sitio.&lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;formulario-feedback&quot; aria-live&#x3D;&quot;polite&quot;&gt;{{ userFeedback() }}&lt;/div&gt;
+                        @if (!users().length) {
+                        &lt;div class&#x3D;&quot;admin-vacio&quot;&gt;
+                            &lt;h3&gt;No hay usuarios registrados&lt;/h3&gt;
+                            &lt;p&gt;Cuando existan cuentas en el sistema, apareceran aqui para administrarlas.&lt;/p&gt;
+                        &lt;/div&gt;
+                        } @else {
+                        &lt;div class&#x3D;&quot;admin-usuarios-lista&quot;&gt;
+                            @for (user of users(); track user.usuario) {
+                            &lt;article class&#x3D;&quot;admin-usuario-item&quot;&gt;
+                                &lt;div&gt;
+                                    &lt;span class&#x3D;&quot;eyebrow&quot;&gt;{{ user.rol }}&lt;/span&gt;
+                                    &lt;h4&gt;{{ user.nombre }}&lt;/h4&gt;
+                                    &lt;p&gt;{{ user.usuario }} · {{ user.correo }}&lt;/p&gt;
+                                &lt;/div&gt;
+                                @if (user.usuario &#x3D;&#x3D;&#x3D; &#x27;admin&#x27;) {
+                                &lt;strong class&#x3D;&quot;admin-cuenta-protegida&quot;&gt;Cuenta principal protegida&lt;/strong&gt;
+                                } @else {
+                                &lt;div class&#x3D;&quot;admin-usuario-controles&quot;&gt;
+                                    &lt;label&gt;
+                                        Rol
+                                        &lt;select #rol [value]&#x3D;&quot;user.rol&quot;&gt;
+                                            &lt;option value&#x3D;&quot;cliente&quot;&gt;Cliente&lt;/option&gt;
+                                            &lt;option value&#x3D;&quot;admin&quot;&gt;Administrador&lt;/option&gt;
+                                        &lt;/select&gt;
+                                    &lt;/label&gt;
+                                    &lt;label&gt;
+                                        Estado
+                                        &lt;select #estado [value]&#x3D;&quot;user.estado&quot;&gt;
+                                            &lt;option value&#x3D;&quot;activo&quot;&gt;Activo&lt;/option&gt;
+                                            &lt;option value&#x3D;&quot;bloqueado&quot;&gt;Bloqueado&lt;/option&gt;
+                                        &lt;/select&gt;
+                                    &lt;/label&gt;
+                                    &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;updateUser(user, $any(rol.value), $any(estado.value))&quot;&gt;Guardar cambios&lt;/button&gt;
+                                &lt;/div&gt;
+                                }
+                            &lt;/article&gt;
+                            }
+                        &lt;/div&gt;
+                        }
+                    &lt;/section&gt;
+                    }
+
+                    @if (activeView() &#x3D;&#x3D;&#x3D; &#x27;productos&#x27;) {
+                    &lt;section class&#x3D;&quot;admin-vista&quot;&gt;
+                        &lt;div class&#x3D;&quot;section-heading section-heading-left admin-section-head&quot;&gt;
+                            &lt;span class&#x3D;&quot;eyebrow&quot;&gt;Productos&lt;/span&gt;
+                            &lt;h3&gt;Mantenedor de productos e inventario&lt;/h3&gt;
+                            &lt;p&gt;Crea productos nuevos o actualiza sus precios, ofertas, stock y disponibilidad.&lt;/p&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class&#x3D;&quot;admin-productos-layout&quot;&gt;
+                            &lt;div class&#x3D;&quot;admin-producto-editor&quot;&gt;
+                                &lt;div class&#x3D;&quot;admin-bloque-titulo&quot;&gt;
+                                    &lt;span&gt;Editor&lt;/span&gt;
+                                    &lt;h4&gt;Datos del producto&lt;/h4&gt;
+                                &lt;/div&gt;
+                                &lt;form class&#x3D;&quot;formulario-registro admin-producto-form&quot; [formGroup]&#x3D;&quot;productForm&quot; (ngSubmit)&#x3D;&quot;saveProduct()&quot; novalidate&gt;
+                                    &lt;div&gt;
+                                        &lt;label for&#x3D;&quot;productoNombre&quot;&gt;Nombre&lt;/label&gt;
+                                        &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;productoNombre&quot; formControlName&#x3D;&quot;nombre&quot; placeholder&#x3D;&quot;Nombre del juego&quot;&gt;
+                                    &lt;/div&gt;
+                                    &lt;div&gt;
+                                        &lt;label for&#x3D;&quot;productoCategoria&quot;&gt;Categoria&lt;/label&gt;
+                                        &lt;select id&#x3D;&quot;productoCategoria&quot; formControlName&#x3D;&quot;categoria&quot;&gt;
+                                            &lt;option value&#x3D;&quot;&quot;&gt;Selecciona una categoria&lt;/option&gt;
+                                            &lt;option value&#x3D;&quot;Estrategia&quot;&gt;Estrategia&lt;/option&gt;
+                                            &lt;option value&#x3D;&quot;Familiares&quot;&gt;Familiares&lt;/option&gt;
+                                            &lt;option value&#x3D;&quot;Fiesta&quot;&gt;Fiesta&lt;/option&gt;
+                                            &lt;option value&#x3D;&quot;Infantiles&quot;&gt;Infantiles&lt;/option&gt;
+                                            &lt;option value&#x3D;&quot;Top ventas&quot;&gt;Top ventas&lt;/option&gt;
+                                        &lt;/select&gt;
+                                    &lt;/div&gt;
+                                    &lt;div&gt;
+                                        &lt;label for&#x3D;&quot;productoPrecio&quot;&gt;Precio actual&lt;/label&gt;
+                                        &lt;input type&#x3D;&quot;number&quot; id&#x3D;&quot;productoPrecio&quot; formControlName&#x3D;&quot;precio&quot; min&#x3D;&quot;1&quot;&gt;
+                                    &lt;/div&gt;
+                                    &lt;div&gt;
+                                        &lt;label for&#x3D;&quot;productoPrecioOriginal&quot;&gt;Precio original con oferta&lt;/label&gt;
+                                        &lt;input type&#x3D;&quot;number&quot; id&#x3D;&quot;productoPrecioOriginal&quot; formControlName&#x3D;&quot;precioOriginal&quot; min&#x3D;&quot;0&quot; placeholder&#x3D;&quot;Opcional&quot;&gt;
+                                    &lt;/div&gt;
+                                    &lt;div&gt;
+                                        &lt;label for&#x3D;&quot;productoStock&quot;&gt;Stock&lt;/label&gt;
+                                        &lt;input type&#x3D;&quot;number&quot; id&#x3D;&quot;productoStock&quot; formControlName&#x3D;&quot;stock&quot; min&#x3D;&quot;0&quot;&gt;
+                                    &lt;/div&gt;
+                                    &lt;div&gt;
+                                        &lt;label for&#x3D;&quot;productoEstado&quot;&gt;Estado&lt;/label&gt;
+                                        &lt;select id&#x3D;&quot;productoEstado&quot; formControlName&#x3D;&quot;estado&quot;&gt;
+                                            &lt;option value&#x3D;&quot;activo&quot;&gt;Activo&lt;/option&gt;
+                                            &lt;option value&#x3D;&quot;inactivo&quot;&gt;Inactivo&lt;/option&gt;
+                                        &lt;/select&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class&#x3D;&quot;admin-producto-campo-doble&quot;&gt;
+                                        &lt;label for&#x3D;&quot;productoImagen&quot;&gt;Ruta de imagen&lt;/label&gt;
+                                        &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;productoImagen&quot; formControlName&#x3D;&quot;imagen&quot; placeholder&#x3D;&quot;/img/juego.png&quot;&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class&#x3D;&quot;admin-producto-campo-doble&quot;&gt;
+                                        &lt;label for&#x3D;&quot;productoOferta&quot;&gt;Texto de oferta&lt;/label&gt;
+                                        &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;productoOferta&quot; formControlName&#x3D;&quot;oferta&quot; placeholder&#x3D;&quot;Ejemplo: Oferta 15% (opcional)&quot;&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class&#x3D;&quot;acciones-formulario admin-producto-acciones admin-producto-campo-ancho&quot;&gt;
+                                        &lt;button type&#x3D;&quot;submit&quot;&gt;{{ editingProductId() ? &#x27;Actualizar producto&#x27; : &#x27;Guardar producto&#x27; }}&lt;/button&gt;
+                                        @if (editingProductId()) {
+                                        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn-secondary&quot; (click)&#x3D;&quot;cancelEdit()&quot;&gt;Cancelar edicion&lt;/button&gt;
+                                        }
+                                    &lt;/div&gt;
+                                    &lt;div class&#x3D;&quot;formulario-feedback admin-producto-campo-ancho&quot; aria-live&#x3D;&quot;polite&quot;&gt;{{ productFeedback() }}&lt;/div&gt;
+                                &lt;/form&gt;
+                            &lt;/div&gt;
+
+                            &lt;div class&#x3D;&quot;admin-productos-listado&quot;&gt;
+                                &lt;div class&#x3D;&quot;admin-bloque-titulo&quot;&gt;
+                                    &lt;span&gt;Inventario&lt;/span&gt;
+                                    &lt;h4&gt;Productos registrados&lt;/h4&gt;
+                                &lt;/div&gt;
+                                &lt;div class&#x3D;&quot;admin-productos-lista&quot;&gt;
+                                    @for (product of catalog.products(); track product.id) {
+                                    &lt;article class&#x3D;&quot;admin-producto-item&quot;&gt;
+                                        &lt;img [src]&#x3D;&quot;product.imagen&quot; [alt]&#x3D;&quot;product.nombre&quot;&gt;
+                                        &lt;div&gt;
+                                            &lt;span class&#x3D;&quot;eyebrow&quot;&gt;{{ product.categoria }}&lt;/span&gt;
+                                            &lt;h4&gt;{{ product.nombre }}&lt;/h4&gt;
+                                            &lt;p&gt;{{ formatPrice(product.precio) }} · Stock {{ product.stock }} · {{ product.estado }}&lt;/p&gt;
+                                            &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;editProduct(product)&quot;&gt;Editar producto&lt;/button&gt;
+                                        &lt;/div&gt;
+                                    &lt;/article&gt;
+                                    }
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/section&gt;
+                    }
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Leyenda</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Elemento Html</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Componente</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Elemento Html con directiva</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div>    <section class="formulario-seccion admin-seccion container-xxl">        <div class="formulario-card admin-card shadow-lg">            <div class="section-heading section-heading-left">                <span class="eyebrow">Panel ADM</span>                <h2>Administracion de TableTop ET</h2>                <p>Este espacio esta reservado para la cuenta administradora y ahora te permite gestionar usuarios y clientes registrados.</p>            </div>            <div class="admin-shell">                <aside class="admin-sidebar" aria-label="Secciones del panel">                    <span class="admin-sidebar-titulo">Gestion</span>                    <button type="button" class="admin-menu-opcion" [class.activo]="activeView() === \'resumen\'" [attr.aria-pressed]="activeView() === \'resumen\'" (click)="showView(\'resumen\')">                        <span class="admin-menu-indicador"></span>                        <span><strong>Resumen</strong><small>Vista general</small></span>                    </button>                    <button type="button" class="admin-menu-opcion" [class.activo]="activeView() === \'usuarios\'" [attr.aria-pressed]="activeView() === \'usuarios\'" (click)="showView(\'usuarios\')">                        <span class="admin-menu-indicador"></span>                        <span><strong>Usuarios</strong><small>Cuentas y roles</small></span>                    </button>                    <button type="button" class="admin-menu-opcion" [class.activo]="activeView() === \'productos\'" [attr.aria-pressed]="activeView() === \'productos\'" (click)="showView(\'productos\')">                        <span class="admin-menu-indicador"></span>                        <span><strong>Productos</strong><small>Catalogo y stock</small></span>                    </button>                </aside>                <div class="admin-contenido">                    @if (activeView() === \'resumen\') {                    <section class="admin-vista activo">                        <div class="section-heading section-heading-left admin-section-head">                            <span class="eyebrow">Resumen</span>                            <h3>Estado general</h3>                            <p>Consulta rapidamente la informacion principal antes de gestionar el sitio.</p>                        </div>                        <div class="admin-resumen-grid">                            <div class="admin-resumen-bloque admin-resumen-metricas">                                <h3>Usuarios</h3>                                <div class="admin-metricas-grid">                                    <div class="admin-metrica">                                        <span>Total</span>                                        <strong>{{ users().length }}</strong>                                    </div>                                    <div class="admin-metrica admin-metrica-activa">                                        <span>Activas</span>                                        <strong>{{ activeUsers() }}</strong>                                    </div>                                </div>                            </div>                            <div class="admin-resumen-bloque admin-resumen-metricas">                                <h3>Inventario</h3>                                <div class="admin-metricas-grid">                                    <div class="admin-metrica">                                        <span>Productos</span>                                        <strong>{{ catalog.products().length }}</strong>                                    </div>                                    <div class="admin-metrica admin-metrica-activa">                                        <span>Stock total</span>                                        <strong>{{ totalStock() }}</strong>                                    </div>                                </div>                            </div>                            <div class="admin-resumen-bloque admin-cuenta-resumen">                                <span class="eyebrow">Cuenta ADM</span>                                <h3>Sesion administrativa</h3>                                <p class="admin-resumen-texto">Desde este panel puedes gestionar cuentas, roles, productos y disponibilidad.</p>                                <div class="admin-credenciales">                                    <strong>Usuario: admin</strong>                                    <span>Correo: admin@tabletopet.cl</span>                                </div>                            </div>                        </div>                    </section>                    }                    @if (activeView() === \'usuarios\') {                    <section class="admin-vista">                        <div class="section-heading section-heading-left admin-section-head">                            <span class="eyebrow">Usuarios</span>                            <h3>Mantenedor de usuarios y clientes</h3>                            <p>Revisa cuentas, cambia su rol y bloquea o habilita el acceso al sitio.</p>                        </div>                        <div class="formulario-feedback" aria-live="polite">{{ userFeedback() }}</div>                        @if (!users().length) {                        <div class="admin-vacio">                            <h3>No hay usuarios registrados</h3>                            <p>Cuando existan cuentas en el sistema, apareceran aqui para administrarlas.</p>                        </div>                        } @else {                        <div class="admin-usuarios-lista">                            @for (user of users(); track user.usuario) {                            <article class="admin-usuario-item">                                <div>                                    <span class="eyebrow">{{ user.rol }}</span>                                    <h4>{{ user.nombre }}</h4>                                    <p>{{ user.usuario }} · {{ user.correo }}</p>                                </div>                                @if (user.usuario === \'admin\') {                                <strong class="admin-cuenta-protegida">Cuenta principal protegida</strong>                                } @else {                                <div class="admin-usuario-controles">                                    <label>                                        Rol                                        <select #rol [value]="user.rol">                                            <option value="cliente">Cliente</option>                                            <option value="admin">Administrador</option>                                        </select>                                    </label>                                    <label>                                        Estado                                        <select #estado [value]="user.estado">                                            <option value="activo">Activo</option>                                            <option value="bloqueado">Bloqueado</option>                                        </select>                                    </label>                                    <button type="button" (click)="updateUser(user, $any(rol.value), $any(estado.value))">Guardar cambios</button>                                </div>                                }                            </article>                            }                        </div>                        }                    </section>                    }                    @if (activeView() === \'productos\') {                    <section class="admin-vista">                        <div class="section-heading section-heading-left admin-section-head">                            <span class="eyebrow">Productos</span>                            <h3>Mantenedor de productos e inventario</h3>                            <p>Crea productos nuevos o actualiza sus precios, ofertas, stock y disponibilidad.</p>                        </div>                        <div class="admin-productos-layout">                            <div class="admin-producto-editor">                                <div class="admin-bloque-titulo">                                    <span>Editor</span>                                    <h4>Datos del producto</h4>                                </div>                                <form class="formulario-registro admin-producto-form" [formGroup]="productForm" (ngSubmit)="saveProduct()" novalidate>                                    <div>                                        <label for="productoNombre">Nombre</label>                                        <input type="text" id="productoNombre" formControlName="nombre" placeholder="Nombre del juego">                                    </div>                                    <div>                                        <label for="productoCategoria">Categoria</label>                                        <select id="productoCategoria" formControlName="categoria">                                            <option value="">Selecciona una categoria</option>                                            <option value="Estrategia">Estrategia</option>                                            <option value="Familiares">Familiares</option>                                            <option value="Fiesta">Fiesta</option>                                            <option value="Infantiles">Infantiles</option>                                            <option value="Top ventas">Top ventas</option>                                        </select>                                    </div>                                    <div>                                        <label for="productoPrecio">Precio actual</label>                                        <input type="number" id="productoPrecio" formControlName="precio" min="1">                                    </div>                                    <div>                                        <label for="productoPrecioOriginal">Precio original con oferta</label>                                        <input type="number" id="productoPrecioOriginal" formControlName="precioOriginal" min="0" placeholder="Opcional">                                    </div>                                    <div>                                        <label for="productoStock">Stock</label>                                        <input type="number" id="productoStock" formControlName="stock" min="0">                                    </div>                                    <div>                                        <label for="productoEstado">Estado</label>                                        <select id="productoEstado" formControlName="estado">                                            <option value="activo">Activo</option>                                            <option value="inactivo">Inactivo</option>                                        </select>                                    </div>                                    <div class="admin-producto-campo-doble">                                        <label for="productoImagen">Ruta de imagen</label>                                        <input type="text" id="productoImagen" formControlName="imagen" placeholder="/img/juego.png">                                    </div>                                    <div class="admin-producto-campo-doble">                                        <label for="productoOferta">Texto de oferta</label>                                        <input type="text" id="productoOferta" formControlName="oferta" placeholder="Ejemplo: Oferta 15% (opcional)">                                    </div>                                    <div class="acciones-formulario admin-producto-acciones admin-producto-campo-ancho">                                        <button type="submit">{{ editingProductId() ? \'Actualizar producto\' : \'Guardar producto\' }}</button>                                        @if (editingProductId()) {                                        <button type="button" class="btn-secondary" (click)="cancelEdit()">Cancelar edicion</button>                                        }                                    </div>                                    <div class="formulario-feedback admin-producto-campo-ancho" aria-live="polite">{{ productFeedback() }}</div>                                </form>                            </div>                            <div class="admin-productos-listado">                                <div class="admin-bloque-titulo">                                    <span>Inventario</span>                                    <h4>Productos registrados</h4>                                </div>                                <div class="admin-productos-lista">                                    @for (product of catalog.products(); track product.id) {                                    <article class="admin-producto-item">                                        <img [src]="product.imagen" [alt]="product.nombre">                                        <div>                                            <span class="eyebrow">{{ product.categoria }}</span>                                            <h4>{{ product.nombre }}</h4>                                            <p>{{ formatPrice(product.precio) }} · Stock {{ product.stock }} · {{ product.estado }}</p>                                            <button type="button" (click)="editProduct(product)">Editar producto</button>                                        </div>                                    </article>                                    }                                </div>                            </div>                        </div>                    </section>                    }                </div>            </div>        </div>    </section></div>'
+    var COMPONENTS = [{'name': 'Admin', 'selector': 'app-admin'},{'name': 'App', 'selector': 'app-root'},{'name': 'Carrito', 'selector': 'app-carrito'},{'name': 'CatalogFilter', 'selector': 'app-catalog-filter'},{'name': 'Estrategia', 'selector': 'app-estrategia'},{'name': 'Familiares', 'selector': 'app-familiares'},{'name': 'Fiesta', 'selector': 'app-fiesta'},{'name': 'Formulario', 'selector': 'app-formulario'},{'name': 'Infantiles', 'selector': 'app-infantiles'},{'name': 'Inicio', 'selector': 'app-inicio'},{'name': 'Login', 'selector': 'app-login'},{'name': 'MisCompras', 'selector': 'app-mis-compras'},{'name': 'Navbar', 'selector': 'app-navbar'},{'name': 'Perfil', 'selector': 'app-perfil'},{'name': 'Recuperar', 'selector': 'app-recuperar'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'Admin'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> comparación de resultados "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No hay resultados que coincidan "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'Admin.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

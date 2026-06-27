@@ -3,8 +3,13 @@ import { inject, Injectable, signal } from '@angular/core';
 import { SessionUser, StoreActionResult, User } from '../models/store.models';
 import { BrowserStorageService } from './browser-storage.service';
 
+/** Clave utilizada para conservar la sesión en el navegador. */
 const STORAGE_SESSION_KEY = 'tabletop_session';
+
+/** Clave utilizada para conservar las cuentas registradas. */
 const STORAGE_USERS_KEY = 'tabletop_users';
+
+/** Cuenta administrativa que debe existir al inicializar la aplicación. */
 const ADMIN_DEFAULT: User = {
   nombre: 'Administrador',
   usuario: 'admin',
@@ -14,19 +19,37 @@ const ADMIN_DEFAULT: User = {
   estado: 'activo',
 };
 
+/**
+ * Servicio responsable de la autenticación y administración básica de usuarios.
+ *
+ * Mantiene la sesión activa, registra nuevos clientes, valida inicios de sesión,
+ * permite recuperar contraseñas y asegura la existencia de una cuenta
+ * administradora por defecto.
+ */
 @Injectable({ providedIn: 'root' })
 export class AuthService {
+  /** Acceso seguro al almacenamiento del navegador. */
   private readonly storage = inject(BrowserStorageService);
+
+  /** Estado interno que conserva los datos de la sesión actual. */
   private readonly sessionState = signal<SessionUser | null>(
     this.storage.readSession<SessionUser | null>(STORAGE_SESSION_KEY, null),
   );
 
+  /** Sesión activa expuesta como señal de solo lectura. */
   readonly session = this.sessionState.asReadonly();
 
+  /** Inicializa el servicio y garantiza que exista la cuenta administradora. */
   constructor() {
     this.ensureAdmin();
   }
 
+  /**
+   * Registra un usuario cliente y deja su sesión iniciada si el usuario o correo no existen.
+   *
+   * @param user Datos del usuario sin rol ni estado, ya que esos valores se asignan automáticamente.
+   * @returns Resultado de la operación con mensaje para mostrar en pantalla.
+   */
   register(user: Omit<User, 'rol' | 'estado'>): StoreActionResult {
     const users = this.users();
     if (this.findUser(user.usuario, users) || this.findUser(user.correo, users)) {
@@ -39,6 +62,13 @@ export class AuthService {
     return { ok: true, message: 'Cuenta registrada e inicio de sesion realizado correctamente.' };
   }
 
+  /**
+   * Inicia sesión usando usuario o correo junto con la contraseña.
+   *
+   * @param identifier Usuario o correo electrónico ingresado.
+   * @param password Contraseña ingresada.
+   * @returns Resultado de la operación con mensaje para el usuario.
+   */
   login(identifier: string, password: string): StoreActionResult {
     const user = this.findUser(identifier);
     if (!user || user.password !== password) {
@@ -52,6 +82,13 @@ export class AuthService {
     return { ok: true, message: 'Sesion iniciada correctamente.' };
   }
 
+  /**
+   * Actualiza la contraseña de una cuenta existente.
+   *
+   * @param identifier Usuario o correo asociado a la cuenta.
+   * @param password Nueva contraseña.
+   * @returns Resultado de la operación.
+   */
   updatePassword(identifier: string, password: string): StoreActionResult {
     const users = this.users();
     const index = users.findIndex(user => this.matches(user, identifier));
@@ -64,10 +101,22 @@ export class AuthService {
     return { ok: true, message: 'Contrasena actualizada correctamente. Ya puedes iniciar sesion.' };
   }
 
+  /**
+   * Obtiene el listado completo de usuarios registrados.
+   *
+   * @returns Arreglo de usuarios almacenados localmente.
+   */
   listUsers(): User[] {
     return this.users();
   }
 
+  /**
+   * Modifica el rol o estado de un usuario desde el panel de administración.
+   *
+   * @param identifier Usuario o correo de la cuenta a modificar.
+   * @param changes Nuevos valores de rol y estado.
+   * @returns Resultado de la operación.
+   */
   updateUser(identifier: string, changes: Pick<User, 'rol' | 'estado'>): StoreActionResult {
     const users = this.users();
     const index = users.findIndex(user => this.matches(user, identifier));
@@ -83,42 +132,91 @@ export class AuthService {
     return { ok: true, message: 'Usuario actualizado correctamente.' };
   }
 
+  /**
+   * Busca un usuario por nombre de usuario o correo electrónico.
+   *
+   * @param identifier Usuario o correo a comparar.
+   * @param users Listado opcional donde realizar la búsqueda.
+   * @returns Usuario encontrado o undefined si no existe.
+   */
   findUser(identifier: string, users = this.users()): User | undefined {
     return users.find(user => this.matches(user, identifier));
   }
 
+  /**
+   * Guarda una sesión activa en memoria y almacenamiento de sesión.
+   *
+   * @param user Usuario reducido utilizado para representar la sesión.
+   */
   setSession(user: SessionUser): void {
     this.storage.writeSession(STORAGE_SESSION_KEY, user);
     this.sessionState.set(user);
   }
 
+  /**
+   * Cierra la sesión actual y elimina su registro del almacenamiento de sesión.
+   */
   logout(): void {
     this.storage.removeSession(STORAGE_SESSION_KEY);
     this.sessionState.set(null);
   }
 
+  /**
+   * Entrega una clave normalizada del usuario autenticado para asociar datos del carrito o compras.
+   *
+   * @returns Clave del usuario autenticado o null si no hay sesión activa.
+   */
   userKey(): string | null {
     const session = this.sessionState();
     return session ? this.normalize(session.usuario || session.correo) : null;
   }
 
+  /**
+   * Normaliza textos para comparar usuarios y correos sin distinguir mayúsculas.
+   *
+   * @param value Texto que debe normalizarse.
+   * @returns Texto sin espacios exteriores y convertido a minúsculas.
+   */
   private normalize(value: string): string {
     return value.trim().toLowerCase();
   }
 
+  /**
+   * Lee la colección de usuarios almacenada localmente.
+   *
+   * @returns Usuarios registrados o un arreglo vacío.
+   */
   private users(): User[] {
     return this.storage.readLocal<User[]>(STORAGE_USERS_KEY, []);
   }
 
+  /**
+   * Guarda la colección completa de usuarios.
+   *
+   * @param users Usuarios que deben persistirse.
+   */
   private saveUsers(users: User[]): void {
     this.storage.writeLocal(STORAGE_USERS_KEY, users);
   }
 
+  /**
+   * Comprueba si un usuario coincide con un nombre de usuario o correo.
+   *
+   * @param user Usuario que será comparado.
+   * @param identifier Nombre de usuario o correo buscado.
+   * @returns `true` cuando existe coincidencia.
+   */
   private matches(user: User, identifier: string): boolean {
     const normalized = this.normalize(identifier);
     return this.normalize(user.usuario) === normalized || this.normalize(user.correo) === normalized;
   }
 
+  /**
+   * Extrae los datos necesarios para representar una sesión.
+   *
+   * @param user Usuario autenticado.
+   * @returns Datos públicos que se conservarán en la sesión.
+   */
   private toSession(user: User): SessionUser {
     return {
       nombre: user.nombre,
@@ -128,6 +226,7 @@ export class AuthService {
     };
   }
 
+  /** Crea o restablece la cuenta administradora principal del sistema. */
   private ensureAdmin(): void {
     const users = this.users();
     const index = users.findIndex(user => this.matches(user, ADMIN_DEFAULT.usuario));

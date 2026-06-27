@@ -13,19 +13,19 @@ const app = express();
 const angularApp = new AngularNodeAppEngine();
 
 /**
- * Example Express Rest API endpoints can be defined here.
- * Uncomment and define endpoints as necessary.
+ * En esta sección se pueden definir endpoints de una API REST con Express.
+ * Se debe descomentar y completar cada endpoint según las necesidades del proyecto.
  *
- * Example:
+ * Ejemplo:
  * ```ts
  * app.get('/api/{*splat}', (req, res) => {
- *   // Handle API request
+ *   // Procesar la solicitud de la API
  * });
  * ```
  */
 
 /**
- * Serve static files from /browser
+ * Publica los archivos estáticos generados en la carpeta `/browser`.
  */
 app.use(
   express.static(browserDistFolder, {
@@ -36,7 +36,7 @@ app.use(
 );
 
 /**
- * Handle all other requests by rendering the Angular application.
+ * Procesa las demás solicitudes mediante el renderizado de la aplicación Angular.
  */
 app.use((req, res, next) => {
   angularApp
@@ -48,8 +48,10 @@ app.use((req, res, next) => {
 });
 
 /**
- * Start the server if this module is the main entry point, or it is ran via PM2.
- * The server listens on the port defined by the `PORT` environment variable, or defaults to 4000.
+ * Inicia el servidor cuando este módulo es el punto de entrada principal o se ejecuta mediante PM2.
+ *
+ * Utiliza el puerto definido en la variable de entorno `PORT` o el puerto 4000
+ * cuando la variable no está configurada.
  */
 if (isMainModule(import.meta.url) || process.env['pm_id']) {
   const port = process.env['PORT'] || 4000;
@@ -58,11 +60,12 @@ if (isMainModule(import.meta.url) || process.env['pm_id']) {
       throw error;
     }
 
-    console.log(`Node Express server listening on http://localhost:${port}`);
+    console.log(`Servidor Node Express disponible en http://localhost:${port}`);
   });
 }
 
 /**
- * Request handler used by the Angular CLI (for dev-server and during build) or Firebase Cloud Functions.
+ * Controlador de solicitudes utilizado por Angular CLI durante el desarrollo,
+ * la compilación o una ejecución mediante Firebase Cloud Functions.
  */
 export const reqHandler = createNodeRequestHandler(app);

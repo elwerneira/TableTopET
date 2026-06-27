@@ -1,0 +1,11 @@
+<div class="catalog-filter">
+  <label for="catalog-search">{{ label }}</label>
+  <input
+    id="catalog-search"
+    name="catalogSearch"
+    type="search"
+    [(ngModel)]="query"
+    (ngModelChange)="notifyChange($event)"
+    [placeholder]="placeholder"
+  >
+</div>
