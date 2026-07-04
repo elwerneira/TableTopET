@@ -1,0 +1,53 @@
+<section class="page-hero container-fluid">
+  <div class="hero-content">
+    <h2>Categoría TCG</h2>
+    <p>Cartas coleccionables, mazos iniciales y productos para comenzar o ampliar tu colección.</p>
+    <a class="hero-link" routerLink="/" fragment="top">Ver top ventas</a>
+  </div>
+</section>
+
+<section class="productos container-xxl">
+  <div class="section-heading section-heading-left">
+    <span class="eyebrow">Categoría</span>
+    <h2>Trading Card Games</h2>
+    <p>Opciones para descubrir distintos universos, construir mazos y desafiar a otros jugadores.</p>
+  </div>
+
+  <div class="contenedor-productos">
+    <div class="card card-oferta">
+      <img src="/img/pokemon-tcg-1.jpg" alt="Producto Pokémon TCG">
+      <h3>Pokémon TCG -  Collector Bundle (Spring 2022)</h3>
+      <p>Este Collector Bundle (Spring 2022) contiene más de una docena de golosinas especiales de Pokémon, incluidas muchas que no se encuentran en ningún otro lugar.</p>
+      <div class="estado-descuento">Oferta 10%</div>
+      <div class="card-acciones">
+        <div class="precio-contenedor">
+          <span class="precio-original">$35.990</span>
+          <span class="precio-oferta">$28.990</span>
+        </div>
+        <button type="button" (click)="agregarAlCarrito('Pokemon TCG Coleccion Inicial')">Agregar al carrito</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="/img/pokemon-tcg-2.jpg" alt="Producto Magic The Gathering">
+      <h3>Pokémon TCG - Scarlet & Violet: Journey Together </h3>
+      <p>Con profunda confianza y una guía constante, los Entrenadores ayudan a sacar lo mejor de sus Pokémon.</p>
+      <div class="estado-descuento estado-sin-descuento">Sin descuentos</div>
+      <div class="card-acciones">
+        <span>$59.990</span>
+        <button type="button" (click)="agregarAlCarrito('Magic Kit de Inicio')">Agregar al carrito</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="/img/pokemon-tcg-3.jpg" alt="Producto Yu-Gi-Oh TCG">
+      <h3>Pokémon - Mega Battle Deck - Mega Diancie</h3>
+      <p>¡Es hora de una megabatalla! Invoca a Mega Diancie ex y deslumbra a tus oponentes con tu habilidad.</p>
+      <div class="estado-descuento estado-sin-descuento">Sin descuentos</div>
+      <div class="card-acciones">
+        <span>$34.990</span>
+        <button type="button" (click)="agregarAlCarrito('Yu-Gi-Oh Starter Deck')">Agregar al carrito</button>
+      </div>
+    </div>
+  </div>
+</section>

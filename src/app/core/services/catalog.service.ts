@@ -67,7 +67,16 @@ export class CatalogService {
    */
   private load(): Product[] {
     const stored = this.storage.readLocal<Product[]>(STORAGE_PRODUCTS_KEY, []);
-    return stored.length ? stored : PRODUCT_CATALOG.map(product => ({ ...product }));
+    if (!stored.length) {
+      return PRODUCT_CATALOG.map(product => ({ ...product }));
+    }
+
+    const storedIds = new Set(stored.map(product => product.id));
+    const newProducts = PRODUCT_CATALOG
+      .filter(product => !storedIds.has(product.id))
+      .map(product => ({ ...product }));
+
+    return [...stored, ...newProducts];
   }
 
   /**

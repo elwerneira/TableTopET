@@ -107,7 +107,7 @@
   <li class="breadcrumb-item">Componentes</li>
   <li class="breadcrumb-item"
   >
-  Familiares</li>
+  Tcg</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -134,7 +134,7 @@
     <h3>Fichero</h3>
 </p>
 <p class="comment">
-    <code>src/app/pages/familiares/familiares.ts</code>
+    <code>src/app/pages/tcg/tcg.ts</code>
 </p>
 
 
@@ -142,7 +142,7 @@
         <h3>Descripción</h3>
     </p>
     <p class="comment">
-        <p>Presenta los juegos familiares disponibles para compra.</p>
+        <p>Presenta productos relacionados con juegos de cartas coleccionables.</p>
 
     </p>
 
@@ -167,7 +167,7 @@
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>app-familiares</code></td>
+                <td class="col-md-9"><code>app-tcg</code></td>
             </tr>
 
 
@@ -183,14 +183,14 @@
 
             <tr>
                 <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./familiares.html</code></td>
+                <td class="col-md-9"><code>./tcg.html</code></td>
             </tr>
 
 
 
             <tr>
                 <td class="col-md-3">styleUrl</td>
-                <td class="col-md-9"><code>./familiares.css</code></td>
+                <td class="col-md-9"><code>./tcg.css</code></td>
             </tr>
 
 
@@ -281,14 +281,14 @@
                     <tr>
                         <td class="col-md-4">
                             <div class="io-line">Definido en <a href="" data-line="25"
-                                    class="link-to-prism">src/app/pages/familiares/familiares.ts:25</a></div>
+                                    class="link-to-prism">src/app/pages/tcg/tcg.ts:25</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Agrega un juego al carrito y gestiona una eventual redirección al login.</p>
+                        <div class="io-description"><p>Agrega un producto TCG al carrito y redirige al login cuando corresponde.</p>
 </div>
 
                             <div class="io-description">
@@ -316,7 +316,7 @@
 
 
                                             <td>
-                                                    <p>Nombre del juego seleccionado.</p>
+                                                    <p>Nombre del producto seleccionado.</p>
 
                                             </td>
                                         </tr>
@@ -366,7 +366,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="15" class="link-to-prism">src/app/pages/familiares/familiares.ts:15</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="15" class="link-to-prism">src/app/pages/tcg/tcg.ts:15</a></div>
                         </td>
                     </tr>
 
@@ -405,7 +405,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="18" class="link-to-prism">src/app/pages/familiares/familiares.ts:18</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="18" class="link-to-prism">src/app/pages/tcg/tcg.ts:18</a></div>
                         </td>
                     </tr>
 
@@ -429,14 +429,14 @@ import { Router, RouterLink } from &#x27;@angular/router&#x27;;
 
 import { CartService } from &#x27;../../core/services/cart.service&#x27;;
 
-/** Presenta los juegos familiares disponibles para compra. */
+/** Presenta productos relacionados con juegos de cartas coleccionables. */
 @Component({
-  selector: &#x27;app-familiares&#x27;,
+  selector: &#x27;app-tcg&#x27;,
   imports: [RouterLink],
-  templateUrl: &#x27;./familiares.html&#x27;,
-  styleUrl: &#x27;./familiares.css&#x27;,
+  templateUrl: &#x27;./tcg.html&#x27;,
+  styleUrl: &#x27;./tcg.css&#x27;,
 })
-export class Familiares {
+export class Tcg {
   /** Servicio utilizado para agregar productos al carrito. */
   private readonly cart &#x3D; inject(CartService);
 
@@ -444,9 +444,9 @@ export class Familiares {
   private readonly router &#x3D; inject(Router);
 
   /**
-   * Agrega un juego al carrito y gestiona una eventual redirección al login.
+   * Agrega un producto TCG al carrito y redirige al login cuando corresponde.
    *
-   * @param nombre Nombre del juego seleccionado.
+   * @param nombre Nombre del producto seleccionado.
    */
   agregarAlCarrito(nombre: string): void {
     const result &#x3D; this.cart.addByName(nombre);
@@ -460,59 +460,59 @@ export class Familiares {
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">    &lt;section class&#x3D;&quot;page-hero container-fluid&quot;&gt;
-        &lt;div class&#x3D;&quot;hero-content&quot;&gt;
-            &lt;h2&gt;Categoria Familiares&lt;/h2&gt;
-            &lt;p&gt;Partidas faciles de aprender, con dinamicas rapidas y mucha diversion para compartir.&lt;/p&gt;
-            &lt;a class&#x3D;&quot;hero-link&quot; routerLink&#x3D;&quot;/&quot; fragment&#x3D;&quot;top&quot;&gt;Ver top ventas&lt;/a&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;section class&#x3D;&quot;page-hero container-fluid&quot;&gt;
+  &lt;div class&#x3D;&quot;hero-content&quot;&gt;
+    &lt;h2&gt;Categoría TCG&lt;/h2&gt;
+    &lt;p&gt;Cartas coleccionables, mazos iniciales y productos para comenzar o ampliar tu colección.&lt;/p&gt;
+    &lt;a class&#x3D;&quot;hero-link&quot; routerLink&#x3D;&quot;/&quot; fragment&#x3D;&quot;top&quot;&gt;Ver top ventas&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;section class&#x3D;&quot;productos container-xxl&quot;&gt;
+  &lt;div class&#x3D;&quot;section-heading section-heading-left&quot;&gt;
+    &lt;span class&#x3D;&quot;eyebrow&quot;&gt;Categoría&lt;/span&gt;
+    &lt;h2&gt;Trading Card Games&lt;/h2&gt;
+    &lt;p&gt;Opciones para descubrir distintos universos, construir mazos y desafiar a otros jugadores.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;contenedor-productos&quot;&gt;
+    &lt;div class&#x3D;&quot;card card-oferta&quot;&gt;
+      &lt;img src&#x3D;&quot;/img/tcg-pokemon.png&quot; alt&#x3D;&quot;Producto Pokémon TCG&quot;&gt;
+      &lt;h3&gt;Pokémon TCG - Colección inicial&lt;/h3&gt;
+      &lt;p&gt;Una selección para comenzar a jugar, aprender las reglas y ampliar tu colección.&lt;/p&gt;
+      &lt;div class&#x3D;&quot;estado-descuento&quot;&gt;Oferta 10%&lt;/div&gt;
+      &lt;div class&#x3D;&quot;card-acciones&quot;&gt;
+        &lt;div class&#x3D;&quot;precio-contenedor&quot;&gt;
+          &lt;span class&#x3D;&quot;precio-original&quot;&gt;$24.990&lt;/span&gt;
+          &lt;span class&#x3D;&quot;precio-oferta&quot;&gt;$22.490&lt;/span&gt;
         &lt;/div&gt;
-    &lt;/section&gt;
+        &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;agregarAlCarrito(&#x27;Pokemon TCG Coleccion Inicial&#x27;)&quot;&gt;Agregar al carrito&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-    &lt;section class&#x3D;&quot;productos container-xxl&quot;&gt;
-        &lt;div class&#x3D;&quot;section-heading section-heading-left&quot;&gt;
-            &lt;span class&#x3D;&quot;eyebrow&quot;&gt;Categoria&lt;/span&gt;
-            &lt;h2&gt;Juegos para reunir a todos&lt;/h2&gt;
-            &lt;p&gt;Propuestas accesibles y entretenidas para distintas edades en una misma mesa.&lt;/p&gt;
-        &lt;/div&gt;
+    &lt;div class&#x3D;&quot;card&quot;&gt;
+      &lt;img src&#x3D;&quot;/img/tcg-magic.png&quot; alt&#x3D;&quot;Producto Magic The Gathering&quot;&gt;
+      &lt;h3&gt;Magic - Kit de inicio&lt;/h3&gt;
+      &lt;p&gt;Dos mazos preparados para aprender las bases de Magic y comenzar a jugar.&lt;/p&gt;
+      &lt;div class&#x3D;&quot;estado-descuento estado-sin-descuento&quot;&gt;Sin descuentos&lt;/div&gt;
+      &lt;div class&#x3D;&quot;card-acciones&quot;&gt;
+        &lt;span&gt;$24.990&lt;/span&gt;
+        &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;agregarAlCarrito(&#x27;Magic Kit de Inicio&#x27;)&quot;&gt;Agregar al carrito&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-        &lt;div class&#x3D;&quot;contenedor-productos&quot;&gt;
-            &lt;div class&#x3D;&quot;card&quot;&gt;
-                &lt;img src&#x3D;&quot;/img/basta.png&quot; alt&#x3D;&quot;Basta&quot;&gt;
-                &lt;h3&gt;Basta&lt;/h3&gt;
-                &lt;p&gt;Desafia tu rapidez con categorias divertidas y partidas dinamicas.&lt;/p&gt;
-                &lt;div class&#x3D;&quot;estado-descuento estado-sin-descuento&quot;&gt;Sin descuentos&lt;/div&gt;
-                &lt;div class&#x3D;&quot;card-acciones&quot;&gt;
-                    &lt;span&gt;$8.600&lt;/span&gt;
-                    &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;agregarAlCarrito(&#x27;Basta&#x27;)&quot;&gt;Agregar al carrito&lt;/button&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-
-            &lt;div class&#x3D;&quot;card card-oferta&quot;&gt;
-                &lt;img src&#x3D;&quot;/img/jenga.png&quot; alt&#x3D;&quot;Jenga Familiar&quot;&gt;
-                &lt;h3&gt;Jenga Familiar&lt;/h3&gt;
-                &lt;p&gt;Pulso firme, risas y tension creciente en cada bloque que se mueve.&lt;/p&gt;
-                &lt;div class&#x3D;&quot;estado-descuento&quot;&gt;Oferta 10%&lt;/div&gt;
-                &lt;div class&#x3D;&quot;card-acciones&quot;&gt;
-                    &lt;div class&#x3D;&quot;precio-contenedor&quot;&gt;
-                        &lt;span class&#x3D;&quot;precio-original&quot;&gt;$14.990&lt;/span&gt;
-                        &lt;span class&#x3D;&quot;precio-oferta&quot;&gt;$13.490&lt;/span&gt;
-                    &lt;/div&gt;
-                    &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;agregarAlCarrito(&#x27;Jenga Familiar&#x27;)&quot;&gt;Agregar al carrito&lt;/button&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-
-            &lt;div class&#x3D;&quot;card&quot;&gt;
-                &lt;img src&#x3D;&quot;/img/EXPLODING KITTENS.png&quot; alt&#x3D;&quot;EXPLODING KITTENS&quot;&gt;
-                &lt;h3&gt;EXPLODING KITTENS&lt;/h3&gt;
-                &lt;p&gt;Entretenido y emocionante juego de cartas que tiene mucho que ver con la ruleta rusa.&lt;/p&gt;
-                &lt;div class&#x3D;&quot;estado-descuento estado-sin-descuento&quot;&gt;Sin descuentos&lt;/div&gt;
-                &lt;div class&#x3D;&quot;card-acciones&quot;&gt;
-                    &lt;span&gt;$19.990&lt;/span&gt;
-                    &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;agregarAlCarrito(&#x27;EXPLODING KITTENS&#x27;)&quot;&gt;Agregar al carrito&lt;/button&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/section&gt;
+    &lt;div class&#x3D;&quot;card&quot;&gt;
+      &lt;img src&#x3D;&quot;/img/tcg-yugioh.png&quot; alt&#x3D;&quot;Producto Yu-Gi-Oh TCG&quot;&gt;
+      &lt;h3&gt;Yu-Gi-Oh! - Starter Deck&lt;/h3&gt;
+      &lt;p&gt;Un mazo inicial listo para conocer sus mecánicas y disputar las primeras partidas.&lt;/p&gt;
+      &lt;div class&#x3D;&quot;estado-descuento estado-sin-descuento&quot;&gt;Sin descuentos&lt;/div&gt;
+      &lt;div class&#x3D;&quot;card-acciones&quot;&gt;
+        &lt;span&gt;$17.990&lt;/span&gt;
+        &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;agregarAlCarrito(&#x27;Yu-Gi-Oh Starter Deck&#x27;)&quot;&gt;Agregar al carrito&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
 </code></pre>
     </div>
 
@@ -542,10 +542,10 @@ export class Familiares {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div>    <section class="page-hero container-fluid">        <div class="hero-content">            <h2>Categoria Familiares</h2>            <p>Partidas faciles de aprender, con dinamicas rapidas y mucha diversion para compartir.</p>            <a class="hero-link" routerLink="/" fragment="top">Ver top ventas</a>        </div>    </section>    <section class="productos container-xxl">        <div class="section-heading section-heading-left">            <span class="eyebrow">Categoria</span>            <h2>Juegos para reunir a todos</h2>            <p>Propuestas accesibles y entretenidas para distintas edades en una misma mesa.</p>        </div>        <div class="contenedor-productos">            <div class="card">                <img src="/img/basta.png" alt="Basta">                <h3>Basta</h3>                <p>Desafia tu rapidez con categorias divertidas y partidas dinamicas.</p>                <div class="estado-descuento estado-sin-descuento">Sin descuentos</div>                <div class="card-acciones">                    <span>$8.600</span>                    <button type="button" (click)="agregarAlCarrito(\'Basta\')">Agregar al carrito</button>                </div>            </div>            <div class="card card-oferta">                <img src="/img/jenga.png" alt="Jenga Familiar">                <h3>Jenga Familiar</h3>                <p>Pulso firme, risas y tension creciente en cada bloque que se mueve.</p>                <div class="estado-descuento">Oferta 10%</div>                <div class="card-acciones">                    <div class="precio-contenedor">                        <span class="precio-original">$14.990</span>                        <span class="precio-oferta">$13.490</span>                    </div>                    <button type="button" (click)="agregarAlCarrito(\'Jenga Familiar\')">Agregar al carrito</button>                </div>            </div>            <div class="card">                <img src="/img/EXPLODING KITTENS.png" alt="EXPLODING KITTENS">                <h3>EXPLODING KITTENS</h3>                <p>Entretenido y emocionante juego de cartas que tiene mucho que ver con la ruleta rusa.</p>                <div class="estado-descuento estado-sin-descuento">Sin descuentos</div>                <div class="card-acciones">                    <span>$19.990</span>                    <button type="button" (click)="agregarAlCarrito(\'EXPLODING KITTENS\')">Agregar al carrito</button>                </div>            </div>        </div>    </section></div>'
+        var COMPONENT_TEMPLATE = '<div><section class="page-hero container-fluid">  <div class="hero-content">    <h2>Categoría TCG</h2>    <p>Cartas coleccionables, mazos iniciales y productos para comenzar o ampliar tu colección.</p>    <a class="hero-link" routerLink="/" fragment="top">Ver top ventas</a>  </div></section><section class="productos container-xxl">  <div class="section-heading section-heading-left">    <span class="eyebrow">Categoría</span>    <h2>Trading Card Games</h2>    <p>Opciones para descubrir distintos universos, construir mazos y desafiar a otros jugadores.</p>  </div>  <div class="contenedor-productos">    <div class="card card-oferta">      <img src="/img/tcg-pokemon.png" alt="Producto Pokémon TCG">      <h3>Pokémon TCG - Colección inicial</h3>      <p>Una selección para comenzar a jugar, aprender las reglas y ampliar tu colección.</p>      <div class="estado-descuento">Oferta 10%</div>      <div class="card-acciones">        <div class="precio-contenedor">          <span class="precio-original">$24.990</span>          <span class="precio-oferta">$22.490</span>        </div>        <button type="button" (click)="agregarAlCarrito(\'Pokemon TCG Coleccion Inicial\')">Agregar al carrito</button>      </div>    </div>    <div class="card">      <img src="/img/tcg-magic.png" alt="Producto Magic The Gathering">      <h3>Magic - Kit de inicio</h3>      <p>Dos mazos preparados para aprender las bases de Magic y comenzar a jugar.</p>      <div class="estado-descuento estado-sin-descuento">Sin descuentos</div>      <div class="card-acciones">        <span>$24.990</span>        <button type="button" (click)="agregarAlCarrito(\'Magic Kit de Inicio\')">Agregar al carrito</button>      </div>    </div>    <div class="card">      <img src="/img/tcg-yugioh.png" alt="Producto Yu-Gi-Oh TCG">      <h3>Yu-Gi-Oh! - Starter Deck</h3>      <p>Un mazo inicial listo para conocer sus mecánicas y disputar las primeras partidas.</p>      <div class="estado-descuento estado-sin-descuento">Sin descuentos</div>      <div class="card-acciones">        <span>$17.990</span>        <button type="button" (click)="agregarAlCarrito(\'Yu-Gi-Oh Starter Deck\')">Agregar al carrito</button>      </div>    </div>  </div></section></div>'
     var COMPONENTS = [{'name': 'Admin', 'selector': 'app-admin'},{'name': 'App', 'selector': 'app-root'},{'name': 'Carrito', 'selector': 'app-carrito'},{'name': 'CatalogFilter', 'selector': 'app-catalog-filter'},{'name': 'Estrategia', 'selector': 'app-estrategia'},{'name': 'Familiares', 'selector': 'app-familiares'},{'name': 'Fiesta', 'selector': 'app-fiesta'},{'name': 'Formulario', 'selector': 'app-formulario'},{'name': 'Infantiles', 'selector': 'app-infantiles'},{'name': 'Inicio', 'selector': 'app-inicio'},{'name': 'Login', 'selector': 'app-login'},{'name': 'MisCompras', 'selector': 'app-mis-compras'},{'name': 'Navbar', 'selector': 'app-navbar'},{'name': 'Perfil', 'selector': 'app-perfil'},{'name': 'Recuperar', 'selector': 'app-recuperar'},{'name': 'Tcg', 'selector': 'app-tcg'}];
     var DIRECTIVES = [];
-    var ACTUAL_COMPONENT = {'name': 'Familiares'};
+    var ACTUAL_COMPONENT = {'name': 'Tcg'};
 </script>
 <script src="../js/tree.js"></script>
 
@@ -591,7 +591,7 @@ export class Familiares {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = 'Familiares.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'Tcg.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

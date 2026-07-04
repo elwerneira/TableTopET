@@ -95,6 +95,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <li class="link">
                                 <a href="components/Recuperar.html" data-type="entity-link" >Recuperar</a>
                             </li>
+                            <li class="link">
+                                <a href="components/Tcg.html" data-type="entity-link" >Tcg</a>
+                            </li>
                         </ul>
                     </li>
                         <li class="chapter">

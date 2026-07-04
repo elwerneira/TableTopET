@@ -12,6 +12,7 @@ import {Login} from './pages/login/login';
 import {MisCompras} from './pages/mis-compras/mis-compras';
 import {Perfil} from './pages/perfil/perfil';
 import {Recuperar} from './pages/recuperar/recuperar';
+import {Tcg} from './pages/tcg/tcg';
 
 export const routes: Routes = [
         { path: '', component: Inicio},
@@ -26,4 +27,5 @@ export const routes: Routes = [
         { path: 'mis-compras', component: MisCompras},
         { path: 'perfil', component: Perfil},
         { path: 'recuperar', component: Recuperar},
+        { path: 'tcg', component: Tcg},
 ];
