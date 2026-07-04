@@ -9,6 +9,12 @@ const STORAGE_SESSION_KEY = 'tabletop_session';
 /** Clave utilizada para conservar las cuentas registradas. */
 const STORAGE_USERS_KEY = 'tabletop_users';
 
+/** Prefijo de los carritos guardados por usuario. */
+const STORAGE_CART_PREFIX = 'tabletop_cart_';
+
+/** Prefijo de los historiales de compra guardados por usuario. */
+const STORAGE_PURCHASES_PREFIX = 'tabletop_purchases_';
+
 /** Cuenta administrativa que debe existir al inicializar la aplicación. */
 const ADMIN_DEFAULT: User = {
   nombre: 'Administrador',
@@ -130,6 +136,71 @@ export class AuthService {
     users[index] = { ...users[index], ...changes };
     this.saveUsers(users);
     return { ok: true, message: 'Usuario actualizado correctamente.' };
+  }
+
+  /**
+   * Actualiza los datos personales del usuario que mantiene una sesión activa.
+   *
+   * También actualiza la sesión y traslada el carrito y las compras cuando
+   * cambia la clave utilizada para identificar al usuario.
+   *
+   * @param changes Datos editables enviados desde el formulario de perfil.
+   * @returns Resultado de la operación con un mensaje para la interfaz.
+   */
+  updateProfile(changes: {
+    nombre: string;
+    usuario: string;
+    correo: string;
+    fechaNacimiento: string;
+    direccion: string;
+    password?: string;
+  }): StoreActionResult {
+    const session = this.sessionState();
+    if (!session) {
+      return { ok: false, message: 'Debes iniciar sesión para actualizar tu perfil.' };
+    }
+
+    const users = this.users();
+    const index = users.findIndex(user => this.matches(user, session.usuario));
+    if (index === -1) {
+      return { ok: false, message: 'No se encontró la cuenta asociada a la sesión actual.' };
+    }
+
+    const current = users[index];
+    const usuario = changes.usuario.trim();
+    const correo = changes.correo.trim();
+    const duplicate = users.some((user, currentIndex) =>
+      currentIndex !== index
+      && (this.normalize(user.usuario) === this.normalize(usuario)
+        || this.normalize(user.correo) === this.normalize(correo)),
+    );
+    if (duplicate) {
+      return { ok: false, message: 'El usuario o correo ya pertenece a otra cuenta.' };
+    }
+
+    if (this.matches(current, ADMIN_DEFAULT.usuario) && this.normalize(usuario) !== this.normalize(ADMIN_DEFAULT.usuario)) {
+      return { ok: false, message: 'El usuario de la cuenta administradora principal no puede modificarse.' };
+    }
+
+    const previousKey = this.normalize(current.usuario || current.correo);
+    const updated: User = {
+      ...current,
+      nombre: changes.nombre.trim(),
+      usuario,
+      correo,
+      fechaNacimiento: changes.fechaNacimiento,
+      direccion: changes.direccion.trim(),
+      ...(changes.password ? { password: changes.password } : {}),
+    };
+    const nextKey = this.normalize(updated.usuario || updated.correo);
+
+    users[index] = updated;
+    this.saveUsers(users);
+    this.storage.moveLocal(`${STORAGE_CART_PREFIX}${previousKey}`, `${STORAGE_CART_PREFIX}${nextKey}`);
+    this.storage.moveLocal(`${STORAGE_PURCHASES_PREFIX}${previousKey}`, `${STORAGE_PURCHASES_PREFIX}${nextKey}`);
+    this.setSession(this.toSession(updated));
+
+    return { ok: true, message: 'Perfil actualizado correctamente.' };
   }
 
   /**

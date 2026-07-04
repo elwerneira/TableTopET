@@ -179,6 +179,9 @@ entrega valores de respaldo cuando los datos no existen o son inválidos.</p>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#moveLocal" >moveLocal</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Private</span>
                                 <a href="#read" >read</a>
                             </li>
@@ -223,6 +226,96 @@ entrega valores de respaldo cuando los datos no existen o son inválidos.</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="moveLocal"></a>
+                    <span class="name">
+                        <span ><b>moveLocal</b></span>
+                        <a href="#moveLocal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>moveLocal(sourceKey: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, destinationKey: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="42"
+                                    class="link-to-prism">src/app/core/services/browser-storage.service.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Traslada un valor de <code>localStorage</code> hacia una nueva clave.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parámetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nombre</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                                <td>Descripción</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>sourceKey</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Clave actualmente utilizada por el dato.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>destinationKey</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Nueva clave donde debe conservarse.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="read"></a>
                     <span class="name">
                             <span class="modifier">Private</span>
@@ -241,8 +334,8 @@ entrega valores de respaldo cuando los datos no existen o son inválidos.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Definido en <a href="" data-line="76"
-                                    class="link-to-prism">src/app/core/services/browser-storage.service.ts:76</a></div>
+                            <div class="io-line">Definido en <a href="" data-line="94"
+                                    class="link-to-prism">src/app/core/services/browser-storage.service.ts:94</a></div>
                         </td>
                     </tr>
 
@@ -455,8 +548,8 @@ entrega valores de respaldo cuando los datos no existen o son inválidos.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Definido en <a href="" data-line="43"
-                                    class="link-to-prism">src/app/core/services/browser-storage.service.ts:43</a></div>
+                            <div class="io-line">Definido en <a href="" data-line="61"
+                                    class="link-to-prism">src/app/core/services/browser-storage.service.ts:61</a></div>
                         </td>
                     </tr>
 
@@ -554,8 +647,8 @@ entrega valores de respaldo cuando los datos no existen o son inválidos.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Definido en <a href="" data-line="62"
-                                    class="link-to-prism">src/app/core/services/browser-storage.service.ts:62</a></div>
+                            <div class="io-line">Definido en <a href="" data-line="80"
+                                    class="link-to-prism">src/app/core/services/browser-storage.service.ts:80</a></div>
                         </td>
                     </tr>
 
@@ -630,8 +723,8 @@ entrega valores de respaldo cuando los datos no existen o son inválidos.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Definido en <a href="" data-line="96"
-                                    class="link-to-prism">src/app/core/services/browser-storage.service.ts:96</a></div>
+                            <div class="io-line">Definido en <a href="" data-line="114"
+                                    class="link-to-prism">src/app/core/services/browser-storage.service.ts:114</a></div>
                         </td>
                     </tr>
 
@@ -842,8 +935,8 @@ entrega valores de respaldo cuando los datos no existen o son inválidos.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Definido en <a href="" data-line="53"
-                                    class="link-to-prism">src/app/core/services/browser-storage.service.ts:53</a></div>
+                            <div class="io-line">Definido en <a href="" data-line="71"
+                                    class="link-to-prism">src/app/core/services/browser-storage.service.ts:71</a></div>
                         </td>
                     </tr>
 
@@ -1004,6 +1097,24 @@ export class BrowserStorageService {
    */
   writeLocal&lt;T&gt;(key: string, value: T): void {
     this.write(window &#x3D;&gt; window.localStorage, key, value);
+  }
+
+  /**
+   * Traslada un valor de &#x60;localStorage&#x60; hacia una nueva clave.
+   *
+   * @param sourceKey Clave actualmente utilizada por el dato.
+   * @param destinationKey Nueva clave donde debe conservarse.
+   */
+  moveLocal(sourceKey: string, destinationKey: string): void {
+    if (!this.isBrowser || sourceKey &#x3D;&#x3D;&#x3D; destinationKey) {
+      return;
+    }
+
+    const value &#x3D; window.localStorage.getItem(sourceKey);
+    if (value !&#x3D;&#x3D; null) {
+      window.localStorage.setItem(destinationKey, value);
+      window.localStorage.removeItem(sourceKey);
+    }
   }
 
   /**

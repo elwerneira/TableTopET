@@ -142,11 +142,17 @@
         <h3>Descripción</h3>
     </p>
     <p class="comment">
-        <p>Página destinada a presentar y editar los datos del perfil del usuario.</p>
+        <p>Página que carga y actualiza los datos del usuario autenticado.</p>
 
     </p>
 
 
+    <p class="comment">
+        <h3>Implementa</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
 
 
 <section data-compodoc="block-metadata">
@@ -171,6 +177,12 @@
             </tr>
 
 
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="https://angular.io/api/forms/ReactiveFormsModule" target="_blank" >ReactiveFormsModule</a></code>
+                </td>
+            </tr>
 
 
 
@@ -195,109 +207,1034 @@
     </table>
 </section>
 
+    <section data-compodoc="block-index">
+    <h3 id="index">Índice</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Propiedades</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#auth" >auth</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#confirmPasswordVisible" >confirmPasswordVisible</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#currentUser" >currentUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#feedback" >feedback</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#feedbackError" >feedbackError</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#form" >form</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#formBuilder" >formBuilder</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#passwordVisible" >passwordVisible</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#primaryAdmin" >primaryAdmin</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#router" >router</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Métodos</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#reset" >reset</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#restoreForm" >restoreForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#showFeedback" >showFeedback</a>
+                            </li>
+                            <li>
+                                <a href="#submit" >submit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
 
 
 
 
 
 
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Métodos
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
 
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="60"
+                                    class="link-to-prism">src/app/pages/perfil/perfil.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Protege la página y carga los datos del usuario activo.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reset"></a>
+                    <span class="name">
+                        <span ><b>reset</b></span>
+                        <a href="#reset"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>reset()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="100"
+                                    class="link-to-prism">src/app/pages/perfil/perfil.ts:100</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Restablece los datos almacenados y limpia los mensajes del formulario.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="restoreForm"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>restoreForm</b></span>
+                        <a href="#restoreForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>restoreForm(user: <a href="../interfaces/User.html" target="_self">User</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="112"
+                                    class="link-to-prism">src/app/pages/perfil/perfil.ts:112</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Carga un usuario dentro del formulario sin incluir su contraseña almacenada.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parámetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nombre</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                                <td>Descripción</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Usuario cuyos datos deben presentarse.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showFeedback"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>showFeedback</b></span>
+                        <a href="#showFeedback"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>showFeedback(message: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, error: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="130"
+                                    class="link-to-prism">src/app/pages/perfil/perfil.ts:130</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Actualiza el mensaje presentado debajo del formulario.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parámetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nombre</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                                <td>Descripción</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>message</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Texto que debe mostrarse.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>error</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Indica si el resultado representa un error.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="submit"></a>
+                    <span class="name">
+                        <span ><b>submit</b></span>
+                        <a href="#submit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>submit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="80"
+                                    class="link-to-prism">src/app/pages/perfil/perfil.ts:80</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Valida y guarda los cambios realizados sobre el perfil.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Propiedades
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="auth"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>auth</b></span>
+                        <a href="#auth"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>inject(AuthService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="19" class="link-to-prism">src/app/pages/perfil/perfil.ts:19</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Servicio responsable de consultar y actualizar la cuenta.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confirmPasswordVisible"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>confirmPasswordVisible</b></span>
+                        <a href="#confirmPasswordVisible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="40" class="link-to-prism">src/app/pages/perfil/perfil.ts:40</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Controla la visibilidad de la confirmación de contraseña.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentUser"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>currentUser</b></span>
+                        <a href="#currentUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>        <code><a href="../interfaces/User.html" target="_self" >User | null</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="28" class="link-to-prism">src/app/pages/perfil/perfil.ts:28</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Usuario cargado originalmente desde el almacenamiento.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="feedback"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>feedback</b></span>
+                        <a href="#feedback"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>signal(&#x27;&#x27;)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="31" class="link-to-prism">src/app/pages/perfil/perfil.ts:31</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Mensaje generado al validar o guardar el perfil.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="feedbackError"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>feedbackError</b></span>
+                        <a href="#feedbackError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="34" class="link-to-prism">src/app/pages/perfil/perfil.ts:34</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Indica si el mensaje actual corresponde a un error.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="form"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>form</b></span>
+                        <a href="#form"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>this.formBuilder.nonNullable.group(
+    {
+      nombre: [&#x27;&#x27;, Validators.required],
+      usuario: [&#x27;&#x27;, Validators.required],
+      correo: [&#x27;&#x27;, [Validators.required, Validators.email]],
+      fechaNacimiento: [&#x27;&#x27;, [Validators.required, minimumAgeValidator(13)]],
+      direccion: [&#x27;&#x27;],
+      password: [&#x27;&#x27;, [Validators.minLength(6), Validators.maxLength(18), Validators.pattern(/^(?&#x3D;.*[A-Z])(?&#x3D;.*\d).+$/)]],
+      confirmarPassword: [&#x27;&#x27;],
+    },
+    { validators: passwordMatchValidator(&#x27;password&#x27;, &#x27;confirmarPassword&#x27;) },
+  )</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="46" class="link-to-prism">src/app/pages/perfil/perfil.ts:46</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Formulario reactivo utilizado para editar el perfil.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formBuilder"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>formBuilder</b></span>
+                        <a href="#formBuilder"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>inject(FormBuilder)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="22" class="link-to-prism">src/app/pages/perfil/perfil.ts:22</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Constructor utilizado para definir el formulario reactivo.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="passwordVisible"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>passwordVisible</b></span>
+                        <a href="#passwordVisible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="37" class="link-to-prism">src/app/pages/perfil/perfil.ts:37</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Controla la visibilidad de la nueva contraseña.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="primaryAdmin"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>primaryAdmin</b></span>
+                        <a href="#primaryAdmin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="43" class="link-to-prism">src/app/pages/perfil/perfil.ts:43</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Indica que el nombre de usuario administrador debe permanecer fijo.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="router"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>router</b></span>
+                        <a href="#router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>inject(Router)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="25" class="link-to-prism">src/app/pages/perfil/perfil.ts:25</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Enrutador utilizado para proteger la página.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
 
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, inject, OnInit, signal } from &#x27;@angular/core&#x27;;
+import { FormBuilder, ReactiveFormsModule, Validators } from &#x27;@angular/forms&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
 
-/** Página destinada a presentar y editar los datos del perfil del usuario. */
+import { User } from &#x27;../../core/models/store.models&#x27;;
+import { AuthService } from &#x27;../../core/services/auth.service&#x27;;
+import { minimumAgeValidator } from &#x27;../../shared/validators/minimum-age.validator&#x27;;
+import { passwordMatchValidator } from &#x27;../../shared/validators/password-match.validator&#x27;;
+
+/** Página que carga y actualiza los datos del usuario autenticado. */
 @Component({
   selector: &#x27;app-perfil&#x27;,
+  imports: [ReactiveFormsModule],
   templateUrl: &#x27;./perfil.html&#x27;,
   styleUrl: &#x27;./perfil.css&#x27;,
 })
-export class Perfil {}
+export class Perfil implements OnInit {
+  /** Servicio responsable de consultar y actualizar la cuenta. */
+  private readonly auth &#x3D; inject(AuthService);
+
+  /** Constructor utilizado para definir el formulario reactivo. */
+  private readonly formBuilder &#x3D; inject(FormBuilder);
+
+  /** Enrutador utilizado para proteger la página. */
+  private readonly router &#x3D; inject(Router);
+
+  /** Usuario cargado originalmente desde el almacenamiento. */
+  private currentUser: User | null &#x3D; null;
+
+  /** Mensaje generado al validar o guardar el perfil. */
+  readonly feedback &#x3D; signal(&#x27;&#x27;);
+
+  /** Indica si el mensaje actual corresponde a un error. */
+  readonly feedbackError &#x3D; signal(false);
+
+  /** Controla la visibilidad de la nueva contraseña. */
+  readonly passwordVisible &#x3D; signal(false);
+
+  /** Controla la visibilidad de la confirmación de contraseña. */
+  readonly confirmPasswordVisible &#x3D; signal(false);
+
+  /** Indica que el nombre de usuario administrador debe permanecer fijo. */
+  readonly primaryAdmin &#x3D; signal(false);
+
+  /** Formulario reactivo utilizado para editar el perfil. */
+  readonly form &#x3D; this.formBuilder.nonNullable.group(
+    {
+      nombre: [&#x27;&#x27;, Validators.required],
+      usuario: [&#x27;&#x27;, Validators.required],
+      correo: [&#x27;&#x27;, [Validators.required, Validators.email]],
+      fechaNacimiento: [&#x27;&#x27;, [Validators.required, minimumAgeValidator(13)]],
+      direccion: [&#x27;&#x27;],
+      password: [&#x27;&#x27;, [Validators.minLength(6), Validators.maxLength(18), Validators.pattern(/^(?&#x3D;.*[A-Z])(?&#x3D;.*\d).+$/)]],
+      confirmarPassword: [&#x27;&#x27;],
+    },
+    { validators: passwordMatchValidator(&#x27;password&#x27;, &#x27;confirmarPassword&#x27;) },
+  );
+
+  /** Protege la página y carga los datos del usuario activo. */
+  ngOnInit(): void {
+    const session &#x3D; this.auth.session();
+    if (!session) {
+      void this.router.navigate([&#x27;/login&#x27;]);
+      return;
+    }
+
+    const user &#x3D; this.auth.findUser(session.usuario);
+    if (!user) {
+      this.auth.logout();
+      void this.router.navigate([&#x27;/login&#x27;]);
+      return;
+    }
+
+    this.currentUser &#x3D; user;
+    this.primaryAdmin.set(user.usuario.toLowerCase() &#x3D;&#x3D;&#x3D; &#x27;admin&#x27;);
+    this.restoreForm(user);
+  }
+
+  /** Valida y guarda los cambios realizados sobre el perfil. */
+  submit(): void {
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      this.showFeedback(&#x27;Revisa los campos marcados antes de guardar.&#x27;, true);
+      return;
+    }
+
+    const { confirmarPassword: _, ...changes } &#x3D; this.form.getRawValue();
+    const result &#x3D; this.auth.updateProfile(changes);
+    this.showFeedback(result.message, !result.ok);
+    if (result.ok) {
+      const session &#x3D; this.auth.session();
+      this.currentUser &#x3D; session ? this.auth.findUser(session.usuario) ?? null : null;
+      this.form.controls.password.reset(&#x27;&#x27;);
+      this.form.controls.confirmarPassword.reset(&#x27;&#x27;);
+      this.form.markAsPristine();
+    }
+  }
+
+  /** Restablece los datos almacenados y limpia los mensajes del formulario. */
+  reset(): void {
+    if (this.currentUser) {
+      this.restoreForm(this.currentUser);
+    }
+    this.showFeedback(&#x27;&#x27;, false);
+  }
+
+  /**
+   * Carga un usuario dentro del formulario sin incluir su contraseña almacenada.
+   *
+   * @param user Usuario cuyos datos deben presentarse.
+   */
+  private restoreForm(user: User): void {
+    this.form.reset({
+      nombre: user.nombre,
+      usuario: user.usuario,
+      correo: user.correo,
+      fechaNacimiento: user.fechaNacimiento ?? &#x27;&#x27;,
+      direccion: user.direccion ?? &#x27;&#x27;,
+      password: &#x27;&#x27;,
+      confirmarPassword: &#x27;&#x27;,
+    });
+  }
+
+  /**
+   * Actualiza el mensaje presentado debajo del formulario.
+   *
+   * @param message Texto que debe mostrarse.
+   * @param error Indica si el resultado representa un error.
+   */
+  private showFeedback(message: string, error: boolean): void {
+    this.feedback.set(message);
+    this.feedbackError.set(error);
+  }
+}
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">    &lt;section class&#x3D;&quot;formulario-seccion container-xl&quot;&gt;
-        &lt;div class&#x3D;&quot;formulario-card shadow-lg&quot;&gt;
-            &lt;div class&#x3D;&quot;section-heading section-heading-left&quot;&gt;
-                &lt;span class&#x3D;&quot;eyebrow&quot;&gt;Perfil&lt;/span&gt;
-                &lt;h2&gt;Modifica tu perfil&lt;/h2&gt;
-                &lt;p&gt;Actualiza tus datos personales, cambia tu usuario o renueva tu contrasena sin salir de tu sesion.&lt;/p&gt;
-            &lt;/div&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;section class&#x3D;&quot;formulario-seccion container-xl&quot;&gt;
+  &lt;div class&#x3D;&quot;formulario-card shadow-lg&quot;&gt;
+    &lt;div class&#x3D;&quot;section-heading section-heading-left&quot;&gt;
+      &lt;span class&#x3D;&quot;eyebrow&quot;&gt;Perfil&lt;/span&gt;
+      &lt;h2&gt;Modifica tu perfil&lt;/h2&gt;
+      &lt;p&gt;Actualiza tus datos personales o renueva tu contraseña sin salir de tu sesión.&lt;/p&gt;
+    &lt;/div&gt;
 
-            &lt;form class&#x3D;&quot;formulario-registro row g-3&quot; id&#x3D;&quot;formularioPerfil&quot; novalidate&gt;
-                &lt;div class&#x3D;&quot;campo-formulario col-12 col-md-6&quot;&gt;
-                    &lt;label for&#x3D;&quot;perfilNombre&quot; class&#x3D;&quot;form-label&quot;&gt;Nombre completo&lt;/label&gt;
-                    &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;perfilNombre&quot; name&#x3D;&quot;perfilNombre&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;Ingresa tu nombre completo&quot;&gt;
-                    &lt;div class&#x3D;&quot;mensaje-error&quot; id&#x3D;&quot;errorPerfilNombre&quot;&gt;&lt;/div&gt;
-                &lt;/div&gt;
-
-                &lt;div class&#x3D;&quot;campo-formulario col-12 col-md-6&quot;&gt;
-                    &lt;label for&#x3D;&quot;perfilUsuario&quot; class&#x3D;&quot;form-label&quot;&gt;Usuario&lt;/label&gt;
-                    &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;perfilUsuario&quot; name&#x3D;&quot;perfilUsuario&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;Ingresa tu usuario&quot;&gt;
-                    &lt;div class&#x3D;&quot;mensaje-error&quot; id&#x3D;&quot;errorPerfilUsuario&quot;&gt;&lt;/div&gt;
-                &lt;/div&gt;
-
-                &lt;div class&#x3D;&quot;campo-formulario col-12 col-md-6&quot;&gt;
-                    &lt;label for&#x3D;&quot;perfilCorreo&quot; class&#x3D;&quot;form-label&quot;&gt;Correo electronico&lt;/label&gt;
-                    &lt;input type&#x3D;&quot;email&quot; id&#x3D;&quot;perfilCorreo&quot; name&#x3D;&quot;perfilCorreo&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;nombre@correo.com&quot;&gt;
-                    &lt;div class&#x3D;&quot;mensaje-error&quot; id&#x3D;&quot;errorPerfilCorreo&quot;&gt;&lt;/div&gt;
-                &lt;/div&gt;
-
-                &lt;div class&#x3D;&quot;campo-formulario col-12 col-md-6&quot;&gt;
-                    &lt;label for&#x3D;&quot;perfilFechaNacimiento&quot; class&#x3D;&quot;form-label&quot;&gt;Fecha de nacimiento&lt;/label&gt;
-                    &lt;input type&#x3D;&quot;date&quot; id&#x3D;&quot;perfilFechaNacimiento&quot; name&#x3D;&quot;perfilFechaNacimiento&quot; class&#x3D;&quot;form-control&quot;&gt;
-                    &lt;div class&#x3D;&quot;mensaje-error&quot; id&#x3D;&quot;errorPerfilFechaNacimiento&quot;&gt;&lt;/div&gt;
-                &lt;/div&gt;
-
-                &lt;div class&#x3D;&quot;campo-formulario col-12&quot;&gt;
-                    &lt;label for&#x3D;&quot;perfilDireccion&quot; class&#x3D;&quot;form-label&quot;&gt;Direccion de despacho&lt;/label&gt;
-                    &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;perfilDireccion&quot; name&#x3D;&quot;perfilDireccion&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;Opcional&quot;&gt;
-                    &lt;div class&#x3D;&quot;mensaje-ayuda&quot;&gt;Puedes dejarla vacia si no deseas modificarla.&lt;/div&gt;
-                &lt;/div&gt;
-
-                &lt;div class&#x3D;&quot;campo-formulario col-12 col-lg-6&quot;&gt;
-                    &lt;label for&#x3D;&quot;perfilPassword&quot; class&#x3D;&quot;form-label&quot;&gt;Nueva contrasena&lt;/label&gt;
-                    &lt;div class&#x3D;&quot;campo-password&quot;&gt;
-                        &lt;input type&#x3D;&quot;password&quot; id&#x3D;&quot;perfilPassword&quot; name&#x3D;&quot;perfilPassword&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;Solo si quieres cambiarla&quot;&gt;
-                        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;toggle-password&quot; aria-label&#x3D;&quot;Mostrar u ocultar nueva contrasena&quot;&gt;
-                            &lt;svg class&#x3D;&quot;icono-ojo&quot; viewBox&#x3D;&quot;0 0 24 24&quot; aria-hidden&#x3D;&quot;true&quot;&gt;
-                                &lt;path d&#x3D;&quot;M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z&quot;&gt;&lt;/path&gt;
-                                &lt;circle cx&#x3D;&quot;12&quot; cy&#x3D;&quot;12&quot; r&#x3D;&quot;3&quot;&gt;&lt;/circle&gt;
-                                &lt;path class&#x3D;&quot;icono-ojo-linea&quot; d&#x3D;&quot;M4 4l16 16&quot;&gt;&lt;/path&gt;
-                            &lt;/svg&gt;
-                        &lt;/button&gt;
-                    &lt;/div&gt;
-                    &lt;div class&#x3D;&quot;mensaje-error&quot; id&#x3D;&quot;errorPerfilPassword&quot;&gt;&lt;/div&gt;
-                &lt;/div&gt;
-
-                &lt;div class&#x3D;&quot;campo-formulario col-12 col-lg-6&quot;&gt;
-                    &lt;label for&#x3D;&quot;perfilConfirmarPassword&quot; class&#x3D;&quot;form-label&quot;&gt;Confirmar nueva contrasena&lt;/label&gt;
-                    &lt;div class&#x3D;&quot;campo-password&quot;&gt;
-                        &lt;input type&#x3D;&quot;password&quot; id&#x3D;&quot;perfilConfirmarPassword&quot; name&#x3D;&quot;perfilConfirmarPassword&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;Repite la nueva contrasena&quot;&gt;
-                        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;toggle-password&quot; aria-label&#x3D;&quot;Mostrar u ocultar confirmacion de contrasena&quot;&gt;
-                            &lt;svg class&#x3D;&quot;icono-ojo&quot; viewBox&#x3D;&quot;0 0 24 24&quot; aria-hidden&#x3D;&quot;true&quot;&gt;
-                                &lt;path d&#x3D;&quot;M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z&quot;&gt;&lt;/path&gt;
-                                &lt;circle cx&#x3D;&quot;12&quot; cy&#x3D;&quot;12&quot; r&#x3D;&quot;3&quot;&gt;&lt;/circle&gt;
-                                &lt;path class&#x3D;&quot;icono-ojo-linea&quot; d&#x3D;&quot;M4 4l16 16&quot;&gt;&lt;/path&gt;
-                            &lt;/svg&gt;
-                        &lt;/button&gt;
-                    &lt;/div&gt;
-                    &lt;div class&#x3D;&quot;mensaje-error&quot; id&#x3D;&quot;errorPerfilConfirmarPassword&quot;&gt;&lt;/div&gt;
-                &lt;/div&gt;
-
-                &lt;div class&#x3D;&quot;acciones-formulario d-flex flex-column flex-md-row gap-3&quot;&gt;
-                    &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-primary&quot;&gt;Guardar cambios&lt;/button&gt;
-                    &lt;button type&#x3D;&quot;reset&quot; class&#x3D;&quot;btn btn-secondary&quot;&gt;Restablecer&lt;/button&gt;
-                &lt;/div&gt;
-            &lt;/form&gt;
-
-            &lt;div class&#x3D;&quot;formulario-feedback&quot; id&#x3D;&quot;perfilFeedback&quot; aria-live&#x3D;&quot;polite&quot;&gt;&lt;/div&gt;
+    &lt;form class&#x3D;&quot;formulario-registro row g-3&quot; [formGroup]&#x3D;&quot;form&quot; (ngSubmit)&#x3D;&quot;submit()&quot; novalidate&gt;
+      &lt;div class&#x3D;&quot;campo-formulario col-12 col-md-6&quot;&gt;
+        &lt;label for&#x3D;&quot;perfilNombre&quot; class&#x3D;&quot;form-label&quot;&gt;Nombre completo&lt;/label&gt;
+        &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;perfilNombre&quot; formControlName&#x3D;&quot;nombre&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;Ingresa tu nombre completo&quot;&gt;
+        &lt;div class&#x3D;&quot;mensaje-error&quot;&gt;
+          @if (form.controls.nombre.touched &amp;&amp; form.controls.nombre.hasError(&#x27;required&#x27;)) { El nombre completo es obligatorio. }
         &lt;/div&gt;
-    &lt;/section&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;campo-formulario col-12 col-md-6&quot;&gt;
+        &lt;label for&#x3D;&quot;perfilUsuario&quot; class&#x3D;&quot;form-label&quot;&gt;Usuario&lt;/label&gt;
+        &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;perfilUsuario&quot; formControlName&#x3D;&quot;usuario&quot; class&#x3D;&quot;form-control&quot; [readonly]&#x3D;&quot;primaryAdmin()&quot; placeholder&#x3D;&quot;Ingresa tu usuario&quot;&gt;
+        &lt;div class&#x3D;&quot;mensaje-error&quot;&gt;
+          @if (form.controls.usuario.touched &amp;&amp; form.controls.usuario.hasError(&#x27;required&#x27;)) { El usuario es obligatorio. }
+        &lt;/div&gt;
+        @if (primaryAdmin()) { &lt;div class&#x3D;&quot;mensaje-ayuda&quot;&gt;El usuario administrador principal no puede modificarse.&lt;/div&gt; }
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;campo-formulario col-12 col-md-6&quot;&gt;
+        &lt;label for&#x3D;&quot;perfilCorreo&quot; class&#x3D;&quot;form-label&quot;&gt;Correo electrónico&lt;/label&gt;
+        &lt;input type&#x3D;&quot;email&quot; id&#x3D;&quot;perfilCorreo&quot; formControlName&#x3D;&quot;correo&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;nombre@correo.com&quot;&gt;
+        &lt;div class&#x3D;&quot;mensaje-error&quot;&gt;
+          @if (form.controls.correo.touched &amp;&amp; form.controls.correo.hasError(&#x27;required&#x27;)) { El correo es obligatorio. }
+          @else if (form.controls.correo.touched &amp;&amp; form.controls.correo.hasError(&#x27;email&#x27;)) { Ingresa un correo electrónico válido. }
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;campo-formulario col-12 col-md-6&quot;&gt;
+        &lt;label for&#x3D;&quot;perfilFechaNacimiento&quot; class&#x3D;&quot;form-label&quot;&gt;Fecha de nacimiento&lt;/label&gt;
+        &lt;input type&#x3D;&quot;date&quot; id&#x3D;&quot;perfilFechaNacimiento&quot; formControlName&#x3D;&quot;fechaNacimiento&quot; class&#x3D;&quot;form-control&quot;&gt;
+        &lt;div class&#x3D;&quot;mensaje-error&quot;&gt;
+          @if (form.controls.fechaNacimiento.touched &amp;&amp; form.controls.fechaNacimiento.hasError(&#x27;required&#x27;)) { La fecha de nacimiento es obligatoria. }
+          @else if (form.controls.fechaNacimiento.touched &amp;&amp; form.controls.fechaNacimiento.hasError(&#x27;minimumAge&#x27;)) { Debes tener al menos 13 años. }
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;campo-formulario col-12&quot;&gt;
+        &lt;label for&#x3D;&quot;perfilDireccion&quot; class&#x3D;&quot;form-label&quot;&gt;Dirección de despacho&lt;/label&gt;
+        &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;perfilDireccion&quot; formControlName&#x3D;&quot;direccion&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;Opcional&quot;&gt;
+        &lt;div class&#x3D;&quot;mensaje-ayuda&quot;&gt;Este campo es opcional.&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;campo-formulario col-12 col-lg-6&quot;&gt;
+        &lt;label for&#x3D;&quot;perfilPassword&quot; class&#x3D;&quot;form-label&quot;&gt;Nueva contraseña&lt;/label&gt;
+        &lt;div class&#x3D;&quot;campo-password&quot;&gt;
+          &lt;input [type]&#x3D;&quot;passwordVisible() ? &#x27;text&#x27; : &#x27;password&#x27;&quot; id&#x3D;&quot;perfilPassword&quot; formControlName&#x3D;&quot;password&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;Solo si quieres cambiarla&quot;&gt;
+          &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;toggle-password&quot; (click)&#x3D;&quot;passwordVisible.set(!passwordVisible())&quot; aria-label&#x3D;&quot;Mostrar u ocultar nueva contraseña&quot;&gt;
+            &lt;svg class&#x3D;&quot;icono-ojo&quot; viewBox&#x3D;&quot;0 0 24 24&quot; aria-hidden&#x3D;&quot;true&quot;&gt;
+              &lt;path d&#x3D;&quot;M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z&quot;&gt;&lt;/path&gt;
+              &lt;circle cx&#x3D;&quot;12&quot; cy&#x3D;&quot;12&quot; r&#x3D;&quot;3&quot;&gt;&lt;/circle&gt;
+              &lt;path class&#x3D;&quot;icono-ojo-linea&quot; d&#x3D;&quot;M4 4l16 16&quot;&gt;&lt;/path&gt;
+            &lt;/svg&gt;
+          &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;mensaje-error&quot;&gt;
+          @if (form.controls.password.touched &amp;&amp; form.controls.password.invalid) { Debe tener entre 6 y 18 caracteres, una mayúscula y un número. }
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;campo-formulario col-12 col-lg-6&quot;&gt;
+        &lt;label for&#x3D;&quot;perfilConfirmarPassword&quot; class&#x3D;&quot;form-label&quot;&gt;Confirmar nueva contraseña&lt;/label&gt;
+        &lt;div class&#x3D;&quot;campo-password&quot;&gt;
+          &lt;input [type]&#x3D;&quot;confirmPasswordVisible() ? &#x27;text&#x27; : &#x27;password&#x27;&quot; id&#x3D;&quot;perfilConfirmarPassword&quot; formControlName&#x3D;&quot;confirmarPassword&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;Repite la nueva contraseña&quot;&gt;
+          &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;toggle-password&quot; (click)&#x3D;&quot;confirmPasswordVisible.set(!confirmPasswordVisible())&quot; aria-label&#x3D;&quot;Mostrar u ocultar confirmación de contraseña&quot;&gt;
+            &lt;svg class&#x3D;&quot;icono-ojo&quot; viewBox&#x3D;&quot;0 0 24 24&quot; aria-hidden&#x3D;&quot;true&quot;&gt;
+              &lt;path d&#x3D;&quot;M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z&quot;&gt;&lt;/path&gt;
+              &lt;circle cx&#x3D;&quot;12&quot; cy&#x3D;&quot;12&quot; r&#x3D;&quot;3&quot;&gt;&lt;/circle&gt;
+              &lt;path class&#x3D;&quot;icono-ojo-linea&quot; d&#x3D;&quot;M4 4l16 16&quot;&gt;&lt;/path&gt;
+            &lt;/svg&gt;
+          &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;mensaje-error&quot;&gt;
+          @if (form.controls.confirmarPassword.touched &amp;&amp; form.hasError(&#x27;passwordMismatch&#x27;)) { Las contraseñas deben ser iguales. }
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;acciones-formulario d-flex flex-column flex-md-row gap-3&quot;&gt;
+        &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-primary&quot;&gt;Guardar cambios&lt;/button&gt;
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-secondary&quot; (click)&#x3D;&quot;reset()&quot;&gt;Restablecer&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+
+    &lt;div class&#x3D;&quot;formulario-feedback&quot; [class.error]&#x3D;&quot;feedbackError()&quot; [class.exito]&#x3D;&quot;!feedbackError()&quot; aria-live&#x3D;&quot;polite&quot;&gt;{{ feedback() }}&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
 </code></pre>
     </div>
 
@@ -327,7 +1264,7 @@ export class Perfil {}
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div>    <section class="formulario-seccion container-xl">        <div class="formulario-card shadow-lg">            <div class="section-heading section-heading-left">                <span class="eyebrow">Perfil</span>                <h2>Modifica tu perfil</h2>                <p>Actualiza tus datos personales, cambia tu usuario o renueva tu contrasena sin salir de tu sesion.</p>            </div>            <form class="formulario-registro row g-3" id="formularioPerfil" novalidate>                <div class="campo-formulario col-12 col-md-6">                    <label for="perfilNombre" class="form-label">Nombre completo</label>                    <input type="text" id="perfilNombre" name="perfilNombre" class="form-control" placeholder="Ingresa tu nombre completo">                    <div class="mensaje-error" id="errorPerfilNombre"></div>                </div>                <div class="campo-formulario col-12 col-md-6">                    <label for="perfilUsuario" class="form-label">Usuario</label>                    <input type="text" id="perfilUsuario" name="perfilUsuario" class="form-control" placeholder="Ingresa tu usuario">                    <div class="mensaje-error" id="errorPerfilUsuario"></div>                </div>                <div class="campo-formulario col-12 col-md-6">                    <label for="perfilCorreo" class="form-label">Correo electronico</label>                    <input type="email" id="perfilCorreo" name="perfilCorreo" class="form-control" placeholder="nombre@correo.com">                    <div class="mensaje-error" id="errorPerfilCorreo"></div>                </div>                <div class="campo-formulario col-12 col-md-6">                    <label for="perfilFechaNacimiento" class="form-label">Fecha de nacimiento</label>                    <input type="date" id="perfilFechaNacimiento" name="perfilFechaNacimiento" class="form-control">                    <div class="mensaje-error" id="errorPerfilFechaNacimiento"></div>                </div>                <div class="campo-formulario col-12">                    <label for="perfilDireccion" class="form-label">Direccion de despacho</label>                    <input type="text" id="perfilDireccion" name="perfilDireccion" class="form-control" placeholder="Opcional">                    <div class="mensaje-ayuda">Puedes dejarla vacia si no deseas modificarla.</div>                </div>                <div class="campo-formulario col-12 col-lg-6">                    <label for="perfilPassword" class="form-label">Nueva contrasena</label>                    <div class="campo-password">                        <input type="password" id="perfilPassword" name="perfilPassword" class="form-control" placeholder="Solo si quieres cambiarla">                        <button type="button" class="toggle-password" aria-label="Mostrar u ocultar nueva contrasena">                            <svg class="icono-ojo" viewBox="0 0 24 24" aria-hidden="true">                                <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"></path>                                <circle cx="12" cy="12" r="3"></circle>                                <path class="icono-ojo-linea" d="M4 4l16 16"></path>                            </svg>                        </button>                    </div>                    <div class="mensaje-error" id="errorPerfilPassword"></div>                </div>                <div class="campo-formulario col-12 col-lg-6">                    <label for="perfilConfirmarPassword" class="form-label">Confirmar nueva contrasena</label>                    <div class="campo-password">                        <input type="password" id="perfilConfirmarPassword" name="perfilConfirmarPassword" class="form-control" placeholder="Repite la nueva contrasena">                        <button type="button" class="toggle-password" aria-label="Mostrar u ocultar confirmacion de contrasena">                            <svg class="icono-ojo" viewBox="0 0 24 24" aria-hidden="true">                                <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"></path>                                <circle cx="12" cy="12" r="3"></circle>                                <path class="icono-ojo-linea" d="M4 4l16 16"></path>                            </svg>                        </button>                    </div>                    <div class="mensaje-error" id="errorPerfilConfirmarPassword"></div>                </div>                <div class="acciones-formulario d-flex flex-column flex-md-row gap-3">                    <button type="submit" class="btn btn-primary">Guardar cambios</button>                    <button type="reset" class="btn btn-secondary">Restablecer</button>                </div>            </form>            <div class="formulario-feedback" id="perfilFeedback" aria-live="polite"></div>        </div>    </section></div>'
+        var COMPONENT_TEMPLATE = '<div><section class="formulario-seccion container-xl">  <div class="formulario-card shadow-lg">    <div class="section-heading section-heading-left">      <span class="eyebrow">Perfil</span>      <h2>Modifica tu perfil</h2>      <p>Actualiza tus datos personales o renueva tu contraseña sin salir de tu sesión.</p>    </div>    <form class="formulario-registro row g-3" [formGroup]="form" (ngSubmit)="submit()" novalidate>      <div class="campo-formulario col-12 col-md-6">        <label for="perfilNombre" class="form-label">Nombre completo</label>        <input type="text" id="perfilNombre" formControlName="nombre" class="form-control" placeholder="Ingresa tu nombre completo">        <div class="mensaje-error">          @if (form.controls.nombre.touched && form.controls.nombre.hasError(\'required\')) { El nombre completo es obligatorio. }        </div>      </div>      <div class="campo-formulario col-12 col-md-6">        <label for="perfilUsuario" class="form-label">Usuario</label>        <input type="text" id="perfilUsuario" formControlName="usuario" class="form-control" [readonly]="primaryAdmin()" placeholder="Ingresa tu usuario">        <div class="mensaje-error">          @if (form.controls.usuario.touched && form.controls.usuario.hasError(\'required\')) { El usuario es obligatorio. }        </div>        @if (primaryAdmin()) { <div class="mensaje-ayuda">El usuario administrador principal no puede modificarse.</div> }      </div>      <div class="campo-formulario col-12 col-md-6">        <label for="perfilCorreo" class="form-label">Correo electrónico</label>        <input type="email" id="perfilCorreo" formControlName="correo" class="form-control" placeholder="nombre@correo.com">        <div class="mensaje-error">          @if (form.controls.correo.touched && form.controls.correo.hasError(\'required\')) { El correo es obligatorio. }          @else if (form.controls.correo.touched && form.controls.correo.hasError(\'email\')) { Ingresa un correo electrónico válido. }        </div>      </div>      <div class="campo-formulario col-12 col-md-6">        <label for="perfilFechaNacimiento" class="form-label">Fecha de nacimiento</label>        <input type="date" id="perfilFechaNacimiento" formControlName="fechaNacimiento" class="form-control">        <div class="mensaje-error">          @if (form.controls.fechaNacimiento.touched && form.controls.fechaNacimiento.hasError(\'required\')) { La fecha de nacimiento es obligatoria. }          @else if (form.controls.fechaNacimiento.touched && form.controls.fechaNacimiento.hasError(\'minimumAge\')) { Debes tener al menos 13 años. }        </div>      </div>      <div class="campo-formulario col-12">        <label for="perfilDireccion" class="form-label">Dirección de despacho</label>        <input type="text" id="perfilDireccion" formControlName="direccion" class="form-control" placeholder="Opcional">        <div class="mensaje-ayuda">Este campo es opcional.</div>      </div>      <div class="campo-formulario col-12 col-lg-6">        <label for="perfilPassword" class="form-label">Nueva contraseña</label>        <div class="campo-password">          <input [type]="passwordVisible() ? \'text\' : \'password\'" id="perfilPassword" formControlName="password" class="form-control" placeholder="Solo si quieres cambiarla">          <button type="button" class="toggle-password" (click)="passwordVisible.set(!passwordVisible())" aria-label="Mostrar u ocultar nueva contraseña">            <svg class="icono-ojo" viewBox="0 0 24 24" aria-hidden="true">              <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"></path>              <circle cx="12" cy="12" r="3"></circle>              <path class="icono-ojo-linea" d="M4 4l16 16"></path>            </svg>          </button>        </div>        <div class="mensaje-error">          @if (form.controls.password.touched && form.controls.password.invalid) { Debe tener entre 6 y 18 caracteres, una mayúscula y un número. }        </div>      </div>      <div class="campo-formulario col-12 col-lg-6">        <label for="perfilConfirmarPassword" class="form-label">Confirmar nueva contraseña</label>        <div class="campo-password">          <input [type]="confirmPasswordVisible() ? \'text\' : \'password\'" id="perfilConfirmarPassword" formControlName="confirmarPassword" class="form-control" placeholder="Repite la nueva contraseña">          <button type="button" class="toggle-password" (click)="confirmPasswordVisible.set(!confirmPasswordVisible())" aria-label="Mostrar u ocultar confirmación de contraseña">            <svg class="icono-ojo" viewBox="0 0 24 24" aria-hidden="true">              <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"></path>              <circle cx="12" cy="12" r="3"></circle>              <path class="icono-ojo-linea" d="M4 4l16 16"></path>            </svg>          </button>        </div>        <div class="mensaje-error">          @if (form.controls.confirmarPassword.touched && form.hasError(\'passwordMismatch\')) { Las contraseñas deben ser iguales. }        </div>      </div>      <div class="acciones-formulario d-flex flex-column flex-md-row gap-3">        <button type="submit" class="btn btn-primary">Guardar cambios</button>        <button type="button" class="btn btn-secondary" (click)="reset()">Restablecer</button>      </div>    </form>    <div class="formulario-feedback" [class.error]="feedbackError()" [class.exito]="!feedbackError()" aria-live="polite">{{ feedback() }}</div>  </div></section></div>'
     var COMPONENTS = [{'name': 'Admin', 'selector': 'app-admin'},{'name': 'App', 'selector': 'app-root'},{'name': 'Carrito', 'selector': 'app-carrito'},{'name': 'CatalogFilter', 'selector': 'app-catalog-filter'},{'name': 'Estrategia', 'selector': 'app-estrategia'},{'name': 'Familiares', 'selector': 'app-familiares'},{'name': 'Fiesta', 'selector': 'app-fiesta'},{'name': 'Formulario', 'selector': 'app-formulario'},{'name': 'Infantiles', 'selector': 'app-infantiles'},{'name': 'Inicio', 'selector': 'app-inicio'},{'name': 'Login', 'selector': 'app-login'},{'name': 'MisCompras', 'selector': 'app-mis-compras'},{'name': 'Navbar', 'selector': 'app-navbar'},{'name': 'Perfil', 'selector': 'app-perfil'},{'name': 'Recuperar', 'selector': 'app-recuperar'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'Perfil'};

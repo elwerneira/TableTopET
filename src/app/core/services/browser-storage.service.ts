@@ -34,6 +34,24 @@ export class BrowserStorageService {
   }
 
   /**
+   * Traslada un valor de `localStorage` hacia una nueva clave.
+   *
+   * @param sourceKey Clave actualmente utilizada por el dato.
+   * @param destinationKey Nueva clave donde debe conservarse.
+   */
+  moveLocal(sourceKey: string, destinationKey: string): void {
+    if (!this.isBrowser || sourceKey === destinationKey) {
+      return;
+    }
+
+    const value = window.localStorage.getItem(sourceKey);
+    if (value !== null) {
+      window.localStorage.setItem(destinationKey, value);
+      window.localStorage.removeItem(sourceKey);
+    }
+  }
+
+  /**
    * Lee y deserializa un valor desde `sessionStorage`.
    *
    * @param key Clave utilizada para recuperar el dato.
