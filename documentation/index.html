@@ -93,58 +93,60 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content overview">
+               <div class="content readme">
                    <div class="content-data">
 
 
+<h1>TableTopET</h1>
+<p>Aplicación web desarrollada con Angular 22 para presentar y administrar un
+catálogo de juegos de mesa y productos Pokémon TCG.</p>
+<h2>Funcionalidades principales</h2>
+<ul>
+<li>Navegación interna mediante Angular Router.</li>
+<li>Catálogo organizado por categorías.</li>
+<li>Registro, inicio de sesión y recuperación de contraseña.</li>
+<li>Perfil de usuario con formulario reactivo.</li>
+<li>Roles de cliente y administrador.</li>
+<li>Carrito e historial de compras almacenados localmente.</li>
+<li>Administración de usuarios, productos y stock.</li>
+<li>Validación de edad mínima y coincidencia de contraseñas.</li>
+<li>Explorador de cartas conectado a Pokémon TCG API.</li>
+<li>Documentación técnica generada con Compodoc.</li>
+<li>Pruebas unitarias con Jasmine y Karma.</li>
+</ul>
+<h2>Requisitos</h2>
+<ul>
+<li>Node.js compatible con Angular 22.</li>
+<li>npm.</li>
+<li>Google Chrome para ejecutar Karma con ChromeHeadless.</li>
+</ul>
+<h2>Instalación</h2>
+<p>Desde la carpeta que contiene este archivo:</p>
+<b>Ejemplo :</b><div><pre class="line-numbers"><code class="language-bash">npm install</code></pre></div><h2>Servidor de desarrollo</h2>
+<b>Ejemplo :</b><div><pre class="line-numbers"><code class="language-bash">npm start</code></pre></div><p>La aplicación estará disponible en:</p>
+<b>Ejemplo :</b><div><pre class="line-numbers"><code class="language-text">http://localhost:4200</code></pre></div><p>La categoría Pokémon TCG se encuentra en:</p>
+<b>Ejemplo :</b><div><pre class="line-numbers"><code class="language-text">http://localhost:4200/tcg</code></pre></div><h2>Pokémon TCG API</h2>
+<p>El explorador utiliza el endpoint público:</p>
+<b>Ejemplo :</b><div><pre class="line-numbers"><code class="language-text">https://api.pokemontcg.io/v2/cards</code></pre></div><p>La consulta se realiza mediante <code>PokemonTcgApiService</code>. Para esta etapa se usa
+el acceso público sin incluir claves privadas en el código del frontend.</p>
+<h2>Pruebas unitarias</h2>
+<p>Para ejecutar las pruebas una sola vez:</p>
+<b>Ejemplo :</b><div><pre class="line-numbers"><code class="language-bash">npm test -- --watch=false</code></pre></div><p>Las pruebas utilizan Jasmine, Karma y ChromeHeadless.</p>
+<h2>Compilación</h2>
+<b>Ejemplo :</b><div><pre class="line-numbers"><code class="language-bash">npm run build</code></pre></div><p>Los archivos generados se almacenan en <code>dist/TableTopET</code>.</p>
+<h2>Documentación técnica</h2>
+<p>Para generar la documentación en español:</p>
+<b>Ejemplo :</b><div><pre class="line-numbers"><code class="language-bash">npm run docs</code></pre></div><p>Para servir la documentación localmente:</p>
+<b>Ejemplo :</b><div><pre class="line-numbers"><code class="language-bash">npm run docs:serve</code></pre></div><p>Compodoc quedará disponible normalmente en:</p>
+<b>Ejemplo :</b><div><pre class="line-numbers"><code class="language-text">http://localhost:8080</code></pre></div><p>La carpeta <code>documentation/</code> se genera automáticamente. No debe editarse
+manualmente; después de modificar código o comentarios JSDoc se debe ejecutar
+nuevamente <code>npm run docs</code>.</p>
 
 
 
 
-<ol class="breadcrumb">
-    <li class="breadcrumb-item">Descripción general</li>
-</ol>
-    
-<div class="tab-content overview">
-    <div class="row">
-        <div class="col-sm-3">
-            <div class="card text-center">
-                <div class="card-block">
-                    <h4 class="card-title"><span class="icon ion-md-cog"></span></h4>
-                    <p class="card-text">16 Componentes</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card text-center">
-                <div class="card-block">
-                    <h4 class="card-title"><span class="icon ion-md-arrow-round-down"></span></h4>
-                    <p class="card-text">5 Inyectables</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card text-center">
-                <div class="card-block">
-                    <h4 class="card-title"><span class="icon ion-md-information-circle-outline"></span></h4>
-                    <p class="card-text">6 Interfaces</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card text-center">
-                <div class="card-block">
-                    <h4 class="card-title"><span class="icon ion-ios-git-branch"></span></h4>
-                    <p class="card-text">
-                        <a href="./routes.html">0 </a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<script src="js/libs/svg-pan-zoom.min.js"></script>
-<script src="js/svg-pan-zoom.controls.js"></script> 
+
+
 
 
 
@@ -188,7 +190,7 @@
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 0;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'overview';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'readme';
             var COMPODOC_CURRENT_PAGE_URL = 'index.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>

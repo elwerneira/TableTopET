@@ -24,11 +24,17 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                     <a data-type="chapter-link" href="index.html"><span class="icon ion-ios-home"></span>Comenzando</a>
                     <ul class="links">
                                 <li class="link">
-                                    <a href="index.html" data-type="chapter-link">
+                                    <a href="overview.html" data-type="chapter-link">
                                         <span class="icon ion-ios-keypad"></span>Descripción general
                                     </a>
                                 </li>
 
+                            <li class="link">
+                                <a href="index.html" data-type="chapter-link">
+                                    <span class="icon ion-ios-paper"></span>
+                                        Léeme
+                                </a>
+                            </li>
                                 <li class="link">
                                     <a href="dependencies.html" data-type="chapter-link">
                                         <span class="icon ion-ios-list"></span>Dependencias
@@ -121,6 +127,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="injectables/CatalogService.html" data-type="entity-link" >CatalogService</a>
                                 </li>
                                 <li class="link">
+                                    <a href="injectables/PokemonTcgApiService.html" data-type="entity-link" >PokemonTcgApiService</a>
+                                </li>
+                                <li class="link">
                                     <a href="injectables/PurchaseService.html" data-type="entity-link" >PurchaseService</a>
                                 </li>
                             </ul>
@@ -135,6 +144,15 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
                             <li class="link">
                                 <a href="interfaces/CartItem.html" data-type="entity-link" >CartItem</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/PokemonTcgCard.html" data-type="entity-link" >PokemonTcgCard</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/PokemonTcgResponse.html" data-type="entity-link" >PokemonTcgResponse</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/PokemonTcgSet.html" data-type="entity-link" >PokemonTcgSet</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/Product.html" data-type="entity-link" >Product</a>

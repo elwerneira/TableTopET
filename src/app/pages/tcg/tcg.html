@@ -1,53 +1,153 @@
 <section class="page-hero container-fluid">
   <div class="hero-content">
-    <h2>Categoría TCG</h2>
-    <p>Cartas coleccionables, mazos iniciales y productos para comenzar o ampliar tu colección.</p>
+    <h2>Pokémon TCG</h2>
+    <p>Cartas coleccionables, mazos y productos para comenzar o ampliar tu colección Pokémon.</p>
     <a class="hero-link" routerLink="/" fragment="top">Ver top ventas</a>
   </div>
 </section>
 
 <section class="productos container-xxl">
-  <div class="section-heading section-heading-left">
-    <span class="eyebrow">Categoría</span>
-    <h2>Trading Card Games</h2>
-    <p>Opciones para descubrir distintos universos, construir mazos y desafiar a otros jugadores.</p>
+  <div class="section-heading section-heading-left tcg-products-heading">
+    <div>
+      <span class="eyebrow">Categoría Pokémon</span>
+      <h2>Productos Pokémon TCG</h2>
+      <p>Opciones para comenzar a jugar, construir mazos y ampliar tu colección.</p>
+    </div>
+    <button type="button" class="open-explorer-button" (click)="openExplorer()">
+      Consultar cartas
+    </button>
   </div>
 
   <div class="contenedor-productos">
     <div class="card card-oferta">
-      <img src="/img/pokemon-tcg-1.jpg" alt="Producto Pokémon TCG">
-      <h3>Pokémon TCG -  Collector Bundle (Spring 2022)</h3>
-      <p>Este Collector Bundle (Spring 2022) contiene más de una docena de golosinas especiales de Pokémon, incluidas muchas que no se encuentran en ningún otro lugar.</p>
-      <div class="estado-descuento">Oferta 10%</div>
+      <img src="/img/pokemon-tcg-1.jpg" alt="Pokémon TCG Collector Bundle Spring 2022">
+      <h3>Pokémon TCG - Collector Bundle (Spring 2022)</h3>
+      <p>Este Collector Bundle contiene más de una docena de productos especiales de Pokémon, incluidos varios artículos exclusivos.</p>
+      <div class="estado-descuento">Oferta 19%</div>
       <div class="card-acciones">
         <div class="precio-contenedor">
           <span class="precio-original">$35.990</span>
           <span class="precio-oferta">$28.990</span>
         </div>
-        <button type="button" (click)="agregarAlCarrito('Pokemon TCG Coleccion Inicial')">Agregar al carrito</button>
+        <button type="button" (click)="agregarAlCarrito('Pokémon TCG - Collector Bundle (Spring 2022)')">Agregar al carrito</button>
       </div>
     </div>
 
     <div class="card">
-      <img src="/img/pokemon-tcg-2.jpg" alt="Producto Magic The Gathering">
-      <h3>Pokémon TCG - Scarlet & Violet: Journey Together </h3>
+      <img src="/img/pokemon-tcg-2.jpg" alt="Pokémon TCG Scarlet and Violet Journey Together">
+      <h3>Pokémon TCG - Scarlet &amp; Violet: Journey Together</h3>
       <p>Con profunda confianza y una guía constante, los Entrenadores ayudan a sacar lo mejor de sus Pokémon.</p>
       <div class="estado-descuento estado-sin-descuento">Sin descuentos</div>
       <div class="card-acciones">
         <span>$59.990</span>
-        <button type="button" (click)="agregarAlCarrito('Magic Kit de Inicio')">Agregar al carrito</button>
+        <button type="button" (click)="agregarAlCarrito('Pokémon TCG - Scarlet & Violet: Journey Together')">Agregar al carrito</button>
       </div>
     </div>
 
     <div class="card">
-      <img src="/img/pokemon-tcg-3.jpg" alt="Producto Yu-Gi-Oh TCG">
+      <img src="/img/pokemon-tcg-3.jpg" alt="Pokémon Mega Battle Deck Mega Diancie">
       <h3>Pokémon - Mega Battle Deck - Mega Diancie</h3>
-      <p>¡Es hora de una megabatalla! Invoca a Mega Diancie ex y deslumbra a tus oponentes con tu habilidad.</p>
+      <p>¡Es hora de una megabatalla! Invoca a Mega Diancie ex y deslumbra a tus oponentes con su habilidad.</p>
       <div class="estado-descuento estado-sin-descuento">Sin descuentos</div>
       <div class="card-acciones">
         <span>$34.990</span>
-        <button type="button" (click)="agregarAlCarrito('Yu-Gi-Oh Starter Deck')">Agregar al carrito</button>
+        <button type="button" (click)="agregarAlCarrito('Pokémon - Mega Battle Deck - Mega Diancie')">Agregar al carrito</button>
       </div>
     </div>
   </div>
 </section>
+
+@if (explorerOpen()) {
+  <div class="tcg-modal-backdrop" (click)="closeFromBackdrop($event)">
+    <section
+      class="tcg-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="tcg-modal-title"
+    >
+      <header class="tcg-modal-header">
+        <div>
+          <span class="eyebrow">Pokémon TCG API</span>
+          <h2 id="tcg-modal-title">Explorador de cartas Pokémon</h2>
+          <p>Busca una carta por nombre y consulta su expansión, tipo y rareza.</p>
+        </div>
+        <button type="button" class="tcg-modal-close" (click)="closeExplorer()" aria-label="Cerrar explorador">
+          ×
+        </button>
+      </header>
+
+      <div class="tcg-modal-body">
+        <form class="tcg-search" [formGroup]="searchForm" (ngSubmit)="searchCards()">
+          <label for="pokemon-card-search">Nombre de la carta</label>
+          <div class="tcg-search-controls">
+            <input
+              id="pokemon-card-search"
+              type="search"
+              [formControl]="searchControl"
+              placeholder="Ejemplo: Pikachu"
+              autocomplete="off"
+            >
+            <button type="submit" [disabled]="loading()">Buscar</button>
+            <button type="button" class="secondary-button" (click)="clearSearch()" [disabled]="loading()">Limpiar</button>
+          </div>
+        </form>
+
+        @if (loading()) {
+          <div class="api-status api-loading" aria-live="polite">
+            <span class="api-spinner" aria-hidden="true"></span>
+            <span>Consultando cartas Pokémon...</span>
+          </div>
+        } @else if (apiError()) {
+          <p class="api-status api-error" role="alert">{{ apiError() }}</p>
+        } @else if (!cards().length) {
+          <p class="api-status" aria-live="polite">No se encontraron cartas con ese nombre.</p>
+        } @else {
+          <div class="api-results-heading" aria-live="polite">
+            <strong>{{ cards().length }} cartas encontradas</strong>
+            <span>Selecciona una imagen para verla en mayor resolución.</span>
+          </div>
+
+          <div class="contenedor-productos api-card-grid">
+            @for (card of cards(); track card.id) {
+              <article class="card api-card">
+                <div class="api-card-media">
+                  <span class="api-card-supertype">{{ card.supertype }}</span>
+                  <a
+                    [href]="card.images.large"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    [attr.aria-label]="'Abrir imagen ampliada de ' + card.name"
+                  >
+                    <img [src]="card.images.small" [alt]="'Carta Pokémon ' + card.name" loading="lazy">
+                  </a>
+                </div>
+
+                <div class="api-card-content">
+                  <h3>{{ card.name }}</h3>
+
+                  <div class="api-card-tags">
+                    @if (card.hp) { <span class="api-tag api-tag-hp">HP {{ card.hp }}</span> }
+                    @for (type of card.types ?? []; track type) { <span class="api-tag">{{ type }}</span> }
+                    @for (subtype of card.subtypes ?? []; track subtype) { <span class="api-tag api-tag-muted">{{ subtype }}</span> }
+                  </div>
+
+                  <dl class="api-card-details">
+                    <div><dt>Expansión</dt><dd>{{ card.set.name }}</dd></div>
+                    <div><dt>Rareza</dt><dd>{{ card.rarity || 'No informada' }}</dd></div>
+                    @if (card.set.releaseDate) {
+                      <div><dt>Lanzamiento</dt><dd>{{ card.set.releaseDate }}</dd></div>
+                    }
+                  </dl>
+
+                  <a class="api-card-link" [href]="card.images.large" target="_blank" rel="noopener noreferrer">
+                    Ver carta ampliada
+                  </a>
+                </div>
+              </article>
+            }
+          </div>
+        }
+      </div>
+    </section>
+  </div>
+}

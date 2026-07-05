@@ -142,7 +142,7 @@
         <h3>Descripción</h3>
     </p>
     <p class="comment">
-        <p>Presenta productos relacionados con juegos de cartas coleccionables.</p>
+        <p>Presenta productos Pokémon y un explorador conectado a Pokémon TCG API.</p>
 
     </p>
 
@@ -174,6 +174,7 @@
             <tr>
                 <td class="col-md-3">imports</td>
                 <td class="col-md-9">
+                                <code><a href="https://angular.io/api/forms/ReactiveFormsModule" target="_blank" >ReactiveFormsModule</a></code>
                                 <code><a href="https://angular.io/api/router/RouterLink" target="_blank" >RouterLink</a></code>
                 </td>
             </tr>
@@ -214,6 +215,14 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#apiError" >apiError</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#cards" >cards</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Readonly</span>
                                 <a href="#cart" >cart</a>
@@ -221,7 +230,38 @@
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Readonly</span>
+                                <a href="#destroyRef" >destroyRef</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#explorerOpen" >explorerOpen</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#isBrowser" >isBrowser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#loading" >loading</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#pokemonApi" >pokemonApi</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
                                 <a href="#router" >router</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#searchControl" >searchControl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#searchForm" >searchForm</a>
                             </li>
                         </ul>
                     </td>
@@ -238,6 +278,29 @@
                             <li>
                                 <a href="#agregarAlCarrito" >agregarAlCarrito</a>
                             </li>
+                            <li>
+                                <a href="#clearSearch" >clearSearch</a>
+                            </li>
+                            <li>
+                                <a href="#closeExplorer" >closeExplorer</a>
+                            </li>
+                            <li>
+                                <a href="#closeFromBackdrop" >closeFromBackdrop</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#closeWithEscape" >closeWithEscape</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#loadCards" >loadCards</a>
+                            </li>
+                            <li>
+                                <a href="#openExplorer" >openExplorer</a>
+                            </li>
+                            <li>
+                                <a href="#searchCards" >searchCards</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -245,6 +308,20 @@
 
 
 
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Escuchadores de Host</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#document:keydown.escape" >document:keydown.escape</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
         </tbody>
     </table>
@@ -254,7 +331,43 @@
 
 
 
+    <section data-compodoc="block-methods">
+    <h3>HostListeners</h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="document:keydown.escape"></a>
+                    <span class="name">
+                        <span ><b>document:keydown.escape</b></span>
+                        <a href="#document:keydown.escape"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>document:keydown.escape()</code>
+                </td>
+            </tr>
 
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="82"
+                                    class="link-to-prism">src/app/pages/tcg/tcg.ts:82</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Permite cerrar el popup utilizando la tecla Escape.</p>
+</div>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
     <section data-compodoc="block-methods">
     
     <h3 id="methods">
@@ -280,8 +393,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Definido en <a href="" data-line="25"
-                                    class="link-to-prism">src/app/pages/tcg/tcg.ts:25</a></div>
+                            <div class="io-line">Definido en <a href="" data-line="93"
+                                    class="link-to-prism">src/app/pages/tcg/tcg.ts:93</a></div>
                         </td>
                     </tr>
 
@@ -334,12 +447,446 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clearSearch"></a>
+                    <span class="name">
+                        <span ><b>clearSearch</b></span>
+                        <a href="#clearSearch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>clearSearch()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="107"
+                                    class="link-to-prism">src/app/pages/tcg/tcg.ts:107</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Limpia el buscador y recupera nuevamente la selección inicial.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeExplorer"></a>
+                    <span class="name">
+                        <span ><b>closeExplorer</b></span>
+                        <a href="#closeExplorer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>closeExplorer()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="65"
+                                    class="link-to-prism">src/app/pages/tcg/tcg.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Cierra el popup del explorador de cartas.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeFromBackdrop"></a>
+                    <span class="name">
+                        <span ><b>closeFromBackdrop</b></span>
+                        <a href="#closeFromBackdrop"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>closeFromBackdrop(event: MouseEvent)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="74"
+                                    class="link-to-prism">src/app/pages/tcg/tcg.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Cierra el popup cuando se selecciona directamente el fondo exterior.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parámetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nombre</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                                <td>Descripción</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>MouseEvent</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Evento generado sobre la capa del popup.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeWithEscape"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>closeWithEscape</b></span>
+                        <a href="#closeWithEscape"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>closeWithEscape()</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decoradores : </b>
+                    <br />
+                    <code>@HostListener(&#x27;document:keydown.escape&#x27;)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="82"
+                                    class="link-to-prism">src/app/pages/tcg/tcg.ts:82</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Permite cerrar el popup utilizando la tecla Escape.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadCards"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>loadCards</b></span>
+                        <a href="#loadCards"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadCards(searchText: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="117"
+                                    class="link-to-prism">src/app/pages/tcg/tcg.ts:117</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Consulta la API y actualiza los estados visuales del explorador.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parámetros :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Nombre</td>
+                                                <td>Tipo</td>
+                                            <td>Opcional</td>
+                                                <td>Valor por defecto</td>
+                                                <td>Descripción</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>searchText</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>&#x27;&#x27;</code>
+                                            </td>
+
+                                            <td>
+                                                    <p>Nombre completo o parcial de una carta.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openExplorer"></a>
+                    <span class="name">
+                        <span ><b>openExplorer</b></span>
+                        <a href="#openExplorer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openExplorer()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="57"
+                                    class="link-to-prism">src/app/pages/tcg/tcg.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Abre el popup y carga una selección inicial la primera vez.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="searchCards"></a>
+                    <span class="name">
+                        <span ><b>searchCards</b></span>
+                        <a href="#searchCards"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>searchCards()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Definido en <a href="" data-line="102"
+                                    class="link-to-prism">src/app/pages/tcg/tcg.ts:102</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Ejecuta la búsqueda utilizando el valor actual del campo reactivo.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Devuelve : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
     <section data-compodoc="block-properties">
     
     <h3 id="inputs">
         Propiedades
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="apiError"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>apiError</b></span>
+                        <a href="#apiError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>signal(&#x27;&#x27;)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="51" class="link-to-prism">src/app/pages/tcg/tcg.ts:51</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Mensaje presentado cuando la consulta no puede completarse.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cards"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>cards</b></span>
+                        <a href="#cards"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>signal&lt;PokemonTcgCard[]&gt;([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="45" class="link-to-prism">src/app/pages/tcg/tcg.ts:45</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Cartas obtenidas desde la API.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -366,13 +913,206 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="15" class="link-to-prism">src/app/pages/tcg/tcg.ts:15</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="22" class="link-to-prism">src/app/pages/tcg/tcg.ts:22</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
                     <div class="io-description"><p>Servicio utilizado para agregar productos al carrito.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="destroyRef"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>destroyRef</b></span>
+                        <a href="#destroyRef"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>inject(DestroyRef)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="31" class="link-to-prism">src/app/pages/tcg/tcg.ts:31</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Permite finalizar solicitudes cuando el componente deja de existir.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="explorerOpen"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>explorerOpen</b></span>
+                        <a href="#explorerOpen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="54" class="link-to-prism">src/app/pages/tcg/tcg.ts:54</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Indica si el popup del explorador se encuentra abierto.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isBrowser"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>isBrowser</b></span>
+                        <a href="#isBrowser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>isPlatformBrowser(inject(PLATFORM_ID))</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="34" class="link-to-prism">src/app/pages/tcg/tcg.ts:34</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Evita ejecutar solicitudes HTTP durante el prerenderizado del servidor.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loading"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>loading</b></span>
+                        <a href="#loading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="48" class="link-to-prism">src/app/pages/tcg/tcg.ts:48</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Indica si existe una solicitud en curso.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pokemonApi"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>pokemonApi</b></span>
+                        <a href="#pokemonApi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>inject(PokemonTcgApiService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="28" class="link-to-prism">src/app/pages/tcg/tcg.ts:28</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Servicio que consulta cartas desde Pokémon TCG API.</p>
 </div>
                 </td>
             </tr>
@@ -405,7 +1145,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="18" class="link-to-prism">src/app/pages/tcg/tcg.ts:18</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="25" class="link-to-prism">src/app/pages/tcg/tcg.ts:25</a></div>
                         </td>
                     </tr>
 
@@ -418,21 +1158,106 @@
 
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="searchControl"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>searchControl</b></span>
+                        <a href="#searchControl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>new FormControl(&#x27;&#x27;, { nonNullable: true })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="37" class="link-to-prism">src/app/pages/tcg/tcg.ts:37</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Campo reactivo utilizado para buscar cartas por nombre.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="searchForm"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>searchForm</b></span>
+                        <a href="#searchForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>new FormGroup({
+    query: this.searchControl,
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Definido en <a href="" data-line="40" class="link-to-prism">src/app/pages/tcg/tcg.ts:40</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Formulario reactivo que evita la recarga nativa al ejecutar una búsqueda.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
 </section>
 
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, inject } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { isPlatformBrowser } from &#x27;@angular/common&#x27;;
+import { HttpErrorResponse } from &#x27;@angular/common/http&#x27;;
+import { Component, DestroyRef, HostListener, inject, PLATFORM_ID, signal } from &#x27;@angular/core&#x27;;
+import { FormControl, FormGroup, ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
+import { takeUntilDestroyed } from &#x27;@angular/core/rxjs-interop&#x27;;
 import { Router, RouterLink } from &#x27;@angular/router&#x27;;
+import { finalize } from &#x27;rxjs&#x27;;
 
+import { PokemonTcgCard } from &#x27;../../core/models/pokemon-tcg.models&#x27;;
 import { CartService } from &#x27;../../core/services/cart.service&#x27;;
+import { PokemonTcgApiService } from &#x27;../../core/services/pokemon-tcg-api.service&#x27;;
 
-/** Presenta productos relacionados con juegos de cartas coleccionables. */
+/** Presenta productos Pokémon y un explorador conectado a Pokémon TCG API. */
 @Component({
   selector: &#x27;app-tcg&#x27;,
-  imports: [RouterLink],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: &#x27;./tcg.html&#x27;,
   styleUrl: &#x27;./tcg.css&#x27;,
 })
@@ -442,6 +1267,67 @@ export class Tcg {
 
   /** Enrutador utilizado cuando se requiere iniciar sesión. */
   private readonly router &#x3D; inject(Router);
+
+  /** Servicio que consulta cartas desde Pokémon TCG API. */
+  private readonly pokemonApi &#x3D; inject(PokemonTcgApiService);
+
+  /** Permite finalizar solicitudes cuando el componente deja de existir. */
+  private readonly destroyRef &#x3D; inject(DestroyRef);
+
+  /** Evita ejecutar solicitudes HTTP durante el prerenderizado del servidor. */
+  private readonly isBrowser &#x3D; isPlatformBrowser(inject(PLATFORM_ID));
+
+  /** Campo reactivo utilizado para buscar cartas por nombre. */
+  readonly searchControl &#x3D; new FormControl(&#x27;&#x27;, { nonNullable: true });
+
+  /** Formulario reactivo que evita la recarga nativa al ejecutar una búsqueda. */
+  readonly searchForm &#x3D; new FormGroup({
+    query: this.searchControl,
+  });
+
+  /** Cartas obtenidas desde la API. */
+  readonly cards &#x3D; signal&lt;PokemonTcgCard[]&gt;([]);
+
+  /** Indica si existe una solicitud en curso. */
+  readonly loading &#x3D; signal(false);
+
+  /** Mensaje presentado cuando la consulta no puede completarse. */
+  readonly apiError &#x3D; signal(&#x27;&#x27;);
+
+  /** Indica si el popup del explorador se encuentra abierto. */
+  readonly explorerOpen &#x3D; signal(false);
+
+  /** Abre el popup y carga una selección inicial la primera vez. */
+  openExplorer(): void {
+    this.explorerOpen.set(true);
+    if (this.isBrowser &amp;&amp; !this.cards().length &amp;&amp; !this.loading()) {
+      this.loadCards();
+    }
+  }
+
+  /** Cierra el popup del explorador de cartas. */
+  closeExplorer(): void {
+    this.explorerOpen.set(false);
+  }
+
+  /**
+   * Cierra el popup cuando se selecciona directamente el fondo exterior.
+   *
+   * @param event Evento generado sobre la capa del popup.
+   */
+  closeFromBackdrop(event: MouseEvent): void {
+    if (event.target &#x3D;&#x3D;&#x3D; event.currentTarget) {
+      this.closeExplorer();
+    }
+  }
+
+  /** Permite cerrar el popup utilizando la tecla Escape. */
+  @HostListener(&#x27;document:keydown.escape&#x27;)
+  closeWithEscape(): void {
+    if (this.explorerOpen()) {
+      this.closeExplorer();
+    }
+  }
 
   /**
    * Agrega un producto TCG al carrito y redirige al login cuando corresponde.
@@ -455,6 +1341,47 @@ export class Tcg {
       void this.router.navigate([&#x27;/login&#x27;]);
     }
   }
+
+  /** Ejecuta la búsqueda utilizando el valor actual del campo reactivo. */
+  searchCards(): void {
+    this.loadCards(this.searchControl.value);
+  }
+
+  /** Limpia el buscador y recupera nuevamente la selección inicial. */
+  clearSearch(): void {
+    this.searchControl.reset(&#x27;&#x27;);
+    this.loadCards();
+  }
+
+  /**
+   * Consulta la API y actualiza los estados visuales del explorador.
+   *
+   * @param searchText Nombre completo o parcial de una carta.
+   */
+  private loadCards(searchText &#x3D; &#x27;&#x27;): void {
+    if (!this.isBrowser) {
+      return;
+    }
+
+    this.loading.set(true);
+    this.apiError.set(&#x27;&#x27;);
+    this.pokemonApi.searchCards(searchText)
+      .pipe(
+        takeUntilDestroyed(this.destroyRef),
+        finalize(() &#x3D;&gt; this.loading.set(false)),
+      )
+      .subscribe({
+        next: cards &#x3D;&gt; this.cards.set(cards),
+        error: (error: HttpErrorResponse) &#x3D;&gt; {
+          this.cards.set([]);
+          this.apiError.set(
+            error.status &#x3D;&#x3D;&#x3D; 429
+              ? &#x27;Se alcanzó temporalmente el límite de consultas. Intenta nuevamente en unos minutos.&#x27;
+              : &#x27;No fue posible consultar las cartas Pokémon en este momento.&#x27;,
+          );
+        },
+      });
+  }
 }
 </code></pre>
     </div>
@@ -462,57 +1389,157 @@ export class Tcg {
     <div class="tab-pane fade " id="templateData">
         <pre class="line-numbers"><code class="language-html">&lt;section class&#x3D;&quot;page-hero container-fluid&quot;&gt;
   &lt;div class&#x3D;&quot;hero-content&quot;&gt;
-    &lt;h2&gt;Categoría TCG&lt;/h2&gt;
-    &lt;p&gt;Cartas coleccionables, mazos iniciales y productos para comenzar o ampliar tu colección.&lt;/p&gt;
+    &lt;h2&gt;Pokémon TCG&lt;/h2&gt;
+    &lt;p&gt;Cartas coleccionables, mazos y productos para comenzar o ampliar tu colección Pokémon.&lt;/p&gt;
     &lt;a class&#x3D;&quot;hero-link&quot; routerLink&#x3D;&quot;/&quot; fragment&#x3D;&quot;top&quot;&gt;Ver top ventas&lt;/a&gt;
   &lt;/div&gt;
 &lt;/section&gt;
 
 &lt;section class&#x3D;&quot;productos container-xxl&quot;&gt;
-  &lt;div class&#x3D;&quot;section-heading section-heading-left&quot;&gt;
-    &lt;span class&#x3D;&quot;eyebrow&quot;&gt;Categoría&lt;/span&gt;
-    &lt;h2&gt;Trading Card Games&lt;/h2&gt;
-    &lt;p&gt;Opciones para descubrir distintos universos, construir mazos y desafiar a otros jugadores.&lt;/p&gt;
+  &lt;div class&#x3D;&quot;section-heading section-heading-left tcg-products-heading&quot;&gt;
+    &lt;div&gt;
+      &lt;span class&#x3D;&quot;eyebrow&quot;&gt;Categoría Pokémon&lt;/span&gt;
+      &lt;h2&gt;Productos Pokémon TCG&lt;/h2&gt;
+      &lt;p&gt;Opciones para comenzar a jugar, construir mazos y ampliar tu colección.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;open-explorer-button&quot; (click)&#x3D;&quot;openExplorer()&quot;&gt;
+      Consultar cartas
+    &lt;/button&gt;
   &lt;/div&gt;
 
   &lt;div class&#x3D;&quot;contenedor-productos&quot;&gt;
     &lt;div class&#x3D;&quot;card card-oferta&quot;&gt;
-      &lt;img src&#x3D;&quot;/img/tcg-pokemon.png&quot; alt&#x3D;&quot;Producto Pokémon TCG&quot;&gt;
-      &lt;h3&gt;Pokémon TCG - Colección inicial&lt;/h3&gt;
-      &lt;p&gt;Una selección para comenzar a jugar, aprender las reglas y ampliar tu colección.&lt;/p&gt;
-      &lt;div class&#x3D;&quot;estado-descuento&quot;&gt;Oferta 10%&lt;/div&gt;
+      &lt;img src&#x3D;&quot;/img/pokemon-tcg-1.jpg&quot; alt&#x3D;&quot;Pokémon TCG Collector Bundle Spring 2022&quot;&gt;
+      &lt;h3&gt;Pokémon TCG - Collector Bundle (Spring 2022)&lt;/h3&gt;
+      &lt;p&gt;Este Collector Bundle contiene más de una docena de productos especiales de Pokémon, incluidos varios artículos exclusivos.&lt;/p&gt;
+      &lt;div class&#x3D;&quot;estado-descuento&quot;&gt;Oferta 19%&lt;/div&gt;
       &lt;div class&#x3D;&quot;card-acciones&quot;&gt;
         &lt;div class&#x3D;&quot;precio-contenedor&quot;&gt;
-          &lt;span class&#x3D;&quot;precio-original&quot;&gt;$24.990&lt;/span&gt;
-          &lt;span class&#x3D;&quot;precio-oferta&quot;&gt;$22.490&lt;/span&gt;
+          &lt;span class&#x3D;&quot;precio-original&quot;&gt;$35.990&lt;/span&gt;
+          &lt;span class&#x3D;&quot;precio-oferta&quot;&gt;$28.990&lt;/span&gt;
         &lt;/div&gt;
-        &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;agregarAlCarrito(&#x27;Pokemon TCG Coleccion Inicial&#x27;)&quot;&gt;Agregar al carrito&lt;/button&gt;
+        &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;agregarAlCarrito(&#x27;Pokémon TCG - Collector Bundle (Spring 2022)&#x27;)&quot;&gt;Agregar al carrito&lt;/button&gt;
       &lt;/div&gt;
     &lt;/div&gt;
 
     &lt;div class&#x3D;&quot;card&quot;&gt;
-      &lt;img src&#x3D;&quot;/img/tcg-magic.png&quot; alt&#x3D;&quot;Producto Magic The Gathering&quot;&gt;
-      &lt;h3&gt;Magic - Kit de inicio&lt;/h3&gt;
-      &lt;p&gt;Dos mazos preparados para aprender las bases de Magic y comenzar a jugar.&lt;/p&gt;
+      &lt;img src&#x3D;&quot;/img/pokemon-tcg-2.jpg&quot; alt&#x3D;&quot;Pokémon TCG Scarlet and Violet Journey Together&quot;&gt;
+      &lt;h3&gt;Pokémon TCG - Scarlet &amp;amp; Violet: Journey Together&lt;/h3&gt;
+      &lt;p&gt;Con profunda confianza y una guía constante, los Entrenadores ayudan a sacar lo mejor de sus Pokémon.&lt;/p&gt;
       &lt;div class&#x3D;&quot;estado-descuento estado-sin-descuento&quot;&gt;Sin descuentos&lt;/div&gt;
       &lt;div class&#x3D;&quot;card-acciones&quot;&gt;
-        &lt;span&gt;$24.990&lt;/span&gt;
-        &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;agregarAlCarrito(&#x27;Magic Kit de Inicio&#x27;)&quot;&gt;Agregar al carrito&lt;/button&gt;
+        &lt;span&gt;$59.990&lt;/span&gt;
+        &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;agregarAlCarrito(&#x27;Pokémon TCG - Scarlet &amp; Violet: Journey Together&#x27;)&quot;&gt;Agregar al carrito&lt;/button&gt;
       &lt;/div&gt;
     &lt;/div&gt;
 
     &lt;div class&#x3D;&quot;card&quot;&gt;
-      &lt;img src&#x3D;&quot;/img/tcg-yugioh.png&quot; alt&#x3D;&quot;Producto Yu-Gi-Oh TCG&quot;&gt;
-      &lt;h3&gt;Yu-Gi-Oh! - Starter Deck&lt;/h3&gt;
-      &lt;p&gt;Un mazo inicial listo para conocer sus mecánicas y disputar las primeras partidas.&lt;/p&gt;
+      &lt;img src&#x3D;&quot;/img/pokemon-tcg-3.jpg&quot; alt&#x3D;&quot;Pokémon Mega Battle Deck Mega Diancie&quot;&gt;
+      &lt;h3&gt;Pokémon - Mega Battle Deck - Mega Diancie&lt;/h3&gt;
+      &lt;p&gt;¡Es hora de una megabatalla! Invoca a Mega Diancie ex y deslumbra a tus oponentes con su habilidad.&lt;/p&gt;
       &lt;div class&#x3D;&quot;estado-descuento estado-sin-descuento&quot;&gt;Sin descuentos&lt;/div&gt;
       &lt;div class&#x3D;&quot;card-acciones&quot;&gt;
-        &lt;span&gt;$17.990&lt;/span&gt;
-        &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;agregarAlCarrito(&#x27;Yu-Gi-Oh Starter Deck&#x27;)&quot;&gt;Agregar al carrito&lt;/button&gt;
+        &lt;span&gt;$34.990&lt;/span&gt;
+        &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;agregarAlCarrito(&#x27;Pokémon - Mega Battle Deck - Mega Diancie&#x27;)&quot;&gt;Agregar al carrito&lt;/button&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/section&gt;
+
+@if (explorerOpen()) {
+  &lt;div class&#x3D;&quot;tcg-modal-backdrop&quot; (click)&#x3D;&quot;closeFromBackdrop($event)&quot;&gt;
+    &lt;section
+      class&#x3D;&quot;tcg-modal&quot;
+      role&#x3D;&quot;dialog&quot;
+      aria-modal&#x3D;&quot;true&quot;
+      aria-labelledby&#x3D;&quot;tcg-modal-title&quot;
+    &gt;
+      &lt;header class&#x3D;&quot;tcg-modal-header&quot;&gt;
+        &lt;div&gt;
+          &lt;span class&#x3D;&quot;eyebrow&quot;&gt;Pokémon TCG API&lt;/span&gt;
+          &lt;h2 id&#x3D;&quot;tcg-modal-title&quot;&gt;Explorador de cartas Pokémon&lt;/h2&gt;
+          &lt;p&gt;Busca una carta por nombre y consulta su expansión, tipo y rareza.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;tcg-modal-close&quot; (click)&#x3D;&quot;closeExplorer()&quot; aria-label&#x3D;&quot;Cerrar explorador&quot;&gt;
+          ×
+        &lt;/button&gt;
+      &lt;/header&gt;
+
+      &lt;div class&#x3D;&quot;tcg-modal-body&quot;&gt;
+        &lt;form class&#x3D;&quot;tcg-search&quot; [formGroup]&#x3D;&quot;searchForm&quot; (ngSubmit)&#x3D;&quot;searchCards()&quot;&gt;
+          &lt;label for&#x3D;&quot;pokemon-card-search&quot;&gt;Nombre de la carta&lt;/label&gt;
+          &lt;div class&#x3D;&quot;tcg-search-controls&quot;&gt;
+            &lt;input
+              id&#x3D;&quot;pokemon-card-search&quot;
+              type&#x3D;&quot;search&quot;
+              [formControl]&#x3D;&quot;searchControl&quot;
+              placeholder&#x3D;&quot;Ejemplo: Pikachu&quot;
+              autocomplete&#x3D;&quot;off&quot;
+            &gt;
+            &lt;button type&#x3D;&quot;submit&quot; [disabled]&#x3D;&quot;loading()&quot;&gt;Buscar&lt;/button&gt;
+            &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;secondary-button&quot; (click)&#x3D;&quot;clearSearch()&quot; [disabled]&#x3D;&quot;loading()&quot;&gt;Limpiar&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/form&gt;
+
+        @if (loading()) {
+          &lt;div class&#x3D;&quot;api-status api-loading&quot; aria-live&#x3D;&quot;polite&quot;&gt;
+            &lt;span class&#x3D;&quot;api-spinner&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/span&gt;
+            &lt;span&gt;Consultando cartas Pokémon...&lt;/span&gt;
+          &lt;/div&gt;
+        } @else if (apiError()) {
+          &lt;p class&#x3D;&quot;api-status api-error&quot; role&#x3D;&quot;alert&quot;&gt;{{ apiError() }}&lt;/p&gt;
+        } @else if (!cards().length) {
+          &lt;p class&#x3D;&quot;api-status&quot; aria-live&#x3D;&quot;polite&quot;&gt;No se encontraron cartas con ese nombre.&lt;/p&gt;
+        } @else {
+          &lt;div class&#x3D;&quot;api-results-heading&quot; aria-live&#x3D;&quot;polite&quot;&gt;
+            &lt;strong&gt;{{ cards().length }} cartas encontradas&lt;/strong&gt;
+            &lt;span&gt;Selecciona una imagen para verla en mayor resolución.&lt;/span&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;contenedor-productos api-card-grid&quot;&gt;
+            @for (card of cards(); track card.id) {
+              &lt;article class&#x3D;&quot;card api-card&quot;&gt;
+                &lt;div class&#x3D;&quot;api-card-media&quot;&gt;
+                  &lt;span class&#x3D;&quot;api-card-supertype&quot;&gt;{{ card.supertype }}&lt;/span&gt;
+                  &lt;a
+                    [href]&#x3D;&quot;card.images.large&quot;
+                    target&#x3D;&quot;_blank&quot;
+                    rel&#x3D;&quot;noopener noreferrer&quot;
+                    [attr.aria-label]&#x3D;&quot;&#x27;Abrir imagen ampliada de &#x27; + card.name&quot;
+                  &gt;
+                    &lt;img [src]&#x3D;&quot;card.images.small&quot; [alt]&#x3D;&quot;&#x27;Carta Pokémon &#x27; + card.name&quot; loading&#x3D;&quot;lazy&quot;&gt;
+                  &lt;/a&gt;
+                &lt;/div&gt;
+
+                &lt;div class&#x3D;&quot;api-card-content&quot;&gt;
+                  &lt;h3&gt;{{ card.name }}&lt;/h3&gt;
+
+                  &lt;div class&#x3D;&quot;api-card-tags&quot;&gt;
+                    @if (card.hp) { &lt;span class&#x3D;&quot;api-tag api-tag-hp&quot;&gt;HP {{ card.hp }}&lt;/span&gt; }
+                    @for (type of card.types ?? []; track type) { &lt;span class&#x3D;&quot;api-tag&quot;&gt;{{ type }}&lt;/span&gt; }
+                    @for (subtype of card.subtypes ?? []; track subtype) { &lt;span class&#x3D;&quot;api-tag api-tag-muted&quot;&gt;{{ subtype }}&lt;/span&gt; }
+                  &lt;/div&gt;
+
+                  &lt;dl class&#x3D;&quot;api-card-details&quot;&gt;
+                    &lt;div&gt;&lt;dt&gt;Expansión&lt;/dt&gt;&lt;dd&gt;{{ card.set.name }}&lt;/dd&gt;&lt;/div&gt;
+                    &lt;div&gt;&lt;dt&gt;Rareza&lt;/dt&gt;&lt;dd&gt;{{ card.rarity || &#x27;No informada&#x27; }}&lt;/dd&gt;&lt;/div&gt;
+                    @if (card.set.releaseDate) {
+                      &lt;div&gt;&lt;dt&gt;Lanzamiento&lt;/dt&gt;&lt;dd&gt;{{ card.set.releaseDate }}&lt;/dd&gt;&lt;/div&gt;
+                    }
+                  &lt;/dl&gt;
+
+                  &lt;a class&#x3D;&quot;api-card-link&quot; [href]&#x3D;&quot;card.images.large&quot; target&#x3D;&quot;_blank&quot; rel&#x3D;&quot;noopener noreferrer&quot;&gt;
+                    Ver carta ampliada
+                  &lt;/a&gt;
+                &lt;/div&gt;
+              &lt;/article&gt;
+            }
+          &lt;/div&gt;
+        }
+      &lt;/div&gt;
+    &lt;/section&gt;
+  &lt;/div&gt;
+}
 </code></pre>
     </div>
 
@@ -542,7 +1569,7 @@ export class Tcg {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><section class="page-hero container-fluid">  <div class="hero-content">    <h2>Categoría TCG</h2>    <p>Cartas coleccionables, mazos iniciales y productos para comenzar o ampliar tu colección.</p>    <a class="hero-link" routerLink="/" fragment="top">Ver top ventas</a>  </div></section><section class="productos container-xxl">  <div class="section-heading section-heading-left">    <span class="eyebrow">Categoría</span>    <h2>Trading Card Games</h2>    <p>Opciones para descubrir distintos universos, construir mazos y desafiar a otros jugadores.</p>  </div>  <div class="contenedor-productos">    <div class="card card-oferta">      <img src="/img/tcg-pokemon.png" alt="Producto Pokémon TCG">      <h3>Pokémon TCG - Colección inicial</h3>      <p>Una selección para comenzar a jugar, aprender las reglas y ampliar tu colección.</p>      <div class="estado-descuento">Oferta 10%</div>      <div class="card-acciones">        <div class="precio-contenedor">          <span class="precio-original">$24.990</span>          <span class="precio-oferta">$22.490</span>        </div>        <button type="button" (click)="agregarAlCarrito(\'Pokemon TCG Coleccion Inicial\')">Agregar al carrito</button>      </div>    </div>    <div class="card">      <img src="/img/tcg-magic.png" alt="Producto Magic The Gathering">      <h3>Magic - Kit de inicio</h3>      <p>Dos mazos preparados para aprender las bases de Magic y comenzar a jugar.</p>      <div class="estado-descuento estado-sin-descuento">Sin descuentos</div>      <div class="card-acciones">        <span>$24.990</span>        <button type="button" (click)="agregarAlCarrito(\'Magic Kit de Inicio\')">Agregar al carrito</button>      </div>    </div>    <div class="card">      <img src="/img/tcg-yugioh.png" alt="Producto Yu-Gi-Oh TCG">      <h3>Yu-Gi-Oh! - Starter Deck</h3>      <p>Un mazo inicial listo para conocer sus mecánicas y disputar las primeras partidas.</p>      <div class="estado-descuento estado-sin-descuento">Sin descuentos</div>      <div class="card-acciones">        <span>$17.990</span>        <button type="button" (click)="agregarAlCarrito(\'Yu-Gi-Oh Starter Deck\')">Agregar al carrito</button>      </div>    </div>  </div></section></div>'
+        var COMPONENT_TEMPLATE = '<div><section class="page-hero container-fluid">  <div class="hero-content">    <h2>Pokémon TCG</h2>    <p>Cartas coleccionables, mazos y productos para comenzar o ampliar tu colección Pokémon.</p>    <a class="hero-link" routerLink="/" fragment="top">Ver top ventas</a>  </div></section><section class="productos container-xxl">  <div class="section-heading section-heading-left tcg-products-heading">    <div>      <span class="eyebrow">Categoría Pokémon</span>      <h2>Productos Pokémon TCG</h2>      <p>Opciones para comenzar a jugar, construir mazos y ampliar tu colección.</p>    </div>    <button type="button" class="open-explorer-button" (click)="openExplorer()">      Consultar cartas    </button>  </div>  <div class="contenedor-productos">    <div class="card card-oferta">      <img src="/img/pokemon-tcg-1.jpg" alt="Pokémon TCG Collector Bundle Spring 2022">      <h3>Pokémon TCG - Collector Bundle (Spring 2022)</h3>      <p>Este Collector Bundle contiene más de una docena de productos especiales de Pokémon, incluidos varios artículos exclusivos.</p>      <div class="estado-descuento">Oferta 19%</div>      <div class="card-acciones">        <div class="precio-contenedor">          <span class="precio-original">$35.990</span>          <span class="precio-oferta">$28.990</span>        </div>        <button type="button" (click)="agregarAlCarrito(\'Pokémon TCG - Collector Bundle (Spring 2022)\')">Agregar al carrito</button>      </div>    </div>    <div class="card">      <img src="/img/pokemon-tcg-2.jpg" alt="Pokémon TCG Scarlet and Violet Journey Together">      <h3>Pokémon TCG - Scarlet &amp; Violet: Journey Together</h3>      <p>Con profunda confianza y una guía constante, los Entrenadores ayudan a sacar lo mejor de sus Pokémon.</p>      <div class="estado-descuento estado-sin-descuento">Sin descuentos</div>      <div class="card-acciones">        <span>$59.990</span>        <button type="button" (click)="agregarAlCarrito(\'Pokémon TCG - Scarlet & Violet: Journey Together\')">Agregar al carrito</button>      </div>    </div>    <div class="card">      <img src="/img/pokemon-tcg-3.jpg" alt="Pokémon Mega Battle Deck Mega Diancie">      <h3>Pokémon - Mega Battle Deck - Mega Diancie</h3>      <p>¡Es hora de una megabatalla! Invoca a Mega Diancie ex y deslumbra a tus oponentes con su habilidad.</p>      <div class="estado-descuento estado-sin-descuento">Sin descuentos</div>      <div class="card-acciones">        <span>$34.990</span>        <button type="button" (click)="agregarAlCarrito(\'Pokémon - Mega Battle Deck - Mega Diancie\')">Agregar al carrito</button>      </div>    </div>  </div></section>@if (explorerOpen()) {  <div class="tcg-modal-backdrop" (click)="closeFromBackdrop($event)">    <section      class="tcg-modal"      role="dialog"      aria-modal="true"      aria-labelledby="tcg-modal-title"    >      <header class="tcg-modal-header">        <div>          <span class="eyebrow">Pokémon TCG API</span>          <h2 id="tcg-modal-title">Explorador de cartas Pokémon</h2>          <p>Busca una carta por nombre y consulta su expansión, tipo y rareza.</p>        </div>        <button type="button" class="tcg-modal-close" (click)="closeExplorer()" aria-label="Cerrar explorador">          ×        </button>      </header>      <div class="tcg-modal-body">        <form class="tcg-search" [formGroup]="searchForm" (ngSubmit)="searchCards()">          <label for="pokemon-card-search">Nombre de la carta</label>          <div class="tcg-search-controls">            <input              id="pokemon-card-search"              type="search"              [formControl]="searchControl"              placeholder="Ejemplo: Pikachu"              autocomplete="off"            >            <button type="submit" [disabled]="loading()">Buscar</button>            <button type="button" class="secondary-button" (click)="clearSearch()" [disabled]="loading()">Limpiar</button>          </div>        </form>        @if (loading()) {          <div class="api-status api-loading" aria-live="polite">            <span class="api-spinner" aria-hidden="true"></span>            <span>Consultando cartas Pokémon...</span>          </div>        } @else if (apiError()) {          <p class="api-status api-error" role="alert">{{ apiError() }}</p>        } @else if (!cards().length) {          <p class="api-status" aria-live="polite">No se encontraron cartas con ese nombre.</p>        } @else {          <div class="api-results-heading" aria-live="polite">            <strong>{{ cards().length }} cartas encontradas</strong>            <span>Selecciona una imagen para verla en mayor resolución.</span>          </div>          <div class="contenedor-productos api-card-grid">            @for (card of cards(); track card.id) {              <article class="card api-card">                <div class="api-card-media">                  <span class="api-card-supertype">{{ card.supertype }}</span>                  <a                    [href]="card.images.large"                    target="_blank"                    rel="noopener noreferrer"                    [attr.aria-label]="\'Abrir imagen ampliada de \' + card.name"                  >                    <img [src]="card.images.small" [alt]="\'Carta Pokémon \' + card.name" loading="lazy">                  </a>                </div>                <div class="api-card-content">                  <h3>{{ card.name }}</h3>                  <div class="api-card-tags">                    @if (card.hp) { <span class="api-tag api-tag-hp">HP {{ card.hp }}</span> }                    @for (type of card.types ?? []; track type) { <span class="api-tag">{{ type }}</span> }                    @for (subtype of card.subtypes ?? []; track subtype) { <span class="api-tag api-tag-muted">{{ subtype }}</span> }                  </div>                  <dl class="api-card-details">                    <div><dt>Expansión</dt><dd>{{ card.set.name }}</dd></div>                    <div><dt>Rareza</dt><dd>{{ card.rarity || \'No informada\' }}</dd></div>                    @if (card.set.releaseDate) {                      <div><dt>Lanzamiento</dt><dd>{{ card.set.releaseDate }}</dd></div>                    }                  </dl>                  <a class="api-card-link" [href]="card.images.large" target="_blank" rel="noopener noreferrer">                    Ver carta ampliada                  </a>                </div>              </article>            }          </div>        }      </div>    </section>  </div>}</div>'
     var COMPONENTS = [{'name': 'Admin', 'selector': 'app-admin'},{'name': 'App', 'selector': 'app-root'},{'name': 'Carrito', 'selector': 'app-carrito'},{'name': 'CatalogFilter', 'selector': 'app-catalog-filter'},{'name': 'Estrategia', 'selector': 'app-estrategia'},{'name': 'Familiares', 'selector': 'app-familiares'},{'name': 'Fiesta', 'selector': 'app-fiesta'},{'name': 'Formulario', 'selector': 'app-formulario'},{'name': 'Infantiles', 'selector': 'app-infantiles'},{'name': 'Inicio', 'selector': 'app-inicio'},{'name': 'Login', 'selector': 'app-login'},{'name': 'MisCompras', 'selector': 'app-mis-compras'},{'name': 'Navbar', 'selector': 'app-navbar'},{'name': 'Perfil', 'selector': 'app-perfil'},{'name': 'Recuperar', 'selector': 'app-recuperar'},{'name': 'Tcg', 'selector': 'app-tcg'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'Tcg'};

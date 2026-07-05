@@ -242,8 +242,8 @@ stock o administración en el almacenamiento local.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Definido en <a href="" data-line="33"
-                                    class="link-to-prism">src/app/core/services/catalog.service.ts:33</a></div>
+                            <div class="io-line">Definido en <a href="" data-line="40"
+                                    class="link-to-prism">src/app/core/services/catalog.service.ts:40</a></div>
                         </td>
                     </tr>
 
@@ -319,8 +319,8 @@ stock o administración en el almacenamiento local.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Definido en <a href="" data-line="68"
-                                    class="link-to-prism">src/app/core/services/catalog.service.ts:68</a></div>
+                            <div class="io-line">Definido en <a href="" data-line="75"
+                                    class="link-to-prism">src/app/core/services/catalog.service.ts:75</a></div>
                         </td>
                     </tr>
 
@@ -364,8 +364,8 @@ stock o administración en el almacenamiento local.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Definido en <a href="" data-line="79"
-                                    class="link-to-prism">src/app/core/services/catalog.service.ts:79</a></div>
+                            <div class="io-line">Definido en <a href="" data-line="96"
+                                    class="link-to-prism">src/app/core/services/catalog.service.ts:96</a></div>
                         </td>
                     </tr>
 
@@ -439,8 +439,8 @@ stock o administración en el almacenamiento local.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Definido en <a href="" data-line="55"
-                                    class="link-to-prism">src/app/core/services/catalog.service.ts:55</a></div>
+                            <div class="io-line">Definido en <a href="" data-line="62"
+                                    class="link-to-prism">src/app/core/services/catalog.service.ts:62</a></div>
                         </td>
                     </tr>
 
@@ -513,8 +513,8 @@ stock o administración en el almacenamiento local.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Definido en <a href="" data-line="45"
-                                    class="link-to-prism">src/app/core/services/catalog.service.ts:45</a></div>
+                            <div class="io-line">Definido en <a href="" data-line="52"
+                                    class="link-to-prism">src/app/core/services/catalog.service.ts:52</a></div>
                         </td>
                     </tr>
 
@@ -598,7 +598,7 @@ stock o administración en el almacenamiento local.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="25" class="link-to-prism">src/app/core/services/catalog.service.ts:25</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="32" class="link-to-prism">src/app/core/services/catalog.service.ts:32</a></div>
                         </td>
                     </tr>
 
@@ -637,7 +637,7 @@ stock o administración en el almacenamiento local.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="22" class="link-to-prism">src/app/core/services/catalog.service.ts:22</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="29" class="link-to-prism">src/app/core/services/catalog.service.ts:29</a></div>
                         </td>
                     </tr>
 
@@ -676,7 +676,7 @@ stock o administración en el almacenamiento local.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Definido en <a href="" data-line="19" class="link-to-prism">src/app/core/services/catalog.service.ts:19</a></div>
+                                <div class="io-line">Definido en <a href="" data-line="26" class="link-to-prism">src/app/core/services/catalog.service.ts:26</a></div>
                         </td>
                     </tr>
 
@@ -703,6 +703,13 @@ import { BrowserStorageService } from &#x27;./browser-storage.service&#x27;;
 
 /** Clave utilizada para conservar el catálogo modificado. */
 const STORAGE_PRODUCTS_KEY &#x3D; &#x27;tabletop_products&#x27;;
+
+/** Productos TCG cuyos datos locales deben mantenerse sincronizados. */
+const SYNCHRONIZED_TCG_IDS &#x3D; new Set([
+  &#x27;pokemon-tcg-inicial&#x27;,
+  &#x27;magic-kit-inicio&#x27;,
+  &#x27;yugioh-starter-deck&#x27;,
+]);
 
 /**
  * Mantiene el catálogo de productos disponible en la aplicación.
@@ -764,7 +771,17 @@ export class CatalogService {
    */
   private load(): Product[] {
     const stored &#x3D; this.storage.readLocal&lt;Product[]&gt;(STORAGE_PRODUCTS_KEY, []);
-    return stored.length ? stored : PRODUCT_CATALOG.map(product &#x3D;&gt; ({ ...product }));
+    if (!stored.length) {
+      return PRODUCT_CATALOG.map(product &#x3D;&gt; ({ ...product }));
+    }
+
+    const preservedProducts &#x3D; stored.filter(product &#x3D;&gt; !SYNCHRONIZED_TCG_IDS.has(product.id));
+    const storedIds &#x3D; new Set(preservedProducts.map(product &#x3D;&gt; product.id));
+    const newProducts &#x3D; PRODUCT_CATALOG
+      .filter(product &#x3D;&gt; !storedIds.has(product.id))
+      .map(product &#x3D;&gt; ({ ...product }));
+
+    return [...preservedProducts, ...newProducts];
   }
 
   /**

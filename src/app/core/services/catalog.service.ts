@@ -7,6 +7,13 @@ import { BrowserStorageService } from './browser-storage.service';
 /** Clave utilizada para conservar el catálogo modificado. */
 const STORAGE_PRODUCTS_KEY = 'tabletop_products';
 
+/** Productos TCG cuyos datos locales deben mantenerse sincronizados. */
+const SYNCHRONIZED_TCG_IDS = new Set([
+  'pokemon-tcg-inicial',
+  'magic-kit-inicio',
+  'yugioh-starter-deck',
+]);
+
 /**
  * Mantiene el catálogo de productos disponible en la aplicación.
  *
@@ -71,12 +78,13 @@ export class CatalogService {
       return PRODUCT_CATALOG.map(product => ({ ...product }));
     }
 
-    const storedIds = new Set(stored.map(product => product.id));
+    const preservedProducts = stored.filter(product => !SYNCHRONIZED_TCG_IDS.has(product.id));
+    const storedIds = new Set(preservedProducts.map(product => product.id));
     const newProducts = PRODUCT_CATALOG
       .filter(product => !storedIds.has(product.id))
       .map(product => ({ ...product }));
 
-    return [...stored, ...newProducts];
+    return [...preservedProducts, ...newProducts];
   }
 
   /**

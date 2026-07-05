@@ -186,6 +186,9 @@
                         <li>
                             <a href="#STORAGE_USERS_KEY" title="src/app/core/services/auth.service.ts" ><b>STORAGE_USERS_KEY</b>&nbsp;&nbsp;&nbsp;(src/.../auth.service.ts)</a>
                         </li>
+                        <li>
+                            <a href="#SYNCHRONIZED_TCG_IDS" title="src/app/core/services/catalog.service.ts" ><b>SYNCHRONIZED_TCG_IDS</b>&nbsp;&nbsp;&nbsp;(src/.../catalog.service.ts)</a>
+                        </li>
                     </ul>
                 </td>
             </tr>
@@ -503,6 +506,7 @@ la compilación o una ejecución mediante Firebase Cloud Functions.</p>
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes, withInMemoryScrolling({ anchorScrolling: &#x27;enabled&#x27; })),
     provideClientHydration(),
+    provideHttpClient(withFetch()),
   ],
 }</code>
                     </td>
@@ -636,9 +640,9 @@ la compilación o una ejecución mediante Firebase Cloud Functions.</p>
   { id: &#x27;catan-junior&#x27;, nombre: &#x27;Catan Junior&#x27;, aliases: [&#x27;Catan Junior&#x27;], precio: 26390, precioOriginal: 29990, imagen: &#x27;/img/catan junior.png&#x27;, categoria: &#x27;Infantiles&#x27;, oferta: &#x27;Oferta 12%&#x27;, stock: 10, estado: &#x27;activo&#x27; },
   { id: &#x27;dobble-31-minutos&#x27;, nombre: &#x27;Dobble 31 Minutos&#x27;, aliases: [&#x27;31 Minutos&#x27;, &#x27;Dobble 31 Minutos&#x27;], precio: 15990, imagen: &#x27;/img/31 minutos.png&#x27;, categoria: &#x27;Infantiles&#x27;, stock: 10, estado: &#x27;activo&#x27; },
   { id: &#x27;serpientes-y-escaleras&#x27;, nombre: &#x27;Serpientes y Escaleras&#x27;, aliases: [&#x27;Serpientes y Escaleras&#x27;], precio: 6990, imagen: &#x27;/img/serpientes y escalera.png&#x27;, categoria: &#x27;Infantiles&#x27;, stock: 10, estado: &#x27;activo&#x27; },
-  { id: &#x27;pokemon-tcg-inicial&#x27;, nombre: &#x27;Pokemon TCG Coleccion Inicial&#x27;, aliases: [&#x27;Pokemon TCG Coleccion Inicial&#x27;, &#x27;Pokémon TCG - Colección inicial&#x27;], precio: 22490, precioOriginal: 24990, imagen: &#x27;/img/tcg-pokemon.png&#x27;, categoria: &#x27;TCG&#x27;, oferta: &#x27;Oferta 10%&#x27;, stock: 10, estado: &#x27;activo&#x27; },
-  { id: &#x27;magic-kit-inicio&#x27;, nombre: &#x27;Magic Kit de Inicio&#x27;, aliases: [&#x27;Magic Kit de Inicio&#x27;, &#x27;Magic - Kit de inicio&#x27;], precio: 24990, imagen: &#x27;/img/tcg-magic.png&#x27;, categoria: &#x27;TCG&#x27;, stock: 10, estado: &#x27;activo&#x27; },
-  { id: &#x27;yugioh-starter-deck&#x27;, nombre: &#x27;Yu-Gi-Oh Starter Deck&#x27;, aliases: [&#x27;Yu-Gi-Oh Starter Deck&#x27;, &#x27;Yu-Gi-Oh! - Starter Deck&#x27;], precio: 17990, imagen: &#x27;/img/tcg-yugioh.png&#x27;, categoria: &#x27;TCG&#x27;, stock: 10, estado: &#x27;activo&#x27; },
+  { id: &#x27;pokemon-tcg-inicial&#x27;, nombre: &#x27;Pokémon TCG - Collector Bundle (Spring 2022)&#x27;, aliases: [&#x27;Pokemon TCG Collector Bundle&#x27;, &#x27;Collector Bundle Spring 2022&#x27;], precio: 28990, precioOriginal: 35990, imagen: &#x27;/img/pokemon-tcg-1.jpg&#x27;, categoria: &#x27;TCG&#x27;, oferta: &#x27;Oferta 19%&#x27;, stock: 10, estado: &#x27;activo&#x27; },
+  { id: &#x27;magic-kit-inicio&#x27;, nombre: &#x27;Pokémon TCG - Scarlet &amp; Violet: Journey Together&#x27;, aliases: [&#x27;Pokemon TCG Journey Together&#x27;, &#x27;Scarlet and Violet Journey Together&#x27;], precio: 59990, imagen: &#x27;/img/pokemon-tcg-2.jpg&#x27;, categoria: &#x27;TCG&#x27;, stock: 10, estado: &#x27;activo&#x27; },
+  { id: &#x27;yugioh-starter-deck&#x27;, nombre: &#x27;Pokémon - Mega Battle Deck - Mega Diancie&#x27;, aliases: [&#x27;Pokemon Mega Battle Deck Mega Diancie&#x27;, &#x27;Mega Diancie&#x27;], precio: 34990, imagen: &#x27;/img/pokemon-tcg-3.jpg&#x27;, categoria: &#x27;TCG&#x27;, stock: 10, estado: &#x27;activo&#x27; },
 ]</code>
                     </td>
                 </tr>
@@ -787,6 +791,42 @@ la compilación o una ejecución mediante Firebase Cloud Functions.</p>
             <tr>
                 <td class="col-md-4">
                     <div class="io-description"><p>Clave utilizada para conservar el catálogo modificado.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SYNCHRONIZED_TCG_IDS"></a>
+                    <span class="name">
+                        <span ><b>SYNCHRONIZED_TCG_IDS</b></span>
+                        <a href="#SYNCHRONIZED_TCG_IDS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Tipo : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Valor por defecto : </i><code>new Set([
+  &#x27;pokemon-tcg-inicial&#x27;,
+  &#x27;magic-kit-inicio&#x27;,
+  &#x27;yugioh-starter-deck&#x27;,
+])</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Productos TCG cuyos datos locales deben mantenerse sincronizados.</p>
 </div>
                 </td>
             </tr>
