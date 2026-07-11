@@ -19,41 +19,28 @@
   </div>
 
   <div class="contenedor-productos">
-    <div class="card card-oferta">
-      <img src="/img/pokemon-tcg-1.jpg" alt="Pokémon TCG Collector Bundle Spring 2022">
-      <h3>Pokémon TCG - Collector Bundle (Spring 2022)</h3>
-      <p>Este Collector Bundle contiene más de una docena de productos especiales de Pokémon, incluidos varios artículos exclusivos.</p>
-      <div class="estado-descuento">Oferta 19%</div>
+    @for (product of products(); track product.id) {
+    <div class="card" [class.card-oferta]="hasOffer(product)">
+      <img [src]="product.imagen" [alt]="product.nombre">
+      <h3>{{ product.nombre }}</h3>
+      <div class="estado-descuento" [class.estado-sin-descuento]="!hasOffer(product)">
+        {{ product.oferta || 'Sin descuentos' }}
+      </div>
       <div class="card-acciones">
+        @if (product.precioOriginal && product.precioOriginal > product.precio) {
         <div class="precio-contenedor">
-          <span class="precio-original">$35.990</span>
-          <span class="precio-oferta">$28.990</span>
+          <span class="precio-original">{{ formatPrice(product.precioOriginal) }}</span>
+          <span class="precio-oferta">{{ formatPrice(product.precio) }}</span>
         </div>
-        <button type="button" (click)="agregarAlCarrito('Pokémon TCG - Collector Bundle (Spring 2022)')">Agregar al carrito</button>
+        } @else {
+        <span>{{ formatPrice(product.precio) }}</span>
+        }
+        <button type="button" (click)="agregarAlCarrito(product.nombre)">Agregar al carrito</button>
       </div>
     </div>
-
-    <div class="card">
-      <img src="/img/pokemon-tcg-2.jpg" alt="Pokémon TCG Scarlet and Violet Journey Together">
-      <h3>Pokémon TCG - Scarlet &amp; Violet: Journey Together</h3>
-      <p>Con profunda confianza y una guía constante, los Entrenadores ayudan a sacar lo mejor de sus Pokémon.</p>
-      <div class="estado-descuento estado-sin-descuento">Sin descuentos</div>
-      <div class="card-acciones">
-        <span>$59.990</span>
-        <button type="button" (click)="agregarAlCarrito('Pokémon TCG - Scarlet & Violet: Journey Together')">Agregar al carrito</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="/img/pokemon-tcg-3.jpg" alt="Pokémon Mega Battle Deck Mega Diancie">
-      <h3>Pokémon - Mega Battle Deck - Mega Diancie</h3>
-      <p>¡Es hora de una megabatalla! Invoca a Mega Diancie ex y deslumbra a tus oponentes con su habilidad.</p>
-      <div class="estado-descuento estado-sin-descuento">Sin descuentos</div>
-      <div class="card-acciones">
-        <span>$34.990</span>
-        <button type="button" (click)="agregarAlCarrito('Pokémon - Mega Battle Deck - Mega Diancie')">Agregar al carrito</button>
-      </div>
-    </div>
+    } @empty {
+    <p class="sin-resultados">No hay productos TCG disponibles.</p>
+    }
   </div>
 </section>
 

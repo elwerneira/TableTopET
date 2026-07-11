@@ -1,0 +1,247 @@
+{
+  "productos": [
+    {
+      "id": "catan",
+      "nombre": "Catan",
+      "aliases": [
+        "Catan"
+      ],
+      "precio": 33990,
+      "precioOriginal": 39990,
+      "imagen": "/img/catan.png",
+      "categoria": "Estrategia",
+      "oferta": "Oferta 15%",
+      "stock": 10,
+      "estado": "activo"
+    },
+    {
+      "id": "monopoly",
+      "nombre": "Monopoly",
+      "aliases": [
+        "Monopoly"
+      ],
+      "precio": 24990,
+      "imagen": "/img/monopoly.png",
+      "categoria": "Top ventas",
+      "stock": 10,
+      "estado": "activo"
+    },
+    {
+      "id": "pokemon-tcg-inicial",
+      "nombre": "Pokémon TCG - Collector Bundle (Spring 2022)",
+      "aliases": [
+        "Pokemon TCG Collector Bundle",
+        "Collector Bundle Spring 2022"
+      ],
+      "precio": 28990,
+      "precioOriginal": 35990,
+      "imagen": "/img/pokemon-tcg-1.jpg",
+      "categoria": "TCG",
+      "oferta": "Oferta 19%",
+      "stock": 10,
+      "estado": "activo"
+    },
+    {
+      "id": "draftosaurus",
+      "nombre": "Draftosaurus",
+      "aliases": [
+        "Draftosaurus"
+      ],
+      "precio": 14000,
+      "imagen": "/img/draftosaurus.png",
+      "categoria": "Infantiles",
+      "stock": 10,
+      "estado": "activo"
+    },
+    {
+      "id": "pokemon-tcg-mega-greninja-ex-premium-collection",
+      "nombre": "POKEMON TCG MEGA GRENINJA EX PREMIUM COLLECTION",
+      "aliases": [
+        "POKEMON TCG MEGA GRENINJA EX PREMIUM COLLECTION"
+      ],
+      "precio": 34990,
+      "imagen": "/img/pokemon-tcg-mega-greninja.jpg",
+      "categoria": "TCG",
+      "stock": 5,
+      "estado": "activo"
+    },
+    {
+      "id": "basta",
+      "nombre": "Basta",
+      "aliases": [
+        "Basta"
+      ],
+      "precio": 8600,
+      "imagen": "/img/basta.png",
+      "categoria": "Familiares",
+      "stock": 10,
+      "estado": "activo"
+    },
+    {
+      "id": "ajedrez-premium",
+      "nombre": "Ajedrez Premium",
+      "aliases": [
+        "Ajedrez Premium"
+      ],
+      "precio": 18990,
+      "imagen": "/img/ajedrez.png",
+      "categoria": "Estrategia",
+      "stock": 10,
+      "estado": "activo"
+    },
+    {
+      "id": "risk-clasico",
+      "nombre": "Risk Clasico",
+      "aliases": [
+        "Risk Clasico"
+      ],
+      "precio": 29990,
+      "imagen": "/img/risk.png",
+      "categoria": "Estrategia",
+      "stock": 10,
+      "estado": "activo"
+    },
+    {
+      "id": "uno-party",
+      "nombre": "Uno Party",
+      "aliases": [
+        "Uno",
+        "Uno Party"
+      ],
+      "precio": 9990,
+      "imagen": "/img/uno.png",
+      "categoria": "Fiesta",
+      "stock": 10,
+      "estado": "activo"
+    },
+    {
+      "id": "dixit",
+      "nombre": "Dixit",
+      "aliases": [
+        "Dixit"
+      ],
+      "precio": 22390,
+      "precioOriginal": 27990,
+      "imagen": "/img/dixit.png",
+      "categoria": "Fiesta",
+      "oferta": "Oferta 20%",
+      "stock": 10,
+      "estado": "activo"
+    },
+    {
+      "id": "pictionary-air",
+      "nombre": "Pictionary Air",
+      "aliases": [
+        "Pictionary Air"
+      ],
+      "precio": 21990,
+      "imagen": "/img/pictionary.png",
+      "categoria": "Fiesta",
+      "stock": 10,
+      "estado": "activo"
+    },
+    {
+      "id": "jenga-familiar",
+      "nombre": "Jenga Familiar",
+      "aliases": [
+        "Jenga Familiar"
+      ],
+      "precio": 13490,
+      "precioOriginal": 14990,
+      "imagen": "/img/jenga.png",
+      "categoria": "Familiares",
+      "oferta": "Oferta 10%",
+      "stock": 10,
+      "estado": "activo"
+    },
+    {
+      "id": "exploding-kittens",
+      "nombre": "EXPLODING KITTENS",
+      "aliases": [
+        "EXPLODING KITTENS"
+      ],
+      "precio": 19990,
+      "imagen": "/img/EXPLODING KITTENS.png",
+      "categoria": "Familiares",
+      "stock": 10,
+      "estado": "activo"
+    },
+    {
+      "id": "catan-junior",
+      "nombre": "Catan Junior",
+      "aliases": [
+        "Catan Junior"
+      ],
+      "precio": 26390,
+      "precioOriginal": 29990,
+      "imagen": "/img/catan junior.png",
+      "categoria": "Infantiles",
+      "oferta": "Oferta 12%",
+      "stock": 10,
+      "estado": "activo"
+    },
+    {
+      "id": "dobble-31-minutos",
+      "nombre": "Dobble 31 Minutos",
+      "aliases": [
+        "31 Minutos",
+        "Dobble 31 Minutos"
+      ],
+      "precio": 15990,
+      "imagen": "/img/31 minutos.png",
+      "categoria": "Infantiles",
+      "stock": 10,
+      "estado": "activo"
+    },
+    {
+      "id": "serpientes-y-escaleras",
+      "nombre": "Serpientes y Escaleras",
+      "aliases": [
+        "Serpientes y Escaleras"
+      ],
+      "precio": 6990,
+      "imagen": "/img/serpientes y escalera.png",
+      "categoria": "Infantiles",
+      "stock": 10,
+      "estado": "activo"
+    },
+    {
+      "id": "magic-kit-inicio",
+      "nombre": "Pokemon TCG - Scarlet & Violet: Journey Together",
+      "aliases": [
+        "Pokemon TCG Journey Together",
+        "Scarlet and Violet Journey Together"
+      ],
+      "precio": 59990,
+      "imagen": "/img/pokemon-tcg-2.jpg",
+      "categoria": "TCG",
+      "stock": 10,
+      "estado": "activo"
+    },
+    {
+      "id": "yugioh-starter-deck",
+      "nombre": "Pokemon - Mega Battle Deck - Mega Diancie",
+      "aliases": [
+        "Pokemon Mega Battle Deck Mega Diancie",
+        "Mega Diancie"
+      ],
+      "precio": 34990,
+      "imagen": "/img/pokemon-tcg-3.jpg",
+      "categoria": "TCG",
+      "stock": 10,
+      "estado": "activo"
+    },
+    {
+      "id": "pokemon-mega-battle-deck-mega-zygarde",
+      "nombre": "Pokemon - Mega Battle Deck - Mega Zygarde",
+      "aliases": [
+        "Pokemon - Mega Battle Deck - Mega Zygarde"
+      ],
+      "precio": 59990,
+      "imagen": "/img/pokemon-tcg-mega-zygarde.jpg",
+      "categoria": "TCG",
+      "stock": 4,
+      "estado": "activo"
+    }
+  ]
+}

@@ -52,7 +52,7 @@
                                 <div class="admin-metricas-grid">
                                     <div class="admin-metrica">
                                         <span>Productos</span>
-                                        <strong>{{ catalog.products().length }}</strong>
+                                        <strong>{{ products().length }}</strong>
                                     </div>
                                     <div class="admin-metrica admin-metrica-activa">
                                         <span>Stock total</span>
@@ -129,7 +129,7 @@
                         <div class="section-heading section-heading-left admin-section-head">
                             <span class="eyebrow">Productos</span>
                             <h3>Mantenedor de productos e inventario</h3>
-                            <p>Crea productos nuevos o actualiza sus precios, ofertas, stock y disponibilidad.</p>
+                            <p>Administra el inventario de productos desde el panel, manteniendo sus precios, stock y disponibilidad.</p>
                         </div>
 
                         <div class="admin-productos-layout">
@@ -152,6 +152,7 @@
                                             <option value="Fiesta">Fiesta</option>
                                             <option value="Infantiles">Infantiles</option>
                                             <option value="Top ventas">Top ventas</option>
+                                            <option value="TCG">TCG</option>
                                         </select>
                                     </div>
                                     <div>
@@ -182,9 +183,9 @@
                                         <input type="text" id="productoOferta" formControlName="oferta" placeholder="Ejemplo: Oferta 15% (opcional)">
                                     </div>
                                     <div class="acciones-formulario admin-producto-acciones admin-producto-campo-ancho">
-                                        <button type="submit">{{ editingProductId() ? 'Actualizar producto' : 'Guardar producto' }}</button>
+                                        <button type="submit" [disabled]="productLoading()">{{ editingProductId() ? 'Actualizar producto' : 'Guardar producto' }}</button>
                                         @if (editingProductId()) {
-                                        <button type="button" class="btn-secondary" (click)="cancelEdit()">Cancelar edicion</button>
+                                        <button type="button" class="btn-secondary" (click)="cancelEdit()" [disabled]="productLoading()">Cancelar edicion</button>
                                         }
                                     </div>
                                     <div class="formulario-feedback admin-producto-campo-ancho" aria-live="polite">{{ productFeedback() }}</div>
@@ -197,16 +198,31 @@
                                     <h4>Productos registrados</h4>
                                 </div>
                                 <div class="admin-productos-lista">
-                                    @for (product of catalog.products(); track product.id) {
+                                    @if (productLoading()) {
+                                    <div class="admin-vacio">
+                                        <h3>Cargando inventario</h3>
+                                        <p>Estamos actualizando la informacion de productos.</p>
+                                    </div>
+                                    } @else if (!products().length) {
+                                    <div class="admin-vacio">
+                                        <h3>No hay productos registrados</h3>
+                                        <p>Agrega el primer producto desde el formulario del panel.</p>
+                                    </div>
+                                    } @else {
+                                    @for (product of products(); track product.id) {
                                     <article class="admin-producto-item">
                                         <img [src]="product.imagen" [alt]="product.nombre">
                                         <div>
                                             <span class="eyebrow">{{ product.categoria }}</span>
                                             <h4>{{ product.nombre }}</h4>
                                             <p>{{ formatPrice(product.precio) }} · Stock {{ product.stock }} · {{ product.estado }}</p>
-                                            <button type="button" (click)="editProduct(product)">Editar producto</button>
+                                            <div class="admin-producto-controles">
+                                                <button type="button" (click)="editProduct(product)" [disabled]="productLoading()">Editar producto</button>
+                                                <button type="button" class="admin-btn-danger" (click)="deleteProduct(product)" [disabled]="productLoading()">Eliminar producto</button>
+                                            </div>
                                         </div>
                                     </article>
+                                    }
                                     }
                                 </div>
                             </div>

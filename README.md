@@ -43,12 +43,6 @@ La aplicación estará disponible en:
 http://localhost:4200
 ```
 
-La categoría Pokémon TCG se encuentra en:
-
-```text
-http://localhost:4200/tcg
-```
-
 ## Pokémon TCG API
 
 El explorador utiliza el endpoint público:

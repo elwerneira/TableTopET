@@ -1,10 +1,13 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { finalize } from 'rxjs';
 
 import { Product, User } from '../../core/models/store.models';
 import { AuthService } from '../../core/services/auth.service';
 import { CatalogService } from '../../core/services/catalog.service';
+import { ProductJsonServerService } from '../../core/services/product-json-server.service';
 
 /** Secciones disponibles dentro del panel administrativo. */
 type AdminView = 'resumen' | 'usuarios' | 'productos';
@@ -20,7 +23,7 @@ type AdminView = 'resumen' | 'usuarios' | 'productos';
 })
 export class Admin implements OnInit {
   /** Catálogo expuesto para mostrar y actualizar productos. */
-  readonly catalog = inject(CatalogService);
+  readonly products = signal<Product[]>([]);
 
   /** Sección visible actualmente dentro del panel. */
   readonly activeView = signal<AdminView>('resumen');
@@ -37,6 +40,8 @@ export class Admin implements OnInit {
   /** Identificador del producto que se encuentra en edición. */
   readonly editingProductId = signal<string | null>(null);
 
+  readonly productLoading = signal(false);
+
   /** Servicio encargado de consultar y modificar usuarios. */
   private readonly auth = inject(AuthService);
 
@@ -45,6 +50,11 @@ export class Admin implements OnInit {
 
   /** Enrutador utilizado para proteger el acceso administrativo. */
   private readonly router = inject(Router);
+
+  /** Catálogo utilizado por las páginas de categorías y el carrito. */
+  private readonly catalog = inject(CatalogService);
+
+  private readonly productApi = inject(ProductJsonServerService);
 
   /** Formulario reactivo utilizado para crear o editar productos. */
   readonly productForm = this.formBuilder.nonNullable.group({
@@ -65,6 +75,7 @@ export class Admin implements OnInit {
       return;
     }
     this.refreshUsers();
+    this.loadProducts();
   }
 
   /**
@@ -93,7 +104,24 @@ export class Admin implements OnInit {
    * @returns Stock total del catálogo.
    */
   totalStock(): number {
-    return this.catalog.products().reduce((total, product) => total + product.stock, 0);
+    return this.products().reduce((total, product) => total + product.stock, 0);
+  }
+
+  /** Ejecuta GET para cargar el inventario de productos desde la API REST local. */
+  loadProducts(showSuccessMessage = false): void {
+    this.productLoading.set(true);
+    this.productApi.getProducts()
+      .pipe(finalize(() => this.productLoading.set(false)))
+      .subscribe({
+        next: products => {
+          this.products.set(products);
+          this.catalog.save(products);
+          if (showSuccessMessage) {
+            this.productFeedback.set('Inventario actualizado correctamente.');
+          }
+        },
+        error: error => this.handleProductError(error),
+      });
   }
 
   /**
@@ -152,13 +180,47 @@ export class Admin implements OnInit {
       ...(value.oferta.trim() ? { oferta: value.oferta.trim() } : {}),
     };
 
-    const products = editingId
-      ? this.catalog.products().map(current => current.id === editingId ? product : current)
-      : [...this.catalog.products(), product];
+    this.productLoading.set(true);
+    const request = editingId
+      ? this.productApi.updateProduct(editingId, product)
+      : this.productApi.createProduct(product);
 
-    this.catalog.save(products);
-    this.productFeedback.set(editingId ? 'Producto actualizado correctamente.' : 'Producto creado correctamente.');
-    this.cancelEdit(false);
+    request
+      .pipe(finalize(() => this.productLoading.set(false)))
+      .subscribe({
+        next: () => {
+          this.productFeedback.set(editingId ? 'Producto actualizado correctamente.' : 'Producto creado correctamente.');
+          this.cancelEdit(false);
+          this.loadProducts();
+        },
+        error: error => this.handleProductError(error),
+      });
+  }
+
+  /**
+   * Elimina un producto del inventario REST.
+   *
+   * @param product Producto que debe eliminarse.
+   */
+  deleteProduct(product: Product): void {
+    const confirmed = confirm(`¿Eliminar ${product.nombre} del inventario?`);
+    if (!confirmed) {
+      return;
+    }
+
+    this.productLoading.set(true);
+    this.productApi.deleteProduct(product.id)
+      .pipe(finalize(() => this.productLoading.set(false)))
+      .subscribe({
+        next: () => {
+          this.productFeedback.set('Producto eliminado correctamente.');
+          if (this.editingProductId() === product.id) {
+            this.cancelEdit(false);
+          }
+          this.loadProducts();
+        },
+        error: error => this.handleProductError(error),
+      });
   }
 
   /**
@@ -212,10 +274,23 @@ export class Admin implements OnInit {
       .replace(/^-|-$/g, '') || 'producto';
     let id = base;
     let suffix = 2;
-    while (this.catalog.products().some(product => product.id === id)) {
+    while (this.products().some(product => product.id === id)) {
       id = `${base}-${suffix++}`;
     }
     return id;
+  }
+
+  /**
+   * Muestra mensajes claros si el inventario REST local no responde.
+   *
+   * @param error Error recibido al consumir la API local.
+   */
+  private handleProductError(error: HttpErrorResponse): void {
+    this.productFeedback.set(
+      error.status === 0
+        ? 'No fue posible conectar con el inventario local. Verifica que el servicio de productos este iniciado.'
+        : 'No fue posible completar la operacion sobre productos.',
+    );
   }
 
   /**

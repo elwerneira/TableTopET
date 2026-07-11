@@ -1,13 +1,15 @@
 import { isPlatformBrowser } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, DestroyRef, HostListener, inject, PLATFORM_ID, signal } from '@angular/core';
+import { Component, computed, DestroyRef, HostListener, inject, PLATFORM_ID, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router, RouterLink } from '@angular/router';
 import { finalize } from 'rxjs';
 
 import { PokemonTcgCard } from '../../core/models/pokemon-tcg.models';
+import { Product } from '../../core/models/store.models';
 import { CartService } from '../../core/services/cart.service';
+import { CatalogService } from '../../core/services/catalog.service';
 import { PokemonTcgApiService } from '../../core/services/pokemon-tcg-api.service';
 
 /** Presenta productos Pokémon y un explorador conectado a Pokémon TCG API. */
@@ -21,8 +23,14 @@ export class Tcg {
   /** Servicio utilizado para agregar productos al carrito. */
   private readonly cart = inject(CartService);
 
+  private readonly catalog = inject(CatalogService);
+
   /** Enrutador utilizado cuando se requiere iniciar sesión. */
   private readonly router = inject(Router);
+
+  readonly products = computed(() =>
+    this.catalog.products().filter(product => product.categoria === 'TCG' && product.estado === 'activo'),
+  );
 
   /** Servicio que consulta cartas desde Pokémon TCG API. */
   private readonly pokemonApi = inject(PokemonTcgApiService);
@@ -99,6 +107,14 @@ export class Tcg {
   }
 
   /** Ejecuta la búsqueda utilizando el valor actual del campo reactivo. */
+  hasOffer(product: Product): boolean {
+    return Boolean(product.precioOriginal && product.precioOriginal > product.precio) || Boolean(product.oferta);
+  }
+
+  formatPrice(value: number): string {
+    return `$${value.toLocaleString('es-CL')}`;
+  }
+
   searchCards(): void {
     this.loadCards(this.searchControl.value);
   }

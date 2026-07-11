@@ -14,40 +14,27 @@
         </div>
 
         <div class="contenedor-productos">
-            <div class="card">
-                <img src="/img/uno.png" alt="Uno">
-                <h3>Uno Party</h3>
-                <p>La clasica competencia de colores con reglas para grupos mas grandes.</p>
-                <div class="estado-descuento estado-sin-descuento">Sin descuentos</div>
-                <div class="card-acciones">
-                    <span>$9.990</span>
-                    <button type="button" (click)="agregarAlCarrito('Uno Party')">Agregar al carrito</button>
+            @for (product of products(); track product.id) {
+            <div class="card" [class.card-oferta]="hasOffer(product)">
+                <img [src]="product.imagen" [alt]="product.nombre">
+                <h3>{{ product.nombre }}</h3>
+                <div class="estado-descuento" [class.estado-sin-descuento]="!hasOffer(product)">
+                    {{ product.oferta || 'Sin descuentos' }}
                 </div>
-            </div>
-
-            <div class="card card-oferta">
-                <img src="/img/dixit.png" alt="Dixit">
-                <h3>Dixit</h3>
-                <p>Ilustraciones hermosas, pistas creativas y mucha imaginacion compartida.</p>
-                <div class="estado-descuento">Oferta 20%</div>
                 <div class="card-acciones">
+                    @if (product.precioOriginal && product.precioOriginal > product.precio) {
                     <div class="precio-contenedor">
-                        <span class="precio-original">$27.990</span>
-                        <span class="precio-oferta">$22.390</span>
+                        <span class="precio-original">{{ formatPrice(product.precioOriginal) }}</span>
+                        <span class="precio-oferta">{{ formatPrice(product.precio) }}</span>
                     </div>
-                    <button type="button" (click)="agregarAlCarrito('Dixit')">Agregar al carrito</button>
+                    } @else {
+                    <span>{{ formatPrice(product.precio) }}</span>
+                    }
+                    <button type="button" (click)="agregarAlCarrito(product.nombre)">Agregar al carrito</button>
                 </div>
             </div>
-
-            <div class="card">
-                <img src="/img/pictionary.png" alt="Pictionary Air">
-                <h3>Pictionary Air</h3>
-                <p>Dibuja en el aire y desafia a tu equipo a adivinar bajo presion.</p>
-                <div class="estado-descuento estado-sin-descuento">Sin descuentos</div>
-                <div class="card-acciones">
-                    <span>$21.990</span>
-                    <button type="button" (click)="agregarAlCarrito('Pictionary Air')">Agregar al carrito</button>
-                </div>
-            </div>
+            } @empty {
+            <p class="sin-resultados">No hay juegos de fiesta disponibles.</p>
+            }
         </div>
     </section>

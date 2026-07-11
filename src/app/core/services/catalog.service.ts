@@ -1,18 +1,13 @@
-import { inject, Injectable, signal } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { inject, Injectable, PLATFORM_ID, signal } from '@angular/core';
 
 import { PRODUCT_CATALOG } from '../data/product-catalog';
 import { Product } from '../models/store.models';
 import { BrowserStorageService } from './browser-storage.service';
+import { ProductJsonServerService } from './product-json-server.service';
 
 /** Clave utilizada para conservar el catálogo modificado. */
 const STORAGE_PRODUCTS_KEY = 'tabletop_products';
-
-/** Productos TCG cuyos datos locales deben mantenerse sincronizados. */
-const SYNCHRONIZED_TCG_IDS = new Set([
-  'pokemon-tcg-inicial',
-  'magic-kit-inicio',
-  'yugioh-starter-deck',
-]);
 
 /**
  * Mantiene el catálogo de productos disponible en la aplicación.
@@ -25,11 +20,21 @@ export class CatalogService {
   /** Acceso seguro al almacenamiento local del navegador. */
   private readonly storage = inject(BrowserStorageService);
 
+  /** API local que contiene el inventario administrable. */
+  private readonly productApi = inject(ProductJsonServerService);
+
+  /** Evita llamadas HTTP al inventario durante el renderizado del servidor. */
+  private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
+
   /** Estado interno mutable que contiene los productos. */
   private readonly productsState = signal<Product[]>(this.load());
 
   /** Catálogo observable de solo lectura utilizado por las vistas. */
   readonly products = this.productsState.asReadonly();
+
+  constructor() {
+    this.loadRemoteInventory();
+  }
 
   /**
    * Busca un producto utilizando su nombre principal o cualquiera de sus alias.
@@ -55,6 +60,22 @@ export class CatalogService {
   }
 
   /**
+   * Sincroniza el catálogo con la API REST local al iniciar la aplicación.
+   * Si json-server no está disponible, se mantiene el catálogo local para
+   * que las páginas públicas sigan siendo navegables.
+   */
+  private loadRemoteInventory(): void {
+    if (!this.isBrowser) {
+      return;
+    }
+
+    this.productApi.getProducts().subscribe({
+      next: products => this.save(products),
+      error: () => undefined,
+    });
+  }
+
+  /**
    * Descuenta del catálogo las unidades incluidas en una compra.
    *
    * @param items Identificadores de producto y cantidades que deben descontarse.
@@ -70,6 +91,10 @@ export class CatalogService {
   /**
    * Obtiene el catálogo almacenado o crea una copia de los datos iniciales.
    *
+   * Cuando el panel administrativo guarda productos desde la API REST, ese
+   * inventario pasa a ser la fuente de datos de las categorías. Por ello no
+   * se mezclan productos estáticos con el inventario almacenado.
+   *
    * @returns Productos disponibles para inicializar el servicio.
    */
   private load(): Product[] {
@@ -78,13 +103,7 @@ export class CatalogService {
       return PRODUCT_CATALOG.map(product => ({ ...product }));
     }
 
-    const preservedProducts = stored.filter(product => !SYNCHRONIZED_TCG_IDS.has(product.id));
-    const storedIds = new Set(preservedProducts.map(product => product.id));
-    const newProducts = PRODUCT_CATALOG
-      .filter(product => !storedIds.has(product.id))
-      .map(product => ({ ...product }));
-
-    return [...preservedProducts, ...newProducts];
+    return stored;
   }
 
   /**

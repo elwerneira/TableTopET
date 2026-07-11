@@ -14,40 +14,27 @@
         </div>
 
         <div class="contenedor-productos">
-            <div class="card">
-                <img src="/img/basta.png" alt="Basta">
-                <h3>Basta</h3>
-                <p>Desafia tu rapidez con categorias divertidas y partidas dinamicas.</p>
-                <div class="estado-descuento estado-sin-descuento">Sin descuentos</div>
-                <div class="card-acciones">
-                    <span>$8.600</span>
-                    <button type="button" (click)="agregarAlCarrito('Basta')">Agregar al carrito</button>
+            @for (product of products(); track product.id) {
+            <div class="card" [class.card-oferta]="hasOffer(product)">
+                <img [src]="product.imagen" [alt]="product.nombre">
+                <h3>{{ product.nombre }}</h3>
+                <div class="estado-descuento" [class.estado-sin-descuento]="!hasOffer(product)">
+                    {{ product.oferta || 'Sin descuentos' }}
                 </div>
-            </div>
-
-            <div class="card card-oferta">
-                <img src="/img/jenga.png" alt="Jenga Familiar">
-                <h3>Jenga Familiar</h3>
-                <p>Pulso firme, risas y tension creciente en cada bloque que se mueve.</p>
-                <div class="estado-descuento">Oferta 10%</div>
                 <div class="card-acciones">
+                    @if (product.precioOriginal && product.precioOriginal > product.precio) {
                     <div class="precio-contenedor">
-                        <span class="precio-original">$14.990</span>
-                        <span class="precio-oferta">$13.490</span>
+                        <span class="precio-original">{{ formatPrice(product.precioOriginal) }}</span>
+                        <span class="precio-oferta">{{ formatPrice(product.precio) }}</span>
                     </div>
-                    <button type="button" (click)="agregarAlCarrito('Jenga Familiar')">Agregar al carrito</button>
+                    } @else {
+                    <span>{{ formatPrice(product.precio) }}</span>
+                    }
+                    <button type="button" (click)="agregarAlCarrito(product.nombre)">Agregar al carrito</button>
                 </div>
             </div>
-
-            <div class="card">
-                <img src="/img/EXPLODING KITTENS.png" alt="EXPLODING KITTENS">
-                <h3>EXPLODING KITTENS</h3>
-                <p>Entretenido y emocionante juego de cartas que tiene mucho que ver con la ruleta rusa.</p>
-                <div class="estado-descuento estado-sin-descuento">Sin descuentos</div>
-                <div class="card-acciones">
-                    <span>$19.990</span>
-                    <button type="button" (click)="agregarAlCarrito('EXPLODING KITTENS')">Agregar al carrito</button>
-                </div>
-            </div>
+            } @empty {
+            <p class="sin-resultados">No hay juegos familiares disponibles.</p>
+            }
         </div>
     </section>

@@ -1,7 +1,9 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 
+import { Product } from '../../core/models/store.models';
 import { CartService } from '../../core/services/cart.service';
+import { CatalogService } from '../../core/services/catalog.service';
 import { CatalogFilter } from '../../shared/components/catalog-filter/catalog-filter';
 
 /**
@@ -17,8 +19,18 @@ export class Infantiles {
   /** Servicio que administra los productos agregados al carrito. */
   private readonly cart = inject(CartService);
 
+  private readonly catalog = inject(CatalogService);
+
   /** Enrutador utilizado cuando la operación requiere iniciar sesión. */
   private readonly router = inject(Router);
+
+  readonly products = computed(() =>
+    this.catalog.products().filter(product =>
+      product.categoria === 'Infantiles'
+      && product.estado === 'activo'
+      && this.matchesSearch(product.nombre),
+    ),
+  );
 
   /** Término recibido desde el componente hijo de búsqueda. */
   searchTerm = '';
@@ -40,6 +52,14 @@ export class Infantiles {
    */
   matchesSearch(name: string): boolean {
     return this.normalize(name).includes(this.normalize(this.searchTerm));
+  }
+
+  hasOffer(product: Product): boolean {
+    return Boolean(product.precioOriginal && product.precioOriginal > product.precio) || Boolean(product.oferta);
+  }
+
+  formatPrice(value: number): string {
+    return `$${value.toLocaleString('es-CL')}`;
   }
 
   /**

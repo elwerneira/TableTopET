@@ -14,39 +14,27 @@
         </div>
 
         <div class="contenedor-productos">
-            <div class="card card-oferta">
-                <img src="/img/catan.png" alt="Catan">
-                <h3>Catan</h3>
-                <p>Intercambia recursos y construye rutas para dominar la isla.</p>
-                <div class="estado-descuento">Oferta 15%</div>
+            @for (product of products(); track product.id) {
+            <div class="card" [class.card-oferta]="hasOffer(product)">
+                <img [src]="product.imagen" [alt]="product.nombre">
+                <h3>{{ product.nombre }}</h3>
+                <div class="estado-descuento" [class.estado-sin-descuento]="!hasOffer(product)">
+                    {{ product.oferta || 'Sin descuentos' }}
+                </div>
                 <div class="card-acciones">
+                    @if (product.precioOriginal && product.precioOriginal > product.precio) {
                     <div class="precio-contenedor">
-                        <span class="precio-original">$39.990</span>
-                        <span class="precio-oferta">$33.990</span>
+                        <span class="precio-original">{{ formatPrice(product.precioOriginal) }}</span>
+                        <span class="precio-oferta">{{ formatPrice(product.precio) }}</span>
                     </div>
-                    <button type="button" (click)="agregarAlCarrito('Catan')">Agregar al carrito</button>
+                    } @else {
+                    <span>{{ formatPrice(product.precio) }}</span>
+                    }
+                    <button type="button" (click)="agregarAlCarrito(product.nombre)">Agregar al carrito</button>
                 </div>
             </div>
-
-            <div class="card">
-                <img src="/img/ajedrez.png" alt="Ajedrez Premium">
-                <h3>Ajedrez Premium</h3>
-                <p>Un clasico de estrategia total con piezas elegantes y tablero resistente.</p>
-                <div class="estado-descuento estado-sin-descuento">Sin descuentos</div>
-                <div class="card-acciones">
-                    <span>$18.990</span>
-                    <button type="button" (click)="agregarAlCarrito('Ajedrez Premium')">Agregar al carrito</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="/img/risk.png" alt="Risk Clasico">
-                <h3>Risk Clasico</h3>
-                <p>Conquista territorios y disena ofensivas para dominar el mundo.</p>
-                <div class="estado-descuento estado-sin-descuento">Sin descuentos</div>
-                <div class="card-acciones">
-                    <span>$29.990</span>
-                    <button type="button" (click)="agregarAlCarrito('Risk Clasico')">Agregar al carrito</button>
-                </div>
-            </div>
+            } @empty {
+            <p class="sin-resultados">No hay juegos de estrategia disponibles.</p>
+            }
         </div>
+    </section>
