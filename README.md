@@ -60,6 +60,16 @@ https://api.pokemontcg.io/v2/cards
 La consulta se realiza mediante `PokemonTcgApiService`. Para esta etapa se usa
 el acceso público sin incluir claves privadas en el código del frontend.
 
+Campos consumidos desde la API:
+
+- `name`: nombre de la carta.
+- `images.small` y `images.large`: imagen de vista previa y enlace a imagen ampliada.
+- `supertype`, `subtypes`, `hp`, `types` y `rarity`: datos descriptivos de la carta.
+- `set.name` y `set.releaseDate`: información de la expansión.
+
+Estos datos se visualizan en el componente `Tcg`, específicamente en el popup
+“Consultar cartas” de la página `src/app/pages/tcg/tcg.html`.
+
 ## Pruebas unitarias
 
 Para ejecutar las pruebas una sola vez:
