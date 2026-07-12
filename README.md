@@ -1,7 +1,7 @@
 # TableTopET
 
 Aplicación web desarrollada con Angular 22 para presentar y administrar un
-catálogo de juegos de mesa y productos Pokémon TCG.
+catálogo de juegos de mesa y productos TCG.
 
 ## Funcionalidades principales
 
@@ -43,6 +43,59 @@ La aplicación estará disponible en:
 http://localhost:4200
 ```
 
+## Inventario REST local
+
+El inventario de productos se encuentra en `db.json` y se expone mediante
+json-server. El Panel ADM consume este inventario para realizar operaciones
+GET, POST, PUT y DELETE; las paginas de categorias muestran los productos
+activos segun su categoria.
+
+Para ejecutar el proyecto localmente con el CRUD REST, abre dos terminales en
+la raiz del proyecto:
+
+```bash
+npx json-server@0.17.4 --watch db.json --port 3000
+```
+
+```bash
+npm start
+```
+
+Endpoints y accesos locales:
+
+- Aplicacion Angular: `http://localhost:4200`.
+- Inventario REST: `http://localhost:3000/productos`.
+- Panel de productos: inicia sesion como administrador y navega a `Panel ADM > Productos`.
+
+La cuenta administradora de demostracion es `admin` con clave `Admin123`.
+
+## Ejecucion con Docker
+
+El proyecto incluye dos servicios en `compose.yml`:
+
+- `angular-app`: compila Angular y publica la aplicacion mediante Nginx.
+- `json-server-api`: expone `db.json` como API REST en el puerto 3000.
+
+Con Docker Desktop iniciado, ejecuta:
+
+```bash
+docker compose -f compose.yml up --build
+```
+
+Luego abre:
+
+- Aplicacion: `http://localhost:8080`.
+- API REST: `http://localhost:3000/productos`.
+
+Para detener los servicios:
+
+```bash
+docker compose -f compose.yml down
+```
+
+En Docker Lab o un entorno Cloud se deben publicar los puertos `8080` y `3000`
+para que la aplicacion y su inventario REST queden disponibles.
+
 ## Pokémon TCG API
 
 El explorador utiliza el endpoint público:
@@ -83,8 +136,6 @@ npm run build
 Los archivos generados se almacenan en `dist/TableTopET`.
 
 ## Documentación técnica
-
-Para generar la documentación en español:
 
 ```bash
 npm run docs
